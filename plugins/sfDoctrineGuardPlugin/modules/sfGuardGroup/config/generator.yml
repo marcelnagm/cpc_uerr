@@ -1,0 +1,37 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           sfGuardGroup
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_guard_group
+    with_doctrine_route:   true
+
+    config:
+      actions:
+        _new: { credentials: new_group }
+        _delete: { credentials: delete_group }
+        _edit: { credentials: edit_group }
+      fields:
+        name:                       { label: Nome }
+        description:                { label: Descrição }
+        created_at:                 { label: Data de Cadastro }
+        updated_at:                 { label: Data de Edição }
+        permissions_list:           { label: Permissões }
+        users_list:                 { label: Usuários }
+      list:
+        title: Lista de Grupos
+        display: [=name, description, created_at, updated_at]
+        batch_actions: {}
+      filter:
+        display: [name]
+      form:
+        display: [name, description, permissions_list]
+      edit:
+        title: Editando Grupo "%%name%%"
+
+      new:
+        title: Novo Grupo

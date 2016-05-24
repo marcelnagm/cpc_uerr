@@ -1,0 +1,348 @@
+SfMessages:
+  columns:  
+       message:                       { type: string(200) }
+       enviroment:                    { type: string(20) }
+       active:                        { type: boolean, default: false }
+
+TbLogradouro:
+  columns:
+    nome:                       { type: string(255), notnull: true }    
+    
+TbBanco:
+  columns:
+    nome:                       { type: string(255), notnull: true }
+    cod:                        { type: string(255), notnull: true}
+
+TbRgemissor:
+    columns:
+        nome:                       { type: string(255), notnull: true }  
+    
+TbRgtipo:
+    columns:
+        rgtipo:                       { type: string(255), notnull: true }  
+        
+        
+TbIdioma:
+    columns:
+        descricao:                       { type: string(255), notnull: true }  
+
+TbEstado:  
+  columns:     
+     uf:                    { type: string(2) }  
+     nome:                  { type: string(20) }  
+     
+     
+TbCidade:  
+  columns:
+     estado:                  { type: integer, notnull: true }       
+     nome:                    { type: string(255) }  
+  relations:
+    TbEstado:                 { local: estado, foreign: id }      
+    
+TbCandidato:
+  columns:
+    nome:                       { type: string(255), notnull: true }  
+    sexo:                       { type: string(1), notnull: true   }  
+    rg:                         { type: string(255), notnull: true }  
+    rgtipo:                     { type: integer, notnull: true }  
+    rguf:                       { type: integer, notnull: true }  
+    rgemissor:                  { type: integer, notnull: true }  
+    cpf:                        { type: string(255), unique: true, notnull: true }
+    pai:                        { type: string(255) }  
+    mae:                        { type: string(255) }  
+    data_nascimento:            { type: date }  
+    cidade_nascimento:          { type: integer, notnull: true }  
+    cep:                        { type: string(255) }  
+    logradouro:                 { type: string(255) }  
+    endereco:                   { type: string(255) }  
+    numero:                     { type: string(255) }  
+    complemento:               { type: string(255) }  
+    bairro:                     { type: string(255) }  
+    id_cidade:                  { type: integer }  
+    tel1:                       { type: string(255) }  
+    tel2:                       { type: string(255) }  
+    tel3:                       { type: string(255) }  
+    email:                      { type: string(255) }  
+    user_id:          { type: integer, notnull: true }  
+  relations:
+    TbEstado:                 { local: rguf, foreign: id }   
+    TbCidade:                 { local: cidade_nascimento, foreign: id }   
+    TbCidade:                 { local: id_cidade, foreign: id }   
+    TbRgtipo:                 { local: rgtipo, foreign: id , foreignAlias: TbRgtipo}   
+    SfGuardUserId:            { local: user_id, foreign: id , foreignAlias: GuardUser}   
+    TbRgemissor:              { local: rgemissor, foreign: id , foreignAlias: TbRgEmissor}   
+    TbLogradouro:             { local: logradouro, foreign: id , foreignAlias: TbLogradouro}   
+    
+TbCargo:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+    nome_cargo:                       { type: string(255), notnull: true }  
+    abrev_cargo:                      { type: string(255), notnull: true   }  
+
+
+TbTipoCertame:
+    columns:
+        descricao:                       { type: string(255), notnull: true }     
+    
+    
+TbCertame:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+    nome:                       { type: string(255), notnull: true }  
+    id_tipo_certame:            { type: integer, notnull: true }  
+    entidade_nome:              { type: string(255)}  
+    entidade_sigla:             { type: string(255)}  
+    entidade_sigla:             { type: string(255)}  
+    data_inicio:                { type: date}  
+    data_fim:                   { type: date}  
+    hora_inicio:                { type: time}  
+    hora_fim:                   { type: time}  
+    data_inicio_isencao:        { type: date}  
+    data_fim_isencao:           { type: date}  
+    publicado:                  { type: boolean, notnull: true }  
+    data_inicio_inscricao:      { type: date}  
+    data_fim_inscricao:         { type: date}
+  relations:
+    TbTipoCertame:              { local: id_tipo_certame, foreign: id }     
+            
+TbCidadeProva:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+    id_certame:                { type: integer, notnull: true }   
+    id_cidade:                 { type: integer, notnull: true }  
+  relations:
+    TbCidade:                 { local: id_cidade, foreign: id }     
+    TbCertame:                { local: id_certame, foreign: id }     
+    
+ 
+      
+TbCondicaoEspecial:  
+  columns:
+    nome:                       { type: string(255), notnull: true}
+    descricao:                  { type: text}
+     
+TbCorrecao:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+    id_prova:                         { type: integer, notnull: true }   
+    id_inscricao:                     { type: integer, notnull: true }  
+    nota:                             { type: float}  
+    nota_redacao_1:                   { type: float}  
+    nota_redacao_2:                   { type: float}  
+    nota_final_redacao:               { type: float}  
+    obs:                              { type: text}  
+    id_eliminacao_redacao:            { type: integer, notnull: true}  
+  relations:
+    TbProva:                   { local: id_prova, foreign: id, foreignAlias: TbProva }     
+    TbInscricao:               { local: id_inscricao, foreign: id, foreignAlias: TbInscricao }       
+    TbEliminicaoRedacao:       { local: id_eliminacao_redacao, foreign: id, foreignAlias: TbEliminicaoRedacao }       
+     
+TbCorrecaoRedacao:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+     id_colaborador:                   { type: integer, notnull: true }        
+     id_correcao:                      { type: integer, notnull: true }        
+     nota:                             { type: float}          
+  relations:
+     TbColaborador:                   { local: id_colaborador, foreign: id, foreignAlias: TbColaborador }     
+     TbCorrecao:               { local: id_correcao, foreign: id, foreignAlias: TbCorrecao }       
+     
+     
+TbEliminacaoRedacao:   
+  columns:
+     descricao:                             { type: string(255)}  
+     
+TbEscolaridade:   
+   columns:
+     descricao:                             { type: string(255)}  
+     
+TbFuncao:   
+   columns:
+     nome:                             { type: string(255)}  
+     valor:                            { type: float}  
+     descricao:                        { type: string(255)}  
+   
+TbCorrecaoRedacao:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+     descricao:                   { type: string(255) }        
+
+TbInscricao:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_candidato:                { type: integer, notnull: true }        
+     id_certame:                  { type: integer, notnull: true }        
+     id_vaga:                     { type: integer, notnull: true }        
+     id_condicao_especial:        { type: integer, notnull: true }        
+     id_cidade_prova:             { type: integer, notnull: true }        
+     boleto:                      { type: integer, notnull: true }        
+     pago:                        { type: integer}        
+     vaga_deficiente:             { type: integer}        
+     id_idioma:                   { type: integer, notnull: true }        
+   relations:
+    TbCandidato:                 { local: id_candidato, foreign: id}     
+    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
+    TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }         
+    TbCondicaoEspecial:          { local: id_condicao_especial, foreign: id}     
+    TbCidadeProva:               { local: id_cidade_prova, foreign: id}     
+
+TbLocalProva:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_certame:                { type: integer, notnull: true }        
+     id_prova:                    { type: integer, notnull: true }        
+     id_responsavel:              { type: integer, notnull: true }        
+     nome:                        { type:  string(255) }        
+     id_cidade:                   { type: integer, notnull: true }        
+     sigla:                       { type:  string(255) }        
+     telefone:                    { type:  string(255)}        
+     endereco:                    { type:  string(255)}        
+     nsalas:                      { type:  string(255) }        
+     status:                      { type: integer }        
+   relations:
+    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
+    TbProva:                     { local: id_prova, foreign: id}   
+    TbResponsavel:               { local: id_responsavel, foreign: id}   
+    TbCidade:                    { local: id_cidade, foreign: id }   
+    TbColaborador:               { local: id_responsavel, foreign: id, foreignAlias: TbColaborador }      
+
+TbLotacaoProva:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_sala:                { type: integer, notnull: true }        
+     id_inscricao:           { type: integer, notnull: true }        
+   relations:
+    TbSala:                   { local: id_sala, foreign: id }     
+    TbInscricao:              { local: id_inscricao, foreign: id}       
+
+TbProva:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_certame:                { type: integer, notnull: true }        
+     id_vaga:                   { type: integer, notnull: true }        
+     data_inicio:               { type: date, notnull: true }        
+     hora_inicio:               { type: time, notnull: true }        
+     duracao:                   { type: string(10), notnull: true }        
+   relations:
+    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
+    TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
+
+TbResponsavelSala:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_colaborador:                { type: integer, notnull: true }        
+     id_sala_prova:                 { type: integer, notnull: true }        
+     id_funcao:                     { type: integer, notnull: true }        
+   relations:      
+    TbSalaProva:                     { local: id_sala_prova, foreign: id, foreignAlias: TbSalaProva }   
+    TbFuncao:                        { local: id_funcao, foreign: id, foreignAlias: TbFuncao}   
+    TbColaborador:                   { local: id_colaborador, foreign: id}   
+
+  
+TbVaga:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_certame:                 { type: integer, notnull: true }        
+     id_cargo:                   { type: integer, notnull: true }        
+     id_escolaridade:            { type: integer, notnull: true }        
+     id_cidade:                  { type: integer, notnull: true }        
+     quantidade:                 { type: integer, notnull: true }        
+     vaga_deficiente:            { type: integer, notnull: true }             
+   relations:
+    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }   
+    TbCargo:                     { local: id_cargo, foreign: id, foreignAlias: TbCargo }   
+    TbEscolaridade:              { local: id_escolaridade, foreign: id, foreignAlias: TbEscolaridade}   
+    TbCidade:                    { local: id_cidade, foreign: id, foreignAlias: TbCidade}   
+
+TbColaboracao:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_certame:                { type: integer, notnull: true }         
+     id_colaborador:            { type: integer, notnull: true }
+     id_funcao:                 { type: integer, notnull: true }
+     id_local:                  { type: integer, notnull: true }
+     sala:                      { type: integer, notnull: true }          
+     servidor:                  { type: boolean}        
+     presente:                  { type: boolean}        
+     listagem:                  { type: boolean}        
+   relations:
+    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
+    TbProva:                     { local: id_prova, foreign: id}   
+    TbResponsavel:               { local: id_responsavel, foreign: id}   
+    TbCidade:                    { local: id_cidade, foreign: id }   
+    TbColaborador:               { local: id_colaborador, foreign: id, foreignAlias: TbColaborador }  
+
+TbColaborador:
+  actAs:
+    Timestampable: ~
+    Signable: ~  
+  columns:
+    nome:                       { type: string(255), notnull: true }  
+    sexo:                       { type: string(1), notnull: true   }  
+    rg:                         { type: string(255), notnull: true }  
+    rgtipo:                     { type: integer, notnull: true }  
+    rguf:                       { type: integer, notnull: true }  
+    rgemissor:                  { type: integer, notnull: true }  
+    cpf:                        { type: string(255), unique: true, notnull: true }
+    pispasep:                   { type: string(255) }    
+    cep:                        { type: string(255) }  
+    logradouro:                 { type: string(255) }  
+    endereco:                   { type: string(255) }         
+    bairro:                     { type: string(255) }  
+    id_cidade:                  { type: integer }  
+    telefone:                   { type: string(255) }  
+    celular:                    { type: string(255) }  
+    tipo_conta:                 { type: string(255) }  
+    contabanco:                 { type: string(255) }  
+    agenciabanco:               { type: string(255) }  
+    id_banco:                   { type: integer }     
+    localidade:                 { type: string(255) }  
+    experiencia:                { type: string(255) }  
+    profissao:                  { type: string(255) }  
+    observacao:                 { type: text}  
+    email:                      { type: string(255) }  
+  relations:
+    TbCidade:                 { local: id_cidade, foreign: id }   
+    TbRgtipo:                 { local: rgtipo, foreign: id }   
+    TbRgemissor:              { local: rgemissor, foreign: id }   
+    TbBanco:                  { local: id_banco, foreign: id }        
+    
+TbSalaProva:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_local_prova:               { type: integer, notnull: true }        
+     especial:                   { type: integer, notnull: true }        
+     numero_sala:                { type: integer, notnull: true }        
+     vagas:                      { type: integer, notnull: true }        
+     status:                     { type: integer, notnull: true }       
+   relations:      
+     TbLocalProva:                { local: id_local_prova, foreign: id, foreignAlias: TbLocalProva }      
+     

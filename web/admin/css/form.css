@@ -1,0 +1,461 @@
+.error {
+  border: 1px solid #f5c69a;
+  background-color: #fbd3b1;
+  color: #ce2700;
+  padding: 8px;
+  font-weight: bold;
+  margin: 30px 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  behavior: url(PIE.htc);
+}
+
+.notice {
+  border: 1px solid #ccebac;
+  background-color: #e0f2cb;
+  color: #65a31b;
+  padding: 8px;
+  font-weight: bold;
+  margin: 5px 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  behavior: url(PIE.htc);
+}
+
+.sf_grouped {
+  float: right;
+  clear: both;
+  width: 300px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.sf_grouped legend {
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.sf_grouped label {
+  width: 85% !important;
+  text-align: left !important;
+  margin:  0 0 0 11px !important;
+}
+
+.sf_grouped input[type="checkbox"] {
+  float: left;
+  margin: 11px 0 !important;
+}
+
+
+fieldset h2 {
+  margin-top: 15px;
+  text-align: left;
+  text-indent: 2%;
+  font-size: 15px;
+  -webkit-border-top-left-radius: 8px;
+  -webkit-border-top-right-radius: 8px;
+  -moz-border-radius-topleft: 8px;
+  -moz-border-radius-topright: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  behavior: url(PIE.htc);
+}
+
+
+.sf_admin_action_new, .sf_admin_filter a, input[type="submit"], .sf_admin_action_list a {
+  font-size: 13px;
+  padding: 9px 8px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  color: #fff;
+  float: left;
+  margin-right: 10px;
+  border: solid 1px #f0f0f0;
+  background: #cdc6c6;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#f0f0f0), to(#f0f0ff));
+  background: -webkit-linear-gradient(#f0f0f0, #f0f0ff);
+  background: -moz-linear-gradient(#cdc6c6, #838080);
+  background: -ms-linear-gradient(#cdc6c6, #838080);
+  background: -o-linear-gradient(#cdc6c6, #838080);
+  background: linear-gradient(#cdc6c6, #838080);
+  -pie-background: linear-gradient(#cdc6c6, #838080);
+  behavior: url(PIE.htc);
+}
+
+
+.sf_admin_action_new  a, .sf_admin_action_list a {
+  color: #fff !important;
+}
+
+.sf_admin_action_list a {
+  line-height: 18px !important;
+  font-size: 13px !important;
+}
+
+.open_list select {
+  width: 350px;
+  clear: both;
+}
+
+.open_list_label {
+  font-size: 14px;
+  color: #000;
+  margin-left: 10px;
+}
+
+.open_list_source {
+  clear: both;
+}
+
+.sf_admin_action_new  a:hover {
+  text-decoration: none !important;
+}
+
+
+.sf_admin_filter input[type="text"], .sf_admin_filter input[type="password"], .sf_admin_filter input[type="email"] , .sf_admin_filter select {
+  background-color: #FFF;
+  border: 1px solid #CCC;
+  width: auto !important;
+}
+
+.sf_admin_list p {
+  min-height: 100px;
+  font-size: 12px;
+}
+
+input[type="text"], 
+input[type="password"], 
+textarea,
+input[type="email"] {
+  border: 1px solid #aaa;
+  width: 350px !important;
+  padding: 8px;
+  border-radius: 5px;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  behavior: url(PIE.htc);
+}
+
+
+textarea {
+  height: 180px;
+}
+
+.formContainer input[type="text"], 
+.formContainer input[type="password"], 
+.formContainer textarea,
+.formContainer input[type="email"] {
+  border: 1px solid #aaa;
+  width: 40px !important;
+  padding: 5px;
+  float: left;
+}
+
+.sf_admin_filter input[type='text'] {
+  width: 165px !important;
+}
+
+.sf_admin_filter .sf_admin_form_row {
+  margin-right: 10px;
+}
+
+.content input[type="checkbox"] {
+  margin: 11px 0;
+}
+
+.formContainer .formContainer {
+  width: 800px;
+  border: solid 1px #aaa;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.formContainer .frozen {
+  width: 400px;
+  float: left;
+}
+
+select {
+  border: 1px solid #aaa;
+  padding: 7px;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  position: relative;
+  behavior: url(PIE.htc);
+}
+
+
+#sf_admin_content .sf_admin_form_row:first-child {
+  border-top: 1px solid #ccc;
+}
+
+#sf_admin_content .sf_admin_form_row {
+  border: 1px solid #ccc;
+  border-top:none;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.sf_admin_list td, .sf_admin_list th
+{
+  border-left: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/*
+#sf_admin_container td, #sf_admin_container th
+{
+  border-left: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+#sf_admin_container td:last-child, #sf_admin_container th:last-child {
+  border-right: 1px solid #d2d2d2;
+}
+
+
+*/
+
+
+.sf_admin_list td:last-child, .sf_admin_list th:last-child {
+  border-right: 1px solid #d2d2d2;
+}
+
+.content table {
+  border-top: 1px solid #d2d2d2;
+  margin-bottom: 0;
+}
+
+.content table label {
+  line-height: 45px;
+}
+
+.content table td input[type='text'], 
+.content table td textarea,
+.content table td select
+{
+  float: left;
+  margin: 5px;
+}
+
+.help {
+  color: #aaa;
+  float: left;
+  line-height: 35px;
+  margin-left: 15px;
+}
+
+.content table td div {
+  float: left;
+}
+
+sf_admin_container #sf_admin_bar .sf_admin_filter table tfoot tr {
+  float: right;
+}
+
+label {
+  font-size: 14px;
+  float: left;
+  margin-right: 10px;
+  text-align: right;
+  line-height: 35px;
+}
+
+#sf_admin_content label {
+  width: 180px;
+}
+
+#sf_fieldset_none {
+  border-bottom: none;
+  margin: 20px 0;
+}
+
+.sf_admin_actions {
+    margin-bottom: 5px;
+  float: left;
+  list-style-type: none !important;
+   padding-left: 0px !important; 
+}
+
+.sf_admin_actions li {
+  float: left;
+
+}
+
+
+.sf_admin_filter select {
+  width: 190px !important;
+}
+
+#sf_admin_container #sf_admin_bar {
+  float: none;
+  margin-left: 0px;
+  margin-top: -5px;
+}
+
+#sf_admin_container #sf_admin_bar .sf_admin_filter table tr {
+  clear: none;
+  border: 1px solid #ddd;
+  padding: 0px;
+}
+
+
+#sf_admin_container #sf_admin_bar .sf_admin_filter table tr td {
+  height: 50px;
+  vertical-align: middle;
+  border: none;
+}
+
+
+#sf_admin_container #sf_admin_bar .sf_admin_filter table tbody {
+  clear: none;
+  float: left;
+}
+
+#sf_admin_container #sf_admin_bar .sf_admin_filter table tbody tr {
+  float: left;
+  border-right: none;
+}
+
+
+#sf_admin_container #sf_admin_bar .sf_admin_filter table tfoot {
+  clear: none;
+  float: right;
+}
+
+
+#sf_admin_container #sf_admin_bar .sf_admin_filter table tfoot tr {
+  float: right;
+}
+
+#sf_admin_bar {
+    position: relative;
+    clear: both;
+}
+
+.sf_admin_filter form {
+  padding: 10px;
+}
+
+
+#sf_admin_container .sf_admin_list td {
+  padding: 4px;
+}
+
+#sf_admin_container #sf_admin_list_batch_actions {
+  width: 20px;
+}
+
+#sf_admin_container .sf_admin_text ,#sf_admin_container .sf_admin_text a {
+  color: #444;
+  font-size: 13px;
+}
+.sf_admin_filter div {
+  margin: 10px 10px 10px 0 !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.grid {
+  width: 98%;
+  margin: auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.content {
+  float: left;
+}
+
+.sf_admin_actions a {
+  font-size: 15px;
+  line-height: 35px;
+  margin: 0 10px;
+}
+
+.sf_admin_action_new a {
+  margin: 0;
+  line-height: 1;
+}
+
+.sf_admin_action_new a:hover {
+    text-decoration: none !important;
+}
+
+#sf_admin_container .sf_admin_list table {
+    width: 100%;
+    margin-bottom: 15px;
+    padding-right: 50px !important;
+
+}
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 15px;
+}
+
+#sf_admin_container .sf_admin_list thead th, fieldset h2 {
+  background-color: #ddd;
+  text-transform: uppercase;
+  padding: 17px 0px;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  border: none;
+  border: solid 1px #f0f0f0;;
+  background: #cdc6c6;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#cdc6c6), to(#838080));
+  background: -webkit-linear-gradient(#cdc6c6, #838080);
+  background: -moz-linear-gradient(#cdc6c6, #838080);
+  background: -ms-linear-gradient(#cdc6c6, #838080);
+  background: -o-linear-gradient(#cdc6c6, #838080);
+   background: linear-gradient(#cdc6c6, #838080);
+  -pie-background: linear-gradient(#cdc6c6, #838080);
+  behavior: url(PIE.htc);
+  margin-right: 15px;
+}
+
+
+
+.sf_admin_td_actions,.sf_admin_td_actions a, .sf_admin_actions a {
+  color: #444;
+  margin: 0 4px;
+  font-size: 13px;
+  text-decoration: none;
+  list-style-type: none !important;
+}
+
+.link-filter {
+    background: url('../../images/filter.png') 7px center no-repeat !important;
+    padding-left: 25px !important;
+    margin-top: 3px;
+    vertical-align:top;
+}
+
+.link-filter img,
+.art-button-wrapper img
+{
+    vertical-align: middle;
+}

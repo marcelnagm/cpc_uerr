@@ -1,0 +1,337 @@
+sfGuardModule:
+  modulo_1:
+    name:    Campus
+  modulo_2:
+    name:    Sala
+  modulo_3:
+    name:    Professor
+  modulo_4:
+    name:    Coordenação de Área
+  modulo_5:
+    name:    Curso
+  modulo_6:
+    name:    Disciplina
+  modulo_7:
+    name:    Semestre
+  modulo_8:
+    name:    Matriz Curricular
+  modulo_9:
+    name:    Oferta de Disciplina
+  modulo_10:
+    name:    Aluno
+  modulo_11:
+    name:    Matrícula
+  modulo_12:
+    name:    Usuários
+  modulo_13:
+    name:    Grupos
+
+sfGuardPermission:
+  campus_3:
+    name: list_campus
+    module_id: 1
+    description: Listar Campus
+  campus_1:
+    name: new_campus
+    module_id: 1
+    description: Cadastrar Campus
+  campus_2:
+    name: edit_campus
+    module_id: 1
+    description: Editar Campus
+  campus_4:
+    name: delete_campus
+    module_id: 1
+    description: Remover Campus
+
+
+  salas3:
+    name: list_room
+    module_id: 2
+    description: Listar Sala
+  salas1:
+    name: new_room
+    module_id: 2
+    description: Cadastrar Sala
+  salas2:
+    name: edit_room
+    module_id: 2
+    description: Editar Sala
+  salas4:
+    name: delete_room
+    module_id: 2
+    description: Remover Sala
+
+
+  professor3:
+    name: list_professor
+    module_id: 3
+    description: Listar Professor
+  professor1:
+    name: new_professor
+    module_id: 3
+    description: Cadastrar Professor
+  professor2:
+    name: edit_professor
+    module_id: 3
+    description: Editar Professor
+  professor4:
+    name: delete_professor
+    module_id: 3
+    description: Remover Professor
+
+
+  c3:
+    name: list_department
+    module_id: 4
+    description: Listar Coordenação de Área
+  c:
+    name: new_department
+    module_id: 4
+    description: Cadastrar Coordenação de Área
+  c2:
+    name: edit_department
+    module_id: 4
+    description: Editar Coordenação de Área
+  c4:
+    name: delete_department
+    module_id: 4
+    description: Remover Coordenação de Área
+
+
+  d3:
+    name: list_course
+    module_id: 5
+    description: Listar Curso
+  d:
+    name: new_course
+    module_id: 5
+    description: Cadastrar Curso
+  d2:
+    name: edit_course
+    module_id: 5
+    description: Editar Curso
+  d4:
+    name: delete_course
+    module_id: 5
+    description: Remover Curso
+
+
+  e3:
+    name: list_discipline
+    module_id: 6
+    description: Listar Disciplina
+  e:
+    name: new_discipline
+    module_id: 6
+    description: Cadastrar Disciplina
+  e2:
+    name: edit_discipline
+    module_id: 6
+    description: Editar Disciplina
+  e4:
+    name: delete_discipline
+    module_id: 6
+    description: Remover Disciplina
+
+
+  f3:
+    name: list_semester
+    module_id: 7
+    description: Listar Semestre
+  f:
+    name: new_semester
+    module_id: 7
+    description: Cadastrar Semestre
+  f2:
+    name: edit_semester
+    module_id: 7
+    description: Editar Semestre
+  f4:
+    name: delete_semester
+    module_id: 7
+    description: Remover Semestre
+  f5:
+    name: process_requisitions_semester
+    module_id: 7
+    description: Processar Matricula
+
+
+  g3:
+    name: list_curriculum_model
+    module_id: 8
+    description: Listar Matriz Curricular
+  g:
+    name: new_curriculum_model
+    module_id: 8
+    description: Cadastrar Matriz Curricular
+  g2:
+    name: edit_curriculum_model
+    module_id: 8
+    description: Editar Matriz Curricular
+  g4:
+    name: delete_curriculum_model
+    module_id: 8
+    description: Remover Matriz Curricular
+  g5:
+    name: show_curriculum_model
+    module_id: 8
+    description: Visualizar Matriz Curricular
+
+  h3:
+    name: list_offer
+    module_id: 9
+    description: Listar Oferta de Disciplina
+  h:
+    name: new_offer
+    module_id: 9
+    description: Cadastrar Oferta de Disciplina
+  h2:
+    name: edit_offer
+    module_id: 9
+    description: Editar Oferta de Disciplina
+  h4:
+    name: delete_offer
+    module_id: 9
+    description: Remover Oferta de Disciplina
+  h5:
+    name: show_presence_list_offer
+    module_id: 9
+    description: Lisualizar Lista de Presença
+  h6:
+    name: insert_notes_offer
+    module_id: 9
+    description: Inserir Notas
+  h7:
+    name: show_notes_offer
+    module_id: 9
+    description: Visualizar Notas
+  h8:
+    name: show_requests_offer
+    module_id: 9
+    description: Visualizar Requisições
+  h9:
+    name: lock_offer
+    module_id: 9
+    description: Encerrar Oferta de Disciplina
+  h10:
+    name: unlock_offer
+    module_id: 9
+    description: Desencerrar Oferta de Disciplina
+
+
+  i3:
+    name: list_student
+    module_id: 10
+    description: Listar Aluno
+  i:
+    name: new_student
+    module_id: 10
+    description: Cadastrar Aluno
+  i2:
+    name: edit_student
+    module_id: 10
+    description: Editar Aluno
+  i4:
+    name: delete_student
+    module_id: 10
+    description: Remover Aluno
+  j:
+    name: new_matriculation
+    module_id: 10
+    description: Matricular Aluno
+
+
+  j3:
+    name: list_matriculation
+    module_id: 11
+    description: Listar Matricula
+  j2:
+    name: edit_matriculation
+    module_id: 11
+    description: Editar Matricula
+  j4:
+    name: delete_matriculation
+    module_id: 11
+    description: Remover Matricula
+  j5:
+    name: show_historic_matriculation
+    module_id: 11
+    description: Visualizar Histórico Escolar
+  j6:
+    name: request_discipline_matriculation
+    module_id: 11
+    description: Requisitar Disciplina
+  j7:
+    name: show_request_matriculation
+    module_id: 11
+    description: Visualizar Requisições
+  j8:
+    name: list_discipline_matriculation
+    module_id: 11
+    description: Visualizar Aproveitamento Especial
+  j9:
+    name: new_discipline_matriculation
+    module_id: 11
+    description: Adicionar Aproveitamento Especial
+  j10:
+    name: edit_discipline_matriculation
+    module_id: 11
+    description: Editar Aproveitamento Especial
+  j11:
+    name: delete_discipline_matriculation
+    module_id: 11
+    description: Deletar Aproveitamento Especial
+  j12:
+    name: view_schedule_matriculation
+    module_id: 11
+    description: Visualizar Horário
+  j13:
+    name: view_evolution_matriculation
+    module_id: 11
+    description: Evolução Curricular
+
+
+  l3:
+    name: list_user
+    module_id: 12
+    description: Listar Usuário
+  l:
+    name: new_user
+    module_id: 12
+    description: Cadastrar Usuário
+  l2:
+    name: edit_user
+    module_id: 12
+    description: Editar Usuário
+  l4:
+    name: delete_user
+    module_id: 12
+    description: Remover Usuário
+
+
+  m3:
+    name: list_group
+    module_id: 13
+    description: Listar Grupo
+  m:
+    name: new_group
+    module_id: 13
+    description: Cadastrar Grupo
+  m2:
+    name: edit_group
+    module_id: 13
+    description: Editar Grupo
+  m4:
+    name: delete_group
+    module_id: 13
+    description: Remover Grupo
+
+Instituition:
+  a:
+    name: Rede Municipal
+  b:
+    name: Rede Estadual
+  c:
+    name: Rede Federal
+

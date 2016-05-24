@@ -1,0 +1,10 @@
+*.swo
+*.swp
+cache/*
+log/*.log
+config/databases.yml
+*.db
+*.db:encryptable
+web/uploads/**/
+home/
+lib/vendor/*

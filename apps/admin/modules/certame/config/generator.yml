@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbCertame
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_certame
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+          id_tipo_certame: {label: Tipo de Certame}
+          TbTipoCertame: {label: Tipo de Certame}
+      list:
+           title: Lista Certame
+           display: [nome,TbTipoCertame,publicado]  
+      filter:  
+          display: [nome,id_tipo_certame,publicado]  
+      form:    ~
+      edit:    
+          title: Editando Certame
+      new:     
+          title: Novo Certame

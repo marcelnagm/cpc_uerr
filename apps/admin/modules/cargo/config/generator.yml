@@ -1,0 +1,23 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbCargo
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_cargo
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+          display: [nome_cargo,abrev_cargo]
+      filter:  
+          display: [nome_cargo,abrev_cargo]
+      form:    ~
+      edit:    ~
+      new:     ~

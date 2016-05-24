@@ -1,0 +1,354 @@
+tb_candidato:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbCandidato
+    module:               reg
+    prefix_path:          /reg
+    column:               id
+    with_wildcard_routes: true
+
+discipline_equal:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DisciplineEqual
+    module:               discipline_equal
+    prefix_path:          /discipline_equal
+    column:               id
+    with_wildcard_routes: true
+
+entry_method:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                EntryMethod
+    module:               entry_method
+    prefix_path:          /entry_method
+    column:               id
+    with_wildcard_routes: true
+
+degree:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Degree
+    module:               student_degree
+    prefix_path:          /diplomas
+    column:               id
+    with_wildcard_routes: true
+
+matriculation_report_by_semester:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Matriculation
+    module:               report_by_semester
+    prefix_path:          /report_by_semester
+    column:               id
+    with_wildcard_routes: true
+
+offer_roster:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                OfferRoster
+    module:               offer_roster
+    prefix_path:          /offer_roster
+    column:               id
+    with_wildcard_routes: true
+
+sf_messages:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                SfMessages
+    module:               sf_messages
+    prefix_path:          /sf_messages
+    column:               id
+    with_wildcard_routes: true
+
+offer_requisition:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                OfferRequisition
+    module:               offer_requisition
+    prefix_path:          /fila
+    column:               id
+    with_wildcard_routes: true
+
+matriculation_status:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MatriculationStatus
+    module:               matriculation_status
+    prefix_path:          /matriculation_status
+    column:               id
+    with_wildcard_routes: true
+
+semester_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                SemesterType
+    module:               semester_type
+    prefix_path:          /semester_type
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_module:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                SfGuardModule
+    module:               sf_guard_module
+    prefix_path:          /sf_guard_module
+    column:               id
+    with_wildcard_routes: true
+
+
+matriculation_report_by_concluding:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Matriculation
+    module:               report_by_concluding
+    prefix_path:          /report_by_concluding
+    column:               id
+    with_wildcard_routes: true
+
+matriculation_report_by_locked:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Matriculation
+    module:               report_by_locked
+    prefix_path:          /report_by_locked
+    column:               id
+    with_wildcard_routes: true
+
+matriculation_report_by_concluded:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Matriculation
+    module:               report_by_concluded
+    prefix_path:          /report_by_concluded
+    column:               id
+    with_wildcard_routes: true
+
+matriculation_report_count_matriculation:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Matriculation
+    module:               report_count_matriculation
+    prefix_path:          /report_count_matriculation
+    column:               id
+    with_wildcard_routes: true
+
+student_report_by_age:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               report_by_age
+    prefix_path:          /report_by_age
+    column:               id
+    with_wildcard_routes: true
+
+student_report_by_document:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               report_by_document
+    prefix_path:          /report_by_document
+    column:               id
+    with_wildcard_routes: true
+
+student_report_by_sex:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               report_by_sex
+    prefix_path:          /relatorio/por_sexo
+    column:               id
+    with_wildcard_routes: true
+
+disciplines_ajax:
+  url: /disciplines/ajax
+  param: { module: curriculum_model, action: disciplinesAjax }
+
+discipline_matriculation:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DisciplineMatriculation
+    module:               discipline_matriculation
+    prefix_path:          /aproveitamento_especial
+    column:               id
+    with_wildcard_routes: true
+
+sender_email:
+  url: /enviar_email
+  param: { module: dashboard, action: sender }
+
+student_requisition:
+  url: /aluno/matricula
+  param: { module: matriculation, action: disciplines }
+
+offer_notes:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Offer
+    module:               notes
+    prefix_path:          /notas
+    column:               id
+    with_wildcard_routes: true
+
+offer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Offer
+    module:               offer
+    prefix_path:          /oferta
+    column:               id
+    with_wildcard_routes: true
+
+semester:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Semester
+    module:               semester
+    prefix_path:          /semestre
+    column:               id
+    with_wildcard_routes: true
+
+matriculation:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Matriculation
+    module:               matriculation
+    prefix_path:          /matricula
+    column:               id
+    with_wildcard_routes: true
+
+matriculation_semester:
+  url: /matricula/semestre
+  param: { module: matriculation, action: register }
+
+matriculation_discipline:
+  url: /matricula/disciplinas
+  param: { module: matriculation, action: disciplines }
+
+matriculation_discipline_process:
+  url: /matricula/disciplinas/processar
+  param: { module: matriculation, action: disciplinesProcess }
+
+discipline_curriculum_model:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DisciplineCurriculumModel
+    module:               discipline_prerequisite
+    prefix_path:          /discipline_prerequisite
+    column:               id
+    with_wildcard_routes: true
+
+curriculum_model:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                CurriculumModel
+    module:               curriculum_model
+    prefix_path:          /matriz_curricular
+    column:               id
+    with_wildcard_routes: true
+
+discipline:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Discipline
+    module:               discipline
+    prefix_path:          /disciplina
+    column:               id
+    with_wildcard_routes: true
+
+student:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Student
+    module:               student
+    prefix_path:          /aluno
+    column:               id
+    with_wildcard_routes: true
+
+professor:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Professor
+    module:               professor
+    prefix_path:          /professor
+    column:               id
+    with_wildcard_routes: true
+
+department:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Department
+    module:               department
+    prefix_path:          /departamento
+    column:               id
+    with_wildcard_routes: true
+
+room:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Room
+    module:               room
+    prefix_path:          /sala
+    column:               id
+    with_wildcard_routes: true
+
+course:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Course
+    module:               course
+    prefix_path:          /curso
+    column:               id
+    with_wildcard_routes: true
+
+campus:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Campus
+    module:               campus
+    prefix_path:          /campus
+    column:               id
+    with_wildcard_routes: true
+
+professor_ajax:
+  url: /professor/city
+  param: { module: professor, action: cityAjax }
+
+aluno_ajax:
+  url: /student/city
+  param: { module: student, action: cityAjax }
+
+sfDependentSelectAuto_ajax:
+  url: /depepedent/ajax
+  param: { module: sfDependentSelectAuto, action: _ajax }
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+relatorio_tipo:
+  url:   /relatorio/nome/:nome
+  param: { module: degree, action: index }
+  requirements:
+    nome: "[a-zA-Z]+"
+
+cidades_ajax:
+  url: /reg/cidadeAjax
+  param: { module: reg, action: cidadeAjax }    
+    
+    
+registrar:
+  url:   /registrar/:action
+  param: { module: registrar}
+  
+enrol:
+  url:   /matricular/:action
+  param: { module: enrol}
+  
+homepage:
+  url:   /
+  param: { module: dashboard, action: index }
+
+default:
+  url:   /:module/:action/*

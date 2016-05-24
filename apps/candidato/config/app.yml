@@ -1,0 +1,12 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  frequency: 75
+  average: 70
+  max_disciplines: 9
+  discipline_close_semester: '1890'
+
+  emails:
+    sender: 'recadastramento@uerr.edu.br'

@@ -1,0 +1,34 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbVaga
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_vaga
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+          TbCertame: {label: Certame}
+          TbCargo: {label: Cargo}
+          TbCidade: {label: Cidade do Cargo}
+          TbEscolaridade: {label: Escolaridade Exigida}
+          id_certame: {label: Certame}
+          id_cargo: {label: Cargo}
+          id_cidade: {label: Cidade do Cargo}
+          id_escolaridade: {label: Escolaridade Exigida}
+      list:
+          title: Lista de Vagas
+          display: [TbCargo,TbCertame,TbEscolaridade,TbCidade]
+      filter:  
+          display: [id_certame]
+      form:    ~
+      edit:    
+          title: Editando Vaga
+      new:     
+          title: Nova Vaga

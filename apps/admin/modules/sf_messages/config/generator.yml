@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           SfMessages
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          sf_messages
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        display: [id,message,enviroment_name,active]  
+        object_actions:
+          _edit: ~
+          _delete: ~
+          lock: 
+              label: Bloquear Mensagem
+          unlock: 
+              label: Desbloquear Mensagem
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
