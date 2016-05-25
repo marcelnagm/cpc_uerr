@@ -15,9 +15,12 @@ generator:
       actions: ~
       fields:  ~
       list:    
+          title: Lista de Cargos
           display: [nome_cargo,abrev_cargo]
       filter:  
           display: [nome_cargo,abrev_cargo]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:    
+          title: Editando Cargo
+      new:     
+          title: Novo Cargo

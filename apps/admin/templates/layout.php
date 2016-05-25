@@ -82,9 +82,12 @@
                                                             <li><a href="<? echo url_for('tb_tipo_certame')?>">Tipo de Certame</a></li>
                                                             <li><a href="<? echo url_for('tb_cargo')?>">Cargo</a></li>                                                            
                                                             <li><a href="<? echo url_for('tb_vaga')?>">Vaga</a></li>                                                            
+                                                            <li><a href="<? echo url_for('tb_local')?>">Locais</a></li>                                                            
                                                             <li><a href="<? echo url_for('tb_local_prova')?>">Local de Prova</a></li>                                                            
                                                             <li><a href="<? echo url_for('tb_prova')?>">Provas</a></li>                                                                                                                                                                                   
                                                             <li><a href="<? echo url_for('tb_colaborador')?>">Colaborador</a></li>                                                                                                                                                                                   
+                                                            <li><a href="<? echo url_for('tb_colaboracao')?>">Colaboracao</a></li>                                                                                                                                                                                   
+                                                            <li><a href="<? echo url_for('tb_funcao')?>">Função</a></li>                                                                                                                                                                                   
                                                             <li><?php print link_to('Sair', '@sf_guard_signout', array('class' => 'delete ico')) ?></li>
                                                     </div>
                                                 </div>

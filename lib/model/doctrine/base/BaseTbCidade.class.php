@@ -10,9 +10,8 @@
  * @property TbEstado $TbEstado
  * @property Doctrine_Collection $TbCandidato
  * @property Doctrine_Collection $TbCidadeProva
- * @property Doctrine_Collection $TbLocalProva
+ * @property Doctrine_Collection $TbLocal
  * @property Doctrine_Collection $TbCidade
- * @property Doctrine_Collection $TbColaboracao
  * @property Doctrine_Collection $TbColaborador
  * 
  * @method integer             getEstado()        Returns the current record's "estado" value
@@ -20,18 +19,16 @@
  * @method TbEstado            getTbEstado()      Returns the current record's "TbEstado" value
  * @method Doctrine_Collection getTbCandidato()   Returns the current record's "TbCandidato" collection
  * @method Doctrine_Collection getTbCidadeProva() Returns the current record's "TbCidadeProva" collection
- * @method Doctrine_Collection getTbLocalProva()  Returns the current record's "TbLocalProva" collection
+ * @method Doctrine_Collection getTbLocal()       Returns the current record's "TbLocal" collection
  * @method Doctrine_Collection getTbCidade()      Returns the current record's "TbCidade" collection
- * @method Doctrine_Collection getTbColaboracao() Returns the current record's "TbColaboracao" collection
  * @method Doctrine_Collection getTbColaborador() Returns the current record's "TbColaborador" collection
  * @method TbCidade            setEstado()        Sets the current record's "estado" value
  * @method TbCidade            setNome()          Sets the current record's "nome" value
  * @method TbCidade            setTbEstado()      Sets the current record's "TbEstado" value
  * @method TbCidade            setTbCandidato()   Sets the current record's "TbCandidato" collection
  * @method TbCidade            setTbCidadeProva() Sets the current record's "TbCidadeProva" collection
- * @method TbCidade            setTbLocalProva()  Sets the current record's "TbLocalProva" collection
+ * @method TbCidade            setTbLocal()       Sets the current record's "TbLocal" collection
  * @method TbCidade            setTbCidade()      Sets the current record's "TbCidade" collection
- * @method TbCidade            setTbColaboracao() Sets the current record's "TbColaboracao" collection
  * @method TbCidade            setTbColaborador() Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
@@ -69,15 +66,11 @@ abstract class BaseTbCidade extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'id_cidade'));
 
-        $this->hasMany('TbLocalProva', array(
+        $this->hasMany('TbLocal', array(
              'local' => 'id',
              'foreign' => 'id_cidade'));
 
         $this->hasMany('TbVaga as TbCidade', array(
-             'local' => 'id',
-             'foreign' => 'id_cidade'));
-
-        $this->hasMany('TbColaboracao', array(
              'local' => 'id',
              'foreign' => 'id_cidade'));
 

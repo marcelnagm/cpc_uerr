@@ -24,7 +24,7 @@ abstract class BaseTbFuncaoForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'nome'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'valor'     => new sfValidatorNumber(array('required' => false)),
+      'valor'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'descricao' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 

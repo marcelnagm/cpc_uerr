@@ -9,15 +9,18 @@
  * @property string $nome
  * @property Doctrine_Collection $TbCidade
  * @property Doctrine_Collection $TbCandidato
+ * @property Doctrine_Collection $TbColaborador
  * 
- * @method string              getUf()          Returns the current record's "uf" value
- * @method string              getNome()        Returns the current record's "nome" value
- * @method Doctrine_Collection getTbCidade()    Returns the current record's "TbCidade" collection
- * @method Doctrine_Collection getTbCandidato() Returns the current record's "TbCandidato" collection
- * @method TbEstado            setUf()          Sets the current record's "uf" value
- * @method TbEstado            setNome()        Sets the current record's "nome" value
- * @method TbEstado            setTbCidade()    Sets the current record's "TbCidade" collection
- * @method TbEstado            setTbCandidato() Sets the current record's "TbCandidato" collection
+ * @method string              getUf()            Returns the current record's "uf" value
+ * @method string              getNome()          Returns the current record's "nome" value
+ * @method Doctrine_Collection getTbCidade()      Returns the current record's "TbCidade" collection
+ * @method Doctrine_Collection getTbCandidato()   Returns the current record's "TbCandidato" collection
+ * @method Doctrine_Collection getTbColaborador() Returns the current record's "TbColaborador" collection
+ * @method TbEstado            setUf()            Sets the current record's "uf" value
+ * @method TbEstado            setNome()          Sets the current record's "nome" value
+ * @method TbEstado            setTbCidade()      Sets the current record's "TbCidade" collection
+ * @method TbEstado            setTbCandidato()   Sets the current record's "TbCandidato" collection
+ * @method TbEstado            setTbColaborador() Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
  * @subpackage model
@@ -47,6 +50,10 @@ abstract class BaseTbEstado extends sfDoctrineRecord
              'foreign' => 'estado'));
 
         $this->hasMany('TbCandidato', array(
+             'local' => 'id',
+             'foreign' => 'rguf'));
+
+        $this->hasMany('TbColaborador', array(
              'local' => 'id',
              'foreign' => 'rguf'));
     }

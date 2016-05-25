@@ -1,3 +1,30 @@
+tb_local:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbLocal
+    module:               local
+    prefix_path:          /local
+    column:               id
+    with_wildcard_routes: true
+
+tb_funcao:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbFuncao
+    module:               funcao
+    prefix_path:          /funcao
+    column:               id
+    with_wildcard_routes: true
+
+tb_colaboracao:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbColaboracao
+    module:               colaboracao
+    prefix_path:          /colaboracao
+    column:               id
+    with_wildcard_routes: true
+
 tb_colaborador:
   class: sfDoctrineRouteCollection
   options:

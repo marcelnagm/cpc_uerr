@@ -14,9 +14,13 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+          title: Lista de Colaboradores
+          display: [nome,cpf,celular] 
       filter:  
           display: [nome,cpf,celular]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:    
+          title: Editando Colaborador
+      new:     
+          title: Novo Colaborador

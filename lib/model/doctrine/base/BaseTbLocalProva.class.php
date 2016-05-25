@@ -8,48 +8,36 @@
  * @property integer $id_certame
  * @property integer $id_prova
  * @property integer $id_responsavel
- * @property string $nome
- * @property integer $id_cidade
- * @property string $sigla
- * @property string $telefone
- * @property string $endereco
- * @property string $nsalas
- * @property integer $status
+ * @property integer $id_local
+ * @property boolean $status
  * @property TbCertame $TbCertame
+ * @property TbLocal $TbLocal
  * @property TbProva $TbProva
- * @property TbCidade $TbCidade
  * @property TbColaborador $TbColaborador
+ * @property Doctrine_Collection $TbColaboracao
  * @property Doctrine_Collection $TbLocalProva
  * 
  * @method integer             getIdCertame()      Returns the current record's "id_certame" value
  * @method integer             getIdProva()        Returns the current record's "id_prova" value
  * @method integer             getIdResponsavel()  Returns the current record's "id_responsavel" value
- * @method string              getNome()           Returns the current record's "nome" value
- * @method integer             getIdCidade()       Returns the current record's "id_cidade" value
- * @method string              getSigla()          Returns the current record's "sigla" value
- * @method string              getTelefone()       Returns the current record's "telefone" value
- * @method string              getEndereco()       Returns the current record's "endereco" value
- * @method string              getNsalas()         Returns the current record's "nsalas" value
- * @method integer             getStatus()         Returns the current record's "status" value
+ * @method integer             getIdLocal()        Returns the current record's "id_local" value
+ * @method boolean             getStatus()         Returns the current record's "status" value
  * @method TbCertame           getTbCertame()      Returns the current record's "TbCertame" value
+ * @method TbLocal             getTbLocal()        Returns the current record's "TbLocal" value
  * @method TbProva             getTbProva()        Returns the current record's "TbProva" value
- * @method TbCidade            getTbCidade()       Returns the current record's "TbCidade" value
  * @method TbColaborador       getTbColaborador()  Returns the current record's "TbColaborador" value
+ * @method Doctrine_Collection getTbColaboracao()  Returns the current record's "TbColaboracao" collection
  * @method Doctrine_Collection getTbLocalProva()   Returns the current record's "TbLocalProva" collection
  * @method TbLocalProva        setIdCertame()      Sets the current record's "id_certame" value
  * @method TbLocalProva        setIdProva()        Sets the current record's "id_prova" value
  * @method TbLocalProva        setIdResponsavel()  Sets the current record's "id_responsavel" value
- * @method TbLocalProva        setNome()           Sets the current record's "nome" value
- * @method TbLocalProva        setIdCidade()       Sets the current record's "id_cidade" value
- * @method TbLocalProva        setSigla()          Sets the current record's "sigla" value
- * @method TbLocalProva        setTelefone()       Sets the current record's "telefone" value
- * @method TbLocalProva        setEndereco()       Sets the current record's "endereco" value
- * @method TbLocalProva        setNsalas()         Sets the current record's "nsalas" value
+ * @method TbLocalProva        setIdLocal()        Sets the current record's "id_local" value
  * @method TbLocalProva        setStatus()         Sets the current record's "status" value
  * @method TbLocalProva        setTbCertame()      Sets the current record's "TbCertame" value
+ * @method TbLocalProva        setTbLocal()        Sets the current record's "TbLocal" value
  * @method TbLocalProva        setTbProva()        Sets the current record's "TbProva" value
- * @method TbLocalProva        setTbCidade()       Sets the current record's "TbCidade" value
  * @method TbLocalProva        setTbColaborador()  Sets the current record's "TbColaborador" value
+ * @method TbLocalProva        setTbColaboracao()  Sets the current record's "TbColaboracao" collection
  * @method TbLocalProva        setTbLocalProva()   Sets the current record's "TbLocalProva" collection
  * 
  * @package    uerr
@@ -74,32 +62,12 @@ abstract class BaseTbLocalProva extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('nome', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('id_cidade', 'integer', null, array(
+        $this->hasColumn('id_local', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('sigla', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('telefone', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('endereco', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('nsalas', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('status', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('status', 'boolean', null, array(
+             'type' => 'boolean',
              ));
     }
 
@@ -110,17 +78,21 @@ abstract class BaseTbLocalProva extends sfDoctrineRecord
              'local' => 'id_certame',
              'foreign' => 'id'));
 
-        $this->hasOne('TbProva', array(
-             'local' => 'id_prova',
+        $this->hasOne('TbLocal', array(
+             'local' => 'id_local',
              'foreign' => 'id'));
 
-        $this->hasOne('TbCidade', array(
-             'local' => 'id_cidade',
+        $this->hasOne('TbProva', array(
+             'local' => 'id_prova',
              'foreign' => 'id'));
 
         $this->hasOne('TbColaborador', array(
              'local' => 'id_responsavel',
              'foreign' => 'id'));
+
+        $this->hasMany('TbColaboracao', array(
+             'local' => 'id',
+             'foreign' => 'id_local_prova'));
 
         $this->hasMany('TbSalaProva as TbLocalProva', array(
              'local' => 'id',

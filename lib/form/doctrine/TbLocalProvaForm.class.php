@@ -12,13 +12,6 @@ class TbLocalProvaForm extends BaseTbLocalProvaForm
 {
   public function configure()
   {
-       $this->widgetSchema['id_cidade'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
-            'label' => 'Cidade',          
-            'model' => 'TbCidade',
-            'url'   => '/candidato/registrar/cidadesAjax',
-            'config' => '{ max: 10 }'
-        ),array('placeholder' => 'Inicie digitação e selecione a cidade'));
-     
       
   }
 }

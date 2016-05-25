@@ -44,7 +44,7 @@ class dashboardActions extends sfActions
         $message = Swift_Message::newInstance()
           ->setFrom(sfConfig::get('app_emails_sender'))
           ->setTo($matriculation->getStudent()->getEmail())
-          ->setSubject('Uerr - Acesso ao sistema de matrícula online')
+          ->setSubject('Cpc - Acesso ao sistema de concurso online')
           ->setBody($this->getPartial('send_email', array('user' => $matriculation->getCode(), 'password' => $password)))
           ->setContentType('text/html');
 

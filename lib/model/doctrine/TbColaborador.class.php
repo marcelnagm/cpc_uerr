@@ -12,4 +12,8 @@
  */
 class TbColaborador extends BaseTbColaborador
 {
+    public function __toString() {
+        return $this->getNome().' / '.$this->getCpf();
+    }
+    
 }

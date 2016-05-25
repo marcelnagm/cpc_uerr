@@ -169,7 +169,7 @@ TbEscolaridade:
 TbFuncao:   
    columns:
      nome:                             { type: string(255)}  
-     valor:                            { type: float}  
+     valor:                            { type: string(255)}  
      descricao:                        { type: string(255)}  
    
 TbCorrecaoRedacao:
@@ -200,26 +200,38 @@ TbInscricao:
     TbCondicaoEspecial:          { local: id_condicao_especial, foreign: id}     
     TbCidadeProva:               { local: id_cidade_prova, foreign: id}     
 
-TbLocalProva:
+TbLocal:
    actAs:
     Timestampable: ~
     Signable: ~  
    columns:
-     id_certame:                { type: integer, notnull: true }        
-     id_prova:                    { type: integer, notnull: true }        
-     id_responsavel:              { type: integer, notnull: true }        
      nome:                        { type:  string(255) }        
      id_cidade:                   { type: integer, notnull: true }        
      sigla:                       { type:  string(255) }        
      telefone:                    { type:  string(255)}        
      endereco:                    { type:  string(255)}        
      nsalas:                      { type:  string(255) }        
-     status:                      { type: integer }        
+     status:                      { type: boolean }        
+   relations:    
+    TbCidade:                    { local: id_cidade, foreign: id }   
+    
+    
+    
+TbLocalProva:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_certame:                  { type: integer, notnull: true }        
+     id_prova:                    { type: integer, notnull: true }        
+     id_responsavel:              { type: integer, notnull: true }        
+     id_local:                    { type: integer, notnull: true }             
+     status:                      { type: boolean }        
    relations:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
+    TbLocal:                     { local: id_local, foreign: id, foreignAlias: TbLocal}     
     TbProva:                     { local: id_prova, foreign: id}   
-    TbResponsavel:               { local: id_responsavel, foreign: id}   
-    TbCidade:                    { local: id_cidade, foreign: id }   
+    TbResponsavel:               { local: id_responsavel, foreign: id}          
     TbColaborador:               { local: id_responsavel, foreign: id, foreignAlias: TbColaborador }      
 
 TbLotacaoProva:
@@ -286,7 +298,7 @@ TbColaboracao:
      id_certame:                { type: integer, notnull: true }         
      id_colaborador:            { type: integer, notnull: true }
      id_funcao:                 { type: integer, notnull: true }
-     id_local:                  { type: integer, notnull: true }
+     id_local_prova:            { type: integer, notnull: true }
      sala:                      { type: integer, notnull: true }          
      servidor:                  { type: boolean}        
      presente:                  { type: boolean}        
@@ -294,8 +306,8 @@ TbColaboracao:
    relations:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
     TbProva:                     { local: id_prova, foreign: id}   
-    TbResponsavel:               { local: id_responsavel, foreign: id}   
-    TbCidade:                    { local: id_cidade, foreign: id }   
+    TbFuncao:                    { local: id_funcao, foreign: id}   
+    TbLocalProva:                { local: id_local_prova, foreign: id}           
     TbColaborador:               { local: id_colaborador, foreign: id, foreignAlias: TbColaborador }  
 
 TbColaborador:
@@ -332,6 +344,8 @@ TbColaborador:
     TbRgtipo:                 { local: rgtipo, foreign: id }   
     TbRgemissor:              { local: rgemissor, foreign: id }   
     TbBanco:                  { local: id_banco, foreign: id }        
+    TbEstado:                 { local: rguf, foreign: id }   
+    TbLogradouro:             { local: logradouro, foreign: id , foreignAlias: TbLogradouro} 
     
 TbSalaProva:
    actAs:

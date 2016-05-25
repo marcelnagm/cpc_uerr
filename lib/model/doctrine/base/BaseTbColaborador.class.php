@@ -33,6 +33,8 @@
  * @property TbRgtipo $TbRgtipo
  * @property TbRgemissor $TbRgemissor
  * @property TbBanco $TbBanco
+ * @property TbEstado $TbEstado
+ * @property TbLogradouro $TbLogradouro
  * @property Doctrine_Collection $TbColaborador
  * @property Doctrine_Collection $TbResponsavelSala
  * 
@@ -64,6 +66,8 @@
  * @method TbRgtipo            getTbRgtipo()          Returns the current record's "TbRgtipo" value
  * @method TbRgemissor         getTbRgemissor()       Returns the current record's "TbRgemissor" value
  * @method TbBanco             getTbBanco()           Returns the current record's "TbBanco" value
+ * @method TbEstado            getTbEstado()          Returns the current record's "TbEstado" value
+ * @method TbLogradouro        getTbLogradouro()      Returns the current record's "TbLogradouro" value
  * @method Doctrine_Collection getTbColaborador()     Returns the current record's "TbColaborador" collection
  * @method Doctrine_Collection getTbResponsavelSala() Returns the current record's "TbResponsavelSala" collection
  * @method TbColaborador       setNome()              Sets the current record's "nome" value
@@ -94,6 +98,8 @@
  * @method TbColaborador       setTbRgtipo()          Sets the current record's "TbRgtipo" value
  * @method TbColaborador       setTbRgemissor()       Sets the current record's "TbRgemissor" value
  * @method TbColaborador       setTbBanco()           Sets the current record's "TbBanco" value
+ * @method TbColaborador       setTbEstado()          Sets the current record's "TbEstado" value
+ * @method TbColaborador       setTbLogradouro()      Sets the current record's "TbLogradouro" value
  * @method TbColaborador       setTbColaborador()     Sets the current record's "TbColaborador" collection
  * @method TbColaborador       setTbResponsavelSala() Sets the current record's "TbResponsavelSala" collection
  * 
@@ -224,6 +230,14 @@ abstract class BaseTbColaborador extends sfDoctrineRecord
 
         $this->hasOne('TbBanco', array(
              'local' => 'id_banco',
+             'foreign' => 'id'));
+
+        $this->hasOne('TbEstado', array(
+             'local' => 'rguf',
+             'foreign' => 'id'));
+
+        $this->hasOne('TbLogradouro', array(
+             'local' => 'logradouro',
              'foreign' => 'id'));
 
         $this->hasMany('TbLocalProva as TbColaborador', array(

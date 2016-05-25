@@ -12,4 +12,9 @@
  */
 class TbFuncao extends BaseTbFuncao
 {
+    
+    public function __toString() {
+        return $this->getNome().' / '.$this->getValor();
+    }
+    
 }

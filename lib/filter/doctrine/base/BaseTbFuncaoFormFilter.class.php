@@ -20,7 +20,7 @@ abstract class BaseTbFuncaoFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'nome'      => new sfValidatorPass(array('required' => false)),
-      'valor'     => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'valor'     => new sfValidatorPass(array('required' => false)),
       'descricao' => new sfValidatorPass(array('required' => false)),
     ));
 
@@ -43,7 +43,7 @@ abstract class BaseTbFuncaoFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'        => 'Number',
       'nome'      => 'Text',
-      'valor'     => 'Number',
+      'valor'     => 'Text',
       'descricao' => 'Text',
     );
   }

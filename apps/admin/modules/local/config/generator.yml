@@ -1,13 +1,13 @@
 generator:
   class: sfDoctrineGenerator
   param:
-    model_class:           TbLocalProva
+    model_class:           TbLocal
     theme:                 adminWithShow
     non_verbose_templates: true
     with_show:             false
     singular:              ~
     plural:                ~
-    route_prefix:          tb_local_prova
+    route_prefix:          tb_local
     with_doctrine_route:   true
     actions_base_class:    sfActions
 
@@ -15,9 +15,9 @@ generator:
       actions: ~
       fields:  ~
       list:    
-          display: [Tb_certame,Tb_prova,Tb_local,status]
+          display: [nome,sigla]
       filter:  
-          display: [id_certame]
+          display: [nome,sigla]
       form:    ~
       edit:    ~
       new:     ~

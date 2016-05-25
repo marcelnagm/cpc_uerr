@@ -1,0 +1,30 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbColaboracao
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_colaboracao
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+          id_certame: {label: Certame}
+          id_colaborador: {label: Colaborador}
+          id_funcao: {label: Função}
+          id_local_prova: {label: Local de Prova}
+      list:    
+          title: Lista de Colaborações
+          display: [TbCertame,TbColaborador,TbFuncao,TbLocalProva] 
+      filter:  
+          display: [id_certame,id_funcao,id_colaborador] 
+      form:    ~
+      edit:    
+          title: Editando Colaboração
+      new:     
+          title: Nova Colaboração
