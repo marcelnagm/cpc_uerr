@@ -11,9 +11,17 @@ class TbInscricaoTable extends Doctrine_Table
      * Returns an instance of this class.
      *
      * @return object TbInscricaoTable
-     */
+     */    
     public static function getInstance()
     {
         return Doctrine_Core::getTable('TbInscricao');
     }
+    
+    public static function getInscricaoCandidato(){
+        $q = Doctrine_Query::create()->from('TbInscricao ins')
+                ->innerJoin('ins.TbCandidato cand')->             
+                where('cand.user_id = ?',  sfContext::getInstance()->getUser()->getId());
+       return  $q;
+    }
+    
 }

@@ -12,5 +12,13 @@ class TbInscricaoForm extends BaseTbInscricaoForm
 {
   public function configure()
   {
+      unset($this->widgetSchema['boleto']);
+      unset($this->widgetSchema['pago']);
+      
+      
+      $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();
+      $this->widgetSchema['id_candidato'] = new sfWidgetFormInputHidden();
+      $this->widgetSchema['id_condicao_especial']->setDefault(15);
+      
   }
 }

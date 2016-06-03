@@ -75,7 +75,7 @@ class regActions extends autoRegActions {
                 $tb_candidato->setUserId($user->getIncremented());
                 $tb_candidato->save($conn);
 
-//                $conn->commit();                
+                $conn->commit();                
                 $this->forward('reg','ok');
             } catch (Doctrine_Validator_Exception $e) {
 

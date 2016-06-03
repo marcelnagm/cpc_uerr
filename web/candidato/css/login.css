@@ -173,3 +173,11 @@ p {
     background: url('../images/senha.png') left center no-repeat;
     background-color: #f0f0f0;
 }
+
+label{
+        font-size: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 130%;
+    color: #204f7d;
+}

@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbCertame
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_certame
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+          entidade_sigla: 
+              label: Entidade Organizadora
+      list:
+          actions: {}
+          title: Lista de Concursos
+          display: [nome,entidade_sigla]
+          batch_actions: {}              
+          object_actions:
+              inscrever: 
+                  label: Inscrever-se
+          table_method:  getCertameAtivos
+      filter:  
+          class: false
+      form:    ~
+      edit:    ~
+      new:     ~

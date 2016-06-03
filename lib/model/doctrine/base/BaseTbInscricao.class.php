@@ -16,6 +16,7 @@
  * @property integer $id_idioma
  * @property TbCandidato $TbCandidato
  * @property TbCertame $TbCertame
+ * @property TbIdioma $TbIdioma
  * @property TbVaga $TbVaga
  * @property TbCondicaoEspecial $TbCondicaoEspecial
  * @property TbCidadeProva $TbCidadeProva
@@ -33,6 +34,7 @@
  * @method integer             getIdIdioma()             Returns the current record's "id_idioma" value
  * @method TbCandidato         getTbCandidato()          Returns the current record's "TbCandidato" value
  * @method TbCertame           getTbCertame()            Returns the current record's "TbCertame" value
+ * @method TbIdioma            getTbIdioma()             Returns the current record's "TbIdioma" value
  * @method TbVaga              getTbVaga()               Returns the current record's "TbVaga" value
  * @method TbCondicaoEspecial  getTbCondicaoEspecial()   Returns the current record's "TbCondicaoEspecial" value
  * @method TbCidadeProva       getTbCidadeProva()        Returns the current record's "TbCidadeProva" value
@@ -49,6 +51,7 @@
  * @method TbInscricao         setIdIdioma()             Sets the current record's "id_idioma" value
  * @method TbInscricao         setTbCandidato()          Sets the current record's "TbCandidato" value
  * @method TbInscricao         setTbCertame()            Sets the current record's "TbCertame" value
+ * @method TbInscricao         setTbIdioma()             Sets the current record's "TbIdioma" value
  * @method TbInscricao         setTbVaga()               Sets the current record's "TbVaga" value
  * @method TbInscricao         setTbCondicaoEspecial()   Sets the current record's "TbCondicaoEspecial" value
  * @method TbInscricao         setTbCidadeProva()        Sets the current record's "TbCidadeProva" value
@@ -110,6 +113,10 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
 
         $this->hasOne('TbCertame', array(
              'local' => 'id_certame',
+             'foreign' => 'id'));
+
+        $this->hasOne('TbIdioma', array(
+             'local' => 'id_idioma',
              'foreign' => 'id'));
 
         $this->hasOne('TbVaga', array(

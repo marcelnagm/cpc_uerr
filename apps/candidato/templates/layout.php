@@ -84,17 +84,14 @@
 
 
                                                 <div class="clearfix">
+                                                    <?php if ($sf_user->isAuthenticated()): ?>
                                                     <div class="menu-primary-container"><ul id="menu-principal" class="menus menu-primary sub-menu sf-js-enabled">
-                                                            <li><a href="cpcv.html">HOME</a></li>
-                                                            <li><a href="concurso.html">CONCURSO</a></li>
-                                                            <li><a href="vestibular.html">VESTIBULAR</a></li>
-                                                            <li><a href="proficiencia.html">PROFICIÊNCIA</a></li>
-                                                            <li><a href="seletivos.html">SELETIVOS</a></li>
-                                                            <li><a href="posgraduacao.html">PÓS-GRADUAÇÃO</a></li>
-                                                            <li><a href="index2.php">LOGIN</a></li>
-                                                            <li><a href="contato.html">CONTATO</a></li>
+                                                             
+                                                            <li><a href="<? echo url_for('homepage')?>">Home</a></li>
+                                                            <li><a href="<? echo url_for('tb_certame')?>">Certames</a></li>
                                                             <li><?php print link_to('Sair', '@sf_guard_signout', array('class' => 'delete ico')) ?></li>
                                                     </div>
+                                                    <?endif;?>
                                                 </div>
 
                                                 <div id="main">  

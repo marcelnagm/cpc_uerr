@@ -1,3 +1,22 @@
+
+tb_inscricao:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbInscricao
+    module:               inscricao
+    prefix_path:          /inscricao
+    column:               id
+    with_wildcard_routes: true
+
+tb_certame:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbCertame
+    module:               certame
+    prefix_path:          /certame
+    column:               id
+    with_wildcard_routes: true
+
 tb_candidato:
   class: sfDoctrineRouteCollection
   options:

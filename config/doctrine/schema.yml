@@ -196,6 +196,7 @@ TbInscricao:
    relations:
     TbCandidato:                 { local: id_candidato, foreign: id}     
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
+    TbIdioma:                    { local: id_idioma, foreign: id, foreignAlias: TbIdioma}     
     TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }         
     TbCondicaoEspecial:          { local: id_condicao_especial, foreign: id}     
     TbCidadeProva:               { local: id_cidade_prova, foreign: id}     

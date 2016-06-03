@@ -12,4 +12,8 @@
  */
 class TbIdioma extends BaseTbIdioma
 {
+    
+    public function __toString() {
+        return $this->getDescricao();
+    }
 }

@@ -12,4 +12,8 @@
  */
 class TbCondicaoEspecial extends BaseTbCondicaoEspecial
 {
+    
+    public function __toString() {
+        return $this->getDescricao();
+    }
 }

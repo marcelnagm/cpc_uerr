@@ -20,5 +20,12 @@ class TbCertameTable extends Doctrine_Table
         return Doctrine_Core::getTable('TbCertame');
     }
     
+       public static function getCertameAtivos(){
+        $q = Doctrine_Query::create()->from('TbCertame')->where('publicado = 1');
+           return $q;
+           
+           
+       }
+    
     
 }
