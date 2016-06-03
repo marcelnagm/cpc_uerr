@@ -11,6 +11,8 @@
  * @property integer $id_cidade
  * @property integer $quantidade
  * @property integer $vaga_deficiente
+ * @property integer $valor
+ * @property date $data_vencimento
  * @property TbCertame $TbCertame
  * @property TbCargo $TbCargo
  * @property TbEscolaridade $TbEscolaridade
@@ -23,6 +25,8 @@
  * @method integer             getIdCidade()        Returns the current record's "id_cidade" value
  * @method integer             getQuantidade()      Returns the current record's "quantidade" value
  * @method integer             getVagaDeficiente()  Returns the current record's "vaga_deficiente" value
+ * @method integer             getValor()           Returns the current record's "valor" value
+ * @method date                getDataVencimento()  Returns the current record's "data_vencimento" value
  * @method TbCertame           getTbCertame()       Returns the current record's "TbCertame" value
  * @method TbCargo             getTbCargo()         Returns the current record's "TbCargo" value
  * @method TbEscolaridade      getTbEscolaridade()  Returns the current record's "TbEscolaridade" value
@@ -34,6 +38,8 @@
  * @method TbVaga              setIdCidade()        Sets the current record's "id_cidade" value
  * @method TbVaga              setQuantidade()      Sets the current record's "quantidade" value
  * @method TbVaga              setVagaDeficiente()  Sets the current record's "vaga_deficiente" value
+ * @method TbVaga              setValor()           Sets the current record's "valor" value
+ * @method TbVaga              setDataVencimento()  Sets the current record's "data_vencimento" value
  * @method TbVaga              setTbCertame()       Sets the current record's "TbCertame" value
  * @method TbVaga              setTbCargo()         Sets the current record's "TbCargo" value
  * @method TbVaga              setTbEscolaridade()  Sets the current record's "TbEscolaridade" value
@@ -72,6 +78,14 @@ abstract class BaseTbVaga extends sfDoctrineRecord
              ));
         $this->hasColumn('vaga_deficiente', 'integer', null, array(
              'type' => 'integer',
+             'notnull' => true,
+             ));
+        $this->hasColumn('valor', 'integer', null, array(
+             'type' => 'integer',
+             'notnull' => true,
+             ));
+        $this->hasColumn('data_vencimento', 'date', null, array(
+             'type' => 'date',
              'notnull' => true,
              ));
     }

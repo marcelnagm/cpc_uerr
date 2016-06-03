@@ -12,4 +12,8 @@
  */
 class TbInscricao extends BaseTbInscricao
 {
+    public function getPagoText(){
+        return $this->getPago() == 1 ? 'Sim' : 'Não';
+    }
+    
 }

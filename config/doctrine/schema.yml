@@ -189,7 +189,7 @@ TbInscricao:
      id_vaga:                     { type: integer, notnull: true }        
      id_condicao_especial:        { type: integer, notnull: true }        
      id_cidade_prova:             { type: integer, notnull: true }        
-     boleto:                      { type: integer, notnull: true }        
+     boleto:                      { type: integer }        
      pago:                        { type: integer}        
      vaga_deficiente:             { type: integer}        
      id_idioma:                   { type: integer, notnull: true }        
@@ -285,6 +285,8 @@ TbVaga:
      id_cidade:                  { type: integer, notnull: true }        
      quantidade:                 { type: integer, notnull: true }        
      vaga_deficiente:            { type: integer, notnull: true }             
+     valor:                      { type: integer, notnull: true }             
+     data_vencimento:            { type: date, notnull: true }             
    relations:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }   
     TbCargo:                     { local: id_cargo, foreign: id, foreignAlias: TbCargo }   

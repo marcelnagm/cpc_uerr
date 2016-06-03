@@ -22,6 +22,9 @@ class myUser extends sfGuardSecurityUser
         return $this->hasGroup('admin1') || $this->hasGroup('admin2') || $this->hasGroup('admin3') || $this->hasGroup('super admin');
     }
     
+    public function getTbCandidato(){
+        return TbCandidatoTable::getInstance()->findOneBy('user_id', $this->getId());
+    }
  
     
 }

@@ -38,7 +38,7 @@ abstract class BaseTbInscricaoForm extends BaseFormDoctrine
       'id_vaga'              => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'))),
       'id_condicao_especial' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbCondicaoEspecial'))),
       'id_cidade_prova'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbCidadeProva'))),
-      'boleto'               => new sfValidatorInteger(),
+      'boleto'               => new sfValidatorInteger(array('required' => false)),
       'pago'                 => new sfValidatorInteger(array('required' => false)),
       'vaga_deficiente'      => new sfValidatorInteger(array('required' => false)),
       'id_idioma'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbIdioma'))),

@@ -2,9 +2,9 @@ generator:
   class: sfDoctrineGenerator
   param:
     model_class:           TbInscricao
-    theme:                 admin
+    theme:                 adminWithShow
     non_verbose_templates: true
-    with_show:             false
+    with_show:             true
     singular:              ~
     plural:                ~
     route_prefix:          tb_inscricao
@@ -12,14 +12,29 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions: 
+          _show: 
+              label: "Comprovante de Inscrição"
+      fields:  
+          TbVaga: 
+              label: Vaga
+          TbCidadeProva:
+              label: Cidade de Prova
       list:
-          title: Lista de Inscrições
-          display: [TbCertame,TbVaga]
+          title: Lista de Inscrições 
+          display: [TbVaga,TbCidadeProva]
           table_method:  getInscricaoCandidato
+          object_actions:
+              _edit: ~
+              _delete: ~
+              _show: ~
+              boleto: 
+                  label: Gerar Boleto
       filter:  
           class: false
       form:    ~
       edit:    ~
       new:     ~
+      show: 
+          title: "Comprovante de Inscrição"
+          

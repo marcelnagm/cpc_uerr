@@ -90,7 +90,6 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
              ));
         $this->hasColumn('boleto', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => true,
              ));
         $this->hasColumn('pago', 'integer', null, array(
              'type' => 'integer',

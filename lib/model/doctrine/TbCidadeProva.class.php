@@ -13,7 +13,7 @@
 class TbCidadeProva extends BaseTbCidadeProva
 {
     public function __toString() {
-        return $this->getTbCidade();
+        return $this->getTbCidade()->getNome().' - '.$this->getTbCidade()->getTbEstado();
     }
     
 }

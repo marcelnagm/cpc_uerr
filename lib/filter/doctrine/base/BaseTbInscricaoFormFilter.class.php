@@ -18,7 +18,7 @@ abstract class BaseTbInscricaoFormFilter extends BaseFormFilterDoctrine
       'id_vaga'              => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => true)),
       'id_condicao_especial' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCondicaoEspecial'), 'add_empty' => true)),
       'id_cidade_prova'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCidadeProva'), 'add_empty' => true)),
-      'boleto'               => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'boleto'               => new sfWidgetFormFilterInput(),
       'pago'                 => new sfWidgetFormFilterInput(),
       'vaga_deficiente'      => new sfWidgetFormFilterInput(),
       'id_idioma'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbIdioma'), 'add_empty' => true)),
