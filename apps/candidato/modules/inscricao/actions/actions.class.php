@@ -83,7 +83,7 @@ class inscricaoActions extends autoInscricaoActions
   }
  
   public function executeListBoleto(\sfWebRequest $request) {
-      $this->inscricao = new TbInscricao();
+//      $this->inscricao = new TbInscricao();
       $this->inscricao = $this->getRoute()->getObject();
         $this->setLayout(false);
   }

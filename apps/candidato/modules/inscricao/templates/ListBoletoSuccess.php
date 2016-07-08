@@ -1,3 +1,4 @@
+<?php use_helper('Date'); ?>
 <?php
 $nboleto= $inscricao->getBoleto();//declaracao da variavel da acao passada pelo link da pagina anterior
 $nome=$inscricao->getTbCandidato()->getNome();
@@ -12,12 +13,12 @@ $lingua=$inscricao->getTbIdioma();
 $nome_certame_inscrito=$inscricao->getTbCertame();
 
 $nosso_numero='1394897'.$nboleto;
-
+$datavence= format_date($datavence,'d/M/yyyy');
 $dadosboleto["data_vencimento"] = $datavence; // Data de Vencimento do Boleto
 $dadosboleto["data_documento"] = date('d/m/Y'); // Data de emissão do Boleto
 $dadosboleto["data_processamento"] = date('d/m/Y');; // Data de processamento do boleto (opcional)
-$dadosboleto["valor_boleto"] = $valor; 	// Valor do Boleto, com vírgula, sempre com duas casas depois da virgula
-
+$dadosboleto["valor_boleto"] = str_replace('.', ',', $valor); 	// Valor do Boleto, com vírgula, sempre com duas casas depois da virgula
+//echo $dadosboleto["valor_boleto"];
 //opcionais
 $dadosboleto["quantidade"] = "";
 $dadosboleto["valor_unitario"] = "";
@@ -253,10 +254,10 @@ $altura = 50 ;
 
 
 //Guarda inicial
-?><img src=imagens/p.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
-src=imagens/b.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
-src=imagens/p.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
-src=imagens/b.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
+?><img src=images/p.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
+src=images/b.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
+src=images/p.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
+src=images/b.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
 <?
 $texto = $valor ;
 if((strlen($texto) % 2) <> 0){
@@ -275,7 +276,7 @@ while (strlen($texto) > 0) {
       $f1 = $largo ;
     }
 ?>
-    src=imagens/p.gif width=<?=$f1?> height=<?=$altura?> border=0><img 
+    src=images/p.gif width=<?=$f1?> height=<?=$altura?> border=0><img 
 <?
     if (substr($f,$i,1) == "0") {
       $f2 = $fino ;
@@ -283,16 +284,16 @@ while (strlen($texto) > 0) {
       $f2 = $largo ;
     }
 ?>
-    src=imagens/b.gif width=<?=$f2?> height=<?=$altura?> border=0><img 
+    src=images/b.gif width=<?=$f2?> height=<?=$altura?> border=0><img 
 <?
   }
 }
 
 // Draw guarda final
 ?>
-src=imagens/p.gif width=<?=$largo?> height=<?=$altura?> border=0><img 
-src=imagens/b.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
-src=imagens/p.gif width=<?=1?> height=<?=$altura?> border=0> 
+src=images/p.gif width=<?=$largo?> height=<?=$altura?> border=0><img 
+src=images/b.gif width=<?=$fino?> height=<?=$altura?> border=0><img 
+src=images/p.gif width=<?=1?> height=<?=$altura?> border=0> 
   <?
 } //Fim da fun��o
 
@@ -506,6 +507,79 @@ function monta_linha_digitavel($linha) {
 }
 
 
+function geraCodigoBarra($numero){
+		$fino = 1;
+		$largo = 3;
+		$altura = 50;
+		
+		$barcodes[0] = '00110';
+		$barcodes[1] = '10001';
+		$barcodes[2] = '01001';
+		$barcodes[3] = '11000';
+		$barcodes[4] = '00101';
+		$barcodes[5] = '10100';
+		$barcodes[6] = '01100';
+		$barcodes[7] = '00011';
+		$barcodes[8] = '10010';
+		$barcodes[9] = '01010';
+		
+		for($f1 = 9; $f1 >= 0; $f1--){
+			for($f2 = 9; $f2 >= 0; $f2--){
+				$f = ($f1*10)+$f2;
+				$texto = '';
+				for($i = 1; $i < 6; $i++){
+					$texto .= substr($barcodes[$f1], ($i-1), 1).substr($barcodes[$f2] ,($i-1), 1);
+				}
+				$barcodes[$f] = $texto;
+			}
+		}
+		
+		echo image_tag("p.gif",array('width' => $fino,'height'=> $altura,'border'=> 0));
+		echo image_tag("b.gif",array('width' => $fino,'height'=> $altura,'border'=> 0));
+		echo image_tag("p.gif",array('width' => $fino,'height'=> $altura,'border'=> 0));
+		echo image_tag("b.gif",array('width' => $fino,'height'=> $altura,'border'=> 0));
+		
+		$texto = $numero;
+		
+		if((strlen($texto) % 2) <> 0){
+			$texto = '0'.$texto;
+		}
+		
+		while(strlen($texto) > 0){
+			$i = round(substr($texto, 0, 2));
+			$texto = substr($texto, strlen($texto)-(strlen($texto)-2), (strlen($texto)-2));
+			
+			if(isset($barcodes[$i])){
+				$f = $barcodes[$i];
+			}
+			
+			for($i = 1; $i < 11; $i+=2){
+				if(substr($f, ($i-1), 1) == '0'){
+  					$f1 = $fino ;
+  				}else{
+  					$f1 = $largo ;
+  				}
+  				echo image_tag("p.gif",array('width' => $fino,'height'=> $altura,'border'=> 0));
+  				
+  				
+  				if(substr($f, $i, 1) == '0'){
+					$f2 = $fino ;
+				}else{
+					$f2 = $largo ;
+				}
+				echo image_tag("b.gif",array('width' => $f2,'height'=> $altura,'border'=> 0));
+                                
+				
+			}
+		}
+                echo image_tag("p.gif",array('width' => $largo,'height'=> $altura,'border'=> 0));
+		echo image_tag("b.gif",array('width' => $fino,'height'=> $altura,'border'=> 0));
+		echo image_tag("p.gif",array('width' => 1,'height'=> $altura,'border'=> 0));
+		
+	}
+        
+
+
 ?>
 <HTML><HEAD><TITLE>Boleto - <?=$dadosboleto["instrucoes"];?></TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
@@ -560,281 +634,280 @@ nos terminais de Auto-Atendimento BB.</font></B></DIV>
 <TBODY>
 <TR>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
-<TD class=campo width="20%"><font size="+1"><img src="../boleto/imagens/imgbb.gif" border="0" alt="Banco do Brasil"></font></TD>
-<TD width=3><IMG height="22" src="../boleto/imagens/imgbrrazu.gif" width="2" border="0"></TD>
+    <TD class=campo width="20%"><font size="+1"><? echo image_tag('imgbb.gif',array('alt' => 'Banco do Brasil'))?></font></TD>
+<TD width=3><? echo image_tag('imgbrrazu.gif',array('widht' => 2,'height' => 22))?></TD>
 <TD class="campotitulo_1">001-9</TD>
-<TD width=3><IMG height=22 
-src="../boleto/imagens/imgbrrazu.gif" width=2 border=0></TD>
+<TD width=3><? echo image_tag('imgbrrazu.gif',array('widht' => 2,'height' => 22))?></TD>
 <TD class=campotitulo width=464 align=right><?=$dadosboleto["linha_digitavel"]?></TD></TR>
 <TR>
 <TD colSpan=5><IMG height=2 
-src="imagens/imgpxlazu.gif" width=666 
+src="images/imgpxlazu.gif" width=666 
 border=0></TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 border="0">
 <TBODY>
@@ -847,10 +920,10 @@ QUALQUER BANCO ATÉ O VENCIMENTO&nbsp;</TD>
 </tr>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=0 height=0 colspan="100%"><IMG height=1 
-src="imagens/imgpxlazu.gif" width=100% border=0></TD>
+src="images/imgpxlazu.gif" width=100% border=0></TD>
 </TR>
 
 <TR>
@@ -881,34 +954,34 @@ height=12><?=$dadosboleto["nosso_numero"]?>&nbsp;</TD>
 
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=298 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=298 
+src="images/imgpxlazu.gif" width=298 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=126 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=126 
+src="images/imgpxlazu.gif" width=126 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=34 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=34 
+src="images/imgpxlazu.gif" width=34 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=53 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=53 
+src="images/imgpxlazu.gif" width=53 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=120 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=120 
+src="images/imgpxlazu.gif" width=120 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -938,34 +1011,34 @@ height=12  bgColor=#ffffcc><?=$dadosboleto["data_vencimento"]?>&nbsp;</TD>
 height=12><?=$dadosboleto["valor_boleto"]?>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=113 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=113 
+src="images/imgpxlazu.gif" width=113 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=72 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=72 
+src="images/imgpxlazu.gif" width=72 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=132 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=132 
+src="images/imgpxlazu.gif" width=132 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=134 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=134 
+src="images/imgpxlazu.gif" width=134 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -996,34 +1069,34 @@ cobrado</TD></TR>
 height=12><?=$dadosboleto["valor_boleto"]?>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=113 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=113 
+src="images/imgpxlazu.gif" width=113 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=112 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=112 
+src="images/imgpxlazu.gif" width=112 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=113 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=113 
+src="images/imgpxlazu.gif" width=113 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=113 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=113 
+src="images/imgpxlazu.gif" width=113 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1039,10 +1112,10 @@ border=0></TD></TR></TBODY></TABLE>
 <? //=$dadosboleto["endereco3"]?></TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=659 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=659 
+src="images/imgpxlazu.gif" width=659 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1063,282 +1136,280 @@ border=0></TD></TR></TBODY></TABLE>
 <TBODY>
 <TR>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD></TR></TBODY></TABLE><BR><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
-<TD class=campo width="20%"><font size="+1"><img src="../boleto/imagens/imgbb.gif" border="0" alt="Banco do Brasil"></font></TD>
-<TD width=3><IMG height="22" src="../boleto/imagens/imgbrrazu.gif" width="2" border="0"></TD>
+    <TD class=campo width="20%"><font size="+1"><? echo image_tag('imgbb.gif',array('alt' => 'Banco do Brasil'))?></font></TD>
+    <TD width=3><? echo image_tag('imgbrrazu.gif',array('widht' => 2))?></TD>
 <TD class=campotitulo_1>001-9</TD>
-<TD width=3><IMG height=22 
-src="../boleto/imagens/imgbrrazu.gif" width=2 
-border=0></TD>
+<TD width=3><? echo image_tag('imgbrrazu.gif',array('heigh' => 22))?></TD>
 <TD class=campotitulo><?=$dadosboleto["linha_digitavel"]?></TD></TR>
 <TR>
 <TD colSpan=5><IMG height=2 
-src="imagens/imgpxlazu.gif" width=666 
+src="images/imgpxlazu.gif" width=666 
 border=0></TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1357,16 +1428,16 @@ VENCIMENTO&nbsp;</TD>
 height=12><?=$dadosboleto["data_vencimento"]?>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=472 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=472 
+src="images/imgpxlazu.gif" width=472 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1384,16 +1455,16 @@ cedente</TD></TR>
 height=12><?=$dadosboleto["agencia_codigo"]?>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=472 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=472 
+src="images/imgpxlazu.gif" width=472 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1428,40 +1499,40 @@ height=12><?=$dadosboleto["data_processamento"]?>&nbsp;</TD>
 height=12><?=$dadosboleto["nosso_numero"]?>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=93 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=93 
+src="images/imgpxlazu.gif" width=93 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=173 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=173 
+src="images/imgpxlazu.gif" width=173 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=72 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=72 
+src="images/imgpxlazu.gif" width=72 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=34 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=34 
+src="images/imgpxlazu.gif" width=34 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=72 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=72 
+src="images/imgpxlazu.gif" width=72 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1495,40 +1566,40 @@ banco</TD>
 height=12><?=$dadosboleto["valor_boleto"]?>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=93 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=93 
+src="images/imgpxlazu.gif" width=93 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=93 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=93 
+src="images/imgpxlazu.gif" width=93 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=53 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=53 
+src="images/imgpxlazu.gif" width=53 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=133 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=133 
+src="images/imgpxlazu.gif" width=133 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=72 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=72 
+src="images/imgpxlazu.gif" width=72 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
@@ -1562,10 +1633,10 @@ height=12>&nbsp;</TD></TR>
 <TD vAlign=top width=7 height=3></TD>
 <TD vAlign=top width=18 height=3></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" 
+src="images/imgpxlazu.gif" 
 width=180 border=0></TD></TR></TBODY></TABLE></TD></TR>
 <TR>
 <TD align=right width=212>
@@ -1587,10 +1658,10 @@ height=12>&nbsp;</TD></TR>
 <TD vAlign=top width=7 height=3></TD>
 <TD vAlign=top width=18 height=3></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" 
+src="images/imgpxlazu.gif" 
 width=180 border=0></TD></TR></TBODY></TABLE></TD></TR>
 <TR>
 <TD align=right width=212>
@@ -1612,10 +1683,10 @@ height=12>&nbsp;</TD></TR>
 <TD vAlign=top width=7 height=3></TD>
 <TD vAlign=top width=18 height=3></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" 
+src="images/imgpxlazu.gif" 
 width=180 border=0></TD></TR></TBODY></TABLE></TD></TR>
 <TR>
 <TD align=right width=212>
@@ -1631,10 +1702,10 @@ acréscimos</TD></TR>
 height=12>&nbsp;</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" 
+src="images/imgpxlazu.gif" 
 width=180 border=0></TD></TR></TBODY></TABLE></TD></TR>
 <TR>
 <TD align=right width=212>
@@ -1652,7 +1723,7 @@ height=12><?=$dadosboleto["valor_boleto"]?>&nbsp;</TD></TR></TBODY></TABLE></TD>
 <TBODY>
 <TR>
 <TD vAlign=top width=666 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=666 
+src="images/imgpxlazu.gif" width=666 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1678,16 +1749,16 @@ height=13>Sacador/Avalista</TD></TR></TBODY></TABLE>
 <TD class=titulo vAlign=top width=180 height=13>Cód. baixa</TD></TR>
 <TR>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=472 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=472 
+src="images/imgpxlazu.gif" width=472 
 border=0></TD>
 <TD vAlign=top width=7 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=7 
+src="images/imgpxlazu.gif" width=7 
 border=0></TD>
 <TD vAlign=top width=180 height=3><IMG height=1 
-src="imagens/imgpxlazu.gif" width=180 
+src="images/imgpxlazu.gif" width=180 
 border=0></TD></TR></TBODY></TABLE>
 <TABLE cellSpacing=0 cellPadding=0 border=0>
 <TBODY>
@@ -1700,7 +1771,7 @@ Ficha de Compensação</TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
-<TD><? fbarcode($dadosboleto["codigo_barras"]); ?></TD></TR></TBODY></TABLE><BR>
+<TD><? geraCodigoBarra($dadosboleto["codigo_barras"]); ?></TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
@@ -1708,268 +1779,246 @@ Ficha de Compensação</TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5>
+    <? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?>
+   </TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
-src="imagens/imgpxlazu.gif" width=6 
+src="images/imgpxlazu.gif" width=6 
 border=0></TD>
 <TD width=5></TD></TR></TBODY></TABLE>
 </DIV></BODY></HTML>
