@@ -43,8 +43,9 @@ class certameActions extends autoCertameActions {
         $data = date('Y-m-d');
         if (( $data >= $certame->getDataInicio()) && ( $data <= $certame->getDataFim() )) {
             sfContext::getInstance()->getUser()->setAttribute('certame', $certame);
-            $this->redirect('inscricao/new');
+            $this->redirect('inscricao/index');
         } else {
+            $this->getUser()->setFlash('error','Certame Fechado para inscrição');
             $this->redirect('@homepage');
         }
     }

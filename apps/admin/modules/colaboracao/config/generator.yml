@@ -16,13 +16,17 @@ generator:
       fields:  
           id_certame: {label: Certame}
           id_colaborador: {label: Colaborador}
+          TbColaborador: {label: Colaborador}
           id_funcao: {label: Função}
+          TbFuncao: {label: Função}
           id_local_prova: {label: Local de Prova}
+          TbLocalProva: {label: Local de Prova}
       list:    
           title: Lista de Colaborações
-          display: [TbCertame,TbColaborador,TbFuncao,TbLocalProva] 
+          display: [=TbColaborador,TbFuncao,TbLocalProva] 
+          table_method:  getPorCertame
       filter:  
-          display: [id_certame,id_funcao,id_colaborador] 
+          display: [id_funcao,id_colaborador] 
       form:    ~
       edit:    
           title: Editando Colaboração

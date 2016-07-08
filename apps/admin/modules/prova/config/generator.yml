@@ -19,9 +19,10 @@ generator:
           id_certame: {label: Certame}
           id_vaga: {label: Vaga}
       list:    
-          display: [TbVaga,TbCertame,data_inicio,hora_inicio,duracao]
+          display: [TbVaga,data_inicio,hora_inicio,duracao]
+          table_method:  getPorCertame
       filter:  
-          display: [id_vaga,id_certame]
+          display: [id_vaga]
       form:    ~
       edit:    ~
       new:     ~

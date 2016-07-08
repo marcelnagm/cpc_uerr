@@ -14,9 +14,16 @@ require_once dirname(__FILE__).'/../lib/inscricaoGeneratorHelper.class.php';
 class inscricaoActions extends autoInscricaoActions
 {
     public function executeNew(\sfWebRequest $request) {
+        $certame = sfContext::getInstance()->getUser()->getAttribute('certame');
+          if (!( $data >= $certame->getDataInicio()) && !( $data <= $certame->getDataFim() )) {
+            sfContext::getInstance()->getUser()->setAttribute('certame', $certame);
+            $this->getUser()->setFlash('error','Certame Fechado para inscrição');
+            $this->redirect('@homepage');
+        }
         parent::executeNew($request);
         $this->form->setDefault('id_certame', sfContext::getInstance()->getUser()->getAttribute('certame')->getId());
         $this->form->setDefault('id_candidato',  sfContext::getInstance()->getUser()->getTbCandidato() );
+        
     }
     
     protected function processForm(sfWebRequest $request, sfForm $form)

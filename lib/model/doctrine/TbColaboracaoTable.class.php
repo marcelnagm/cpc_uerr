@@ -16,4 +16,11 @@ class TbColaboracaoTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('TbColaboracao');
     }
+    
+     public function getPorCertame() {
+          $q = Doctrine_Query::create()->from('TbColaboracao')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'));
+          return $q;
+           
+    }
+    
 }

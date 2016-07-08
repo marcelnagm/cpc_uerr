@@ -16,8 +16,9 @@ generator:
       fields:  ~
       list:    
           display: [Tb_certame,Tb_prova,Tb_local,status]
+          table_method:  getPorCertame
       filter:  
-          display: [id_certame]
+          display: [id_local]
       form:    ~
       edit:    ~
       new:     ~

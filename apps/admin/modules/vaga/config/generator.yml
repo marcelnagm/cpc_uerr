@@ -24,9 +24,10 @@ generator:
           id_escolaridade: {label: Escolaridade Exigida}
       list:
           title: Lista de Vagas
-          display: [TbCargo,TbCertame,TbEscolaridade,TbCidade]
+          display: [TbCargo,TbEscolaridade,TbCidade]
+          table_method:  getPorCertame
       filter:  
-          display: [id_certame]
+          display: [id_cargo]
       form:    ~
       edit:    
           title: Editando Vaga

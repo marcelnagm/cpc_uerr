@@ -18,7 +18,18 @@ generator:
           TbTipoCertame: {label: Tipo de Certame}
       list:
            title: Lista Certame
-           display: [nome,TbTipoCertame,publicado]  
+           display: [nome,TbTipoCertame,publicado] 
+           object_actions:
+               _edit: ~
+               _delete: ~
+               Vagas:
+                   label: Vagas 
+               Provas:
+                   label: Provas
+               Locais:
+                   label: Locais de Prova
+               Colaboracao:
+                   label: Colaboração
       filter:  
           display: [nome,id_tipo_certame,publicado]  
       form:    ~

@@ -13,4 +13,29 @@ require_once dirname(__FILE__).'/../lib/certameGeneratorHelper.class.php';
  */
 class certameActions extends autoCertameActions
 {
+    
+    public function executeListVagas(\sfWebRequest $request) {
+        $certame =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
+        $this->forward('vaga','index');
+    }
+    
+    public function executeListProvas(\sfWebRequest $request) {
+        $certame =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
+        $this->forward('prova','index');
+    }
+    
+    public function executeListLocais(\sfWebRequest $request) {
+        $certame =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
+        $this->forward('local_prova','index');
+    }
+    
+    public function executeListColaboracao(\sfWebRequest $request) {
+        $certame =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
+        $this->forward('colaboracao','index');
+    }
+    
 }

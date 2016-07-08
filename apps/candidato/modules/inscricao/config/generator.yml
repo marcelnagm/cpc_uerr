@@ -21,12 +21,12 @@ generator:
           TbCidadeProva:
               label: Cidade de Prova
       list:
-          title: Lista de Inscrições 
+          title: Lista de Inscrições no Certame 
           display: [TbVaga,TbCidadeProva]
           table_method:  getInscricaoCandidato
+          batch_actions: {}
           object_actions:
               _edit: ~
-              _delete: ~
               _show: ~
               boleto: 
                   label: Gerar Boleto
