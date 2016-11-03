@@ -24,6 +24,10 @@ generator:
           id_escolaridade: {label: Escolaridade Exigida}
       list:
           title: Lista de Vagas
+          actions:
+              _new: ~
+              Certames: 
+                  label: Retornar Certames
           display: [TbCargo,TbEscolaridade,TbCidade]
           table_method:  getPorCertame
       filter:  

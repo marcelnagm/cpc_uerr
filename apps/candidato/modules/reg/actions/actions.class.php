@@ -22,8 +22,7 @@ class regActions extends autoRegActions {
     }
 
     public function executeNew(sfWebRequest $request) {
-        parent::executeNew($request);
-        $this->form->setDefault('user_id', '0');
+        parent::executeNew($request);       
     }
 
     public function executeIndex(\sfWebRequest $request) {
@@ -31,7 +30,7 @@ class regActions extends autoRegActions {
     }
 
     public function executeOk(\sfWebRequest $request) {
-       
+        $this->form = new sfGuardFormResetPassword();
     }
 
     public function executeEdit(\sfWebRequest $request) {
@@ -58,6 +57,7 @@ class regActions extends autoRegActions {
 
             try {
                 $tb_candidato = new TbCandidato();
+                $senha = $form->getValue('password');
                 $tb_candidato = $form->save($conn);
                 
                 $user = new sfGuardUser();
@@ -66,7 +66,7 @@ class regActions extends autoRegActions {
                 $user->setLastName(array_pop($nome));
                 $user->setUsername($tb_candidato->getCpf());
                 $user->setEmailAddress($tb_candidato->getEmail());
-                $user->setPassword($tb_candidato->getCpf());
+                $user->setPassword($senha);
                 $user->addGroupByName('candidato');
                 $user->save($conn);
 //                $form['user_id']->setDefault('user_id', $user->getId());

@@ -1057,16 +1057,22 @@ a:focus {
 .topo-footer {
     padding: 15px 0 0 0;
 	margin: 0 auto;
-    position:relative;
+
 	width: 100%;
 	height: 35px;
     background: #004585;
     text-align: center;
 
+
+
 }
 
 
 #footer-container {
+    position: relative;
+top : 0px;
+text-align: center;
+float: left;
 }
 
 #footer {

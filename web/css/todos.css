@@ -1,3 +1,311 @@
+/**
+* GENERAL 
+----------------------------*/
+
+body {
+    font-family: Arial, Helvetica, Sans-serif;
+    font-size: 13px;
+}
+
+#container:after, #header:after, #main:after, #main-fullwidth:after, #footer:after, .clearfix:after { 
+    content:"\0020"; display:block; height:0; clear:both; visibility:hidden; overflow:hidden;
+}
+
+#container, #header, #main, #main-fullwidth, #footer, .clearfix { display:block; }
+
+.clear {clear:both;}
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6 { 
+    font-weight: normal;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+h1 { font-size: 40px; }
+
+h2 { font-size: 30px; }
+
+h3 { font-size: 20px; }
+
+h4 { font-size: 16px; }
+
+h5 { font-size: 14px; }
+
+h6 { font-size: 12px; }
+
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img { margin:0; }
+
+/* Paragraps */
+
+p { margin:0 0 20px 0;}
+
+/* Tables */
+
+table { 
+    margin-bottom: 20px;
+    width:100%;
+}
+
+th { font-weight: bold; }
+thead th { background: #c3d9ff; }
+th,td,caption { padding: 4px 10px 4px 5px; }
+tr.even td { background: #e5ecf9; }
+tfoot { font-style: italic; }
+caption { background: #eee; }
+
+/* Lists */
+
+li ul, li ol { margin: 0; }
+ul, ol { 
+    margin: 0 20px 20px 0;
+    padding-left: 40px;
+}
+
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+
+dl { margin: 0 0 20px 0; }
+dl dt { font-weight: bold; }
+dd { margin-left: 20px;}
+
+/* Misc */
+
+blockquote  { 	
+    margin: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+pre { 
+    margin: 20px 0;
+    white-space: pre;
+}
+
+pre,code,tt { 
+    font: 13px 'andale mono', 'lucida console', monospace;
+    line-height: 18px;
+}
+
+/**
+* MNEUS 
+----------------------------*/
+
+.menus, .menus * {
+    margin:	0;
+    padding: 0;
+    list-style:	none;
+    list-style-type: none;
+    line-height: 1.0;
+}
+
+.menus ul {
+    position: absolute;
+    top: -999em;
+    width: 100%;
+}
+
+.menus ul li {
+    width: 100%;
+}
+
+.menus li:hover {
+    visibility:	inherit;
+}
+
+.menus li {
+    float: left;
+    position: relative;
+}
+
+.menus a {
+    display: block;
+    position: relative;
+}
+
+.menus li:hover ul,
+.menus li.sfHover ul {
+    left: 0;
+    top: 100%; /* match top ul list item height */
+    z-index: 99;
+}
+
+.menus li:hover li ul,
+.menus li.sfHover li ul {
+    top: -999em;
+}
+
+.menus li li:hover ul,
+.menus li li.sfHover ul {
+    left: 100%; /* match ul width */
+    top: 0;
+}
+
+.menus li li:hover li ul,
+.menus li li.sfHover li ul {
+    top: -999em;
+}
+
+.menus li li li:hover ul,
+.menus li li li.sfHover ul {
+    left: 100%; /* match ul width */
+    top: 0;
+}
+
+
+/* Shadows */
+
+.sf-shadow ul {
+    padding: 0 8px 9px 0;
+    -moz-border-radius-bottomleft: 17px;
+    -moz-border-radius-topright: 17px;
+    -webkit-border-top-right-radius: 17px;
+    -webkit-border-bottom-left-radius: 17px;
+}
+
+.menus .sf-shadow ul.sf-shadow-off {
+    background: transparent;
+}
+
+/**
+* Some Default and WP required styles.
+-------------------------------------------------------------- */
+
+blockquote {
+    overflow: hidden;
+    padding-left: 9px;
+    font-style: italic;
+    color: #666;
+    border-left: 3px solid #CADAE7;
+}
+
+img.wp-smiley {
+    max-height: 12px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.wp-caption {
+    background: #eee;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding-top: 4px;
+    margin: 10px;
+    /* optional rounded corners for browsers that support it */
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.wp-caption img {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    padding: 0 4px 5px;
+    margin: 0;
+}
+
+.gallery-caption {
+}
+
+.sticky {
+}
+
+/**
+* Add padding to images in the posts
+----------------------------*/
+
+.post img.alignleft {
+    margin: 0 10px 10px 0;
+}
+
+.post img.alignright {
+    margin: 0 0 10px 10px;
+}
+
+.post img.aligncenter {
+    margin-bottom: 10px;
+}
+
+/**
+* Wp Calendar
+----------------------------*/
+
+#wp-calendar {
+    empty-cells: show;
+    font-family: Arial, Helvetica, Sans-serif;
+    margin: 0;
+    font-weight: normal;
+    width: 100%;
+    border-spacing: 1px;
+    border-collapse: separate;
+}
+
+#wp-calendar caption {
+    padding: 4px 0;
+    text-transform: uppercase;  
+    margin: 2px 0 2px 0;
+    text-align: left;
+    background: none;
+}
+
+#wp-calendar th {
+    font-style: normal;
+    text-transform: capitalize;
+    background: none;
+}
+
+#wp-calendar td {
+    font-family: Arial, Helvetica, Sans-serif;
+    letter-spacing: normal;
+    padding: 4px 0;
+    text-align: center;
+    background: none;
+}
+
+.error {
+	text-align: center;
+	color: #fff;
+    font-weight: bold;
+	background: Red;
+	padding: 8px;
+    font-size: 12px;
+	margin: 0 0 10px 0;
+}
+
+.message {
+	text-align: center;
+	color: #fff;
+    font-weight: bold;
+	background: Green;
+	padding: 8px;
+    font-size: 12px;
+	margin: 0 0 10px 0;
+}
+
 /*
     Theme Name: UERR - Universidade Estadual de Roraima
     Theme URI: https://uerr.edu.br/
@@ -71,9 +379,9 @@ a:focus {
 -------------------------------------------------------------- */
 
 #container {
-	width: 960px;
+	width: 100%;
 	margin: 0 auto;
-
+        float: left;
 
 }
 
@@ -81,6 +389,7 @@ a:focus {
 	padding: 15px;
     background: #fff;
     margin-top: 6px;
+    width: 100%;
 }
 
 #main-fullwidth {
@@ -92,8 +401,8 @@ a:focus {
 #content {
     overflow: hidden;
     float: left;
-    width: 460px;
-    margin-left: 235px;
+    width: 100%;
+    margin-left: 15px;
     margin-bottom: 10px;
 }
 
@@ -104,7 +413,7 @@ a:focus {
     margin-left: -695px;
 }
 
-#sidebar-primary img:hover {
+#sidebar-primary image:hover {
     opacity: 0.85;
 }
 #sidebar-secondary {
@@ -171,21 +480,21 @@ a:focus {
 }
 
 .seg-menu span:hover {
-    background-image: url(../img/seta-azul-hover.png);
+    background-image: url(../image/seta-azul-hover.png);
 }
 
 .meta_topo_conc {
-    background-image: url(../img/seta-azul.png);
+    background-image: url(../image/seta-azul.png);
 }
 
 .meta_topo_vest {
-    background-image: url(../img/seta-azul.png);
+    background-image: url(../image/seta-azul.png);
 }
 .meta_topo_serv {
-    background-image: url(../img/seta-azul.png);
+    background-image: url(../image/seta-azul.png);
 }
 .meta_topo_aluno {
-    background-image: url(../img/seta-azul.png);
+    background-image: url(../image/seta-azul.png);
 }
 
 #slider {
@@ -201,11 +510,13 @@ a:focus {
 -------------------------------------------------------------- */
 
 #header-fundo {
+    
     height: 180px;
     width: 100%;
    border-bottom: 1px solid #E6E6E6;
 }
 #header {
+    float: left;
     height: 114px;
     margin: -160px 0 0 0;
     padding: 10px 0 35px 0;
@@ -248,15 +559,16 @@ a:focus {
 .menu-primary-container {
     padding: 0;
     position:relative;
-    margin: 12px auto 0 auto;
+    margin: 0px auto 0 auto;
+    padding-left: 15px; 
     height: 51px;
-	width: 930px;
+    width: 100%;
     background: #f0f0f0;
 
 }
 
 .menu-primary {
-	width: 930px;
+	width: 100%;
 	margin: 0 auto;
     background: #999;
 }
@@ -277,6 +589,7 @@ a:focus {
     height: 35px;
     width: 100%;
     background: #f0f0f0;
+    float: left;
 }
 
 .barra-interna {
@@ -287,17 +600,17 @@ a:focus {
 }
 
 
-.uerr_home img {
+.uerr_home image {
 
 }
 
-.uerr_home img:hover {
+.uerr_home image:hover {
     opacity: 0.85;
     background-position: left;
     background-repeat: no-repeat;
 }
 
-.uerr_home_branco img {
+.uerr_home_branco image {
     display: none;
 }
 .menu_topo {
@@ -370,10 +683,10 @@ a:focus {
     padding: 0 0 0 5px;
 }
 
-.menu_topo .redes_topo img{
+.menu_topo .redes_topo image{
 }
 
-.redes_topo img:hover{
+.redes_topo image:hover{
     opacity: 0.85;
 
 }
@@ -731,39 +1044,39 @@ a:focus {
 }
 
 .meta_date {
-    background-image: url(../img/data.png);
+    background-image: url(../image/data.png);
 }
 
 .meta_author {
-    background-image: url(img/author.png);
+    background-image: url(image/author.png);
 }
 
 .meta_comments {
-    background-image: url(img/comments.png);
+    background-image: url(image/comments.png);
 }
 
 .meta_edit {
-    background-image: url(img/edit.png);
+    background-image: url(image/edit.png);
 }
 
 .meta_categories {
-    background-image: url(../img/cat.png);
+    background-image: url(../image/cat.png);
 }
 
 .meta_tags {
-    background-image: url(img/tags.png);
+    background-image: url(image/tags.png);
 }
 
 .meta_topo_footer {
-    background-image: url(../img/fone.png);
+    background-image: url(../image/fone.png);
 }
 
 .meta_topo_footer2 {
-    background-image: url(../img/mail.png);
+    background-image: url(../image/mail.png);
 }
 
 .meta_topo_footer3 {
-    background-image: url(../img/horario.png);
+    background-image: url(../image/horario.png);
 }
 /* Read More
 ----------------------------*/
@@ -1076,6 +1389,7 @@ a:focus {
     padding: 15px 0 0 0;
 	margin: 0 auto;
     position:relative;
+     top:0px;
 	width: 100%;
 	height: 35px;
     background: #004585;
@@ -1085,6 +1399,10 @@ a:focus {
 
 
 #footer-container {
+  position:relative;
+  width: 100%;
+     top:0px;   
+     float: left;
 }
 
 #footer {
@@ -1306,7 +1624,7 @@ a:focus {
     margin-bottom: -10px;
 }
 
-.banners-125 img {
+.banners-125 image {
     margin: 0 5px 5px 5px;
 }
 
@@ -1482,11 +1800,11 @@ a:focus {
 
 /* Social Profiles Widget
 ----------------------------*/
-.social-profiles-widget img {
+.social-profiles-widget image {
     margin: 0 3px 0 0;
 }
 
-.social-profiles-widget img:hover {
+.social-profiles-widget image:hover {
     opacity: 0.85;
 }
 
@@ -2013,7 +2331,7 @@ h3#reply- {
         padding: 0;
     }
 
-    .social-profiles-widget img {
+    .social-profiles-widget image {
         width: 60px;
         height: 60px;
     }
@@ -2102,12 +2420,12 @@ h3#reply- {
     .widget_search {
         display: none;
     }
-    .widget-container img {
+    .widget-container image {
         width: 100%;
         height: auto;
     }
 
-    .social-profiles-widget img {
+    .social-profiles-widget image {
         width: 65px;
         height: 65px;
     }
@@ -2117,14 +2435,14 @@ h3#reply- {
 /* Some General Formattings ----------- */
 
 embed,
-img,
+image,
 object,
 video,
 .wp-caption {
 	max-width: 100%;
 }
 
-img {
+image {
 	height: auto;
 }
 
@@ -2156,7 +2474,9 @@ img {
     padding: 0 !important;
 }
 
-.woocommerce img {
+.woocommerce image {
     width: auto !important;
     height: auto !important;
 }
+
+

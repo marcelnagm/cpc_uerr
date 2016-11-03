@@ -25,7 +25,6 @@ abstract class BaseTbCandidatoFormFilter extends BaseFormFilterDoctrine
       'data_nascimento'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'cidade_nascimento' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'cep'               => new sfWidgetFormFilterInput(),
-      'logradouro'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbLogradouro'), 'add_empty' => true)),
       'endereco'          => new sfWidgetFormFilterInput(),
       'numero'            => new sfWidgetFormFilterInput(),
       'complemento'       => new sfWidgetFormFilterInput(),
@@ -35,7 +34,7 @@ abstract class BaseTbCandidatoFormFilter extends BaseFormFilterDoctrine
       'tel2'              => new sfWidgetFormFilterInput(),
       'tel3'              => new sfWidgetFormFilterInput(),
       'email'             => new sfWidgetFormFilterInput(),
-      'user_id'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'user_id'           => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -51,7 +50,6 @@ abstract class BaseTbCandidatoFormFilter extends BaseFormFilterDoctrine
       'data_nascimento'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'cidade_nascimento' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'cep'               => new sfValidatorPass(array('required' => false)),
-      'logradouro'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbLogradouro'), 'column' => 'id')),
       'endereco'          => new sfValidatorPass(array('required' => false)),
       'numero'            => new sfValidatorPass(array('required' => false)),
       'complemento'       => new sfValidatorPass(array('required' => false)),
@@ -94,7 +92,6 @@ abstract class BaseTbCandidatoFormFilter extends BaseFormFilterDoctrine
       'data_nascimento'   => 'Date',
       'cidade_nascimento' => 'Number',
       'cep'               => 'Text',
-      'logradouro'        => 'ForeignKey',
       'endereco'          => 'Text',
       'numero'            => 'Text',
       'complemento'       => 'Text',

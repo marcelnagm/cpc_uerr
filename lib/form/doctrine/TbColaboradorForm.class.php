@@ -15,7 +15,7 @@ class TbColaboradorForm extends BaseTbColaboradorForm
        $this->widgetSchema['id_cidade'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
             'label' => 'Cidade',          
             'model' => 'TbCidade',
-            'url'   => '/candidato/registrar/cidadesAjax',
+            'url'   => '/registrar/cidadesAjax',
             'config' => '{ max: 10 }'
         ),array('placeholder' => 'Inicie digitação e selecione a cidade'));
      

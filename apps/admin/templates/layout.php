@@ -80,6 +80,7 @@
                                                             <li><a href="<? echo url_for('homepage')?>">HOME</a></li>
                                                             <li><a href="<? echo url_for('tb_certame')?>">Certames</a></li>
                                                             <li><a href="<? echo url_for('tb_tipo_certame')?>">Tipo de Certame</a></li>
+                                                            <li><a href="<? echo url_for('tb_prova_vaga')?>">Prova Vaga</a></li>
                                                             <li><a href="<? echo url_for('tb_cargo')?>">Cargo</a></li>                                                                                                                        
                                                             <li><a href="<? echo url_for('tb_local')?>">Locais</a></li>                                                                                                                              
                                                             <li><a href="<? echo url_for('tb_colaborador')?>">Colaborador</a></li>                                                                                                                                                                              

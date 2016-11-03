@@ -16,4 +16,11 @@ class TbSalaProvaTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('TbSalaProva');
     }
+    
+      public function getPorLocalProva() {
+          $q = Doctrine_Query::create()->from('TbSalaProva')->where('id_local_prova = ?',  sfContext::getInstance()->getUser()->getAttribute('local_prova'));
+          return $q;
+           
+    }
+    
 }

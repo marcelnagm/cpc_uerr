@@ -15,7 +15,7 @@ class TbVagaForm extends BaseTbVagaForm
       $this->widgetSchema['id_cidade'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
             'label' => 'Cidade',          
             'model' => 'TbCidade',
-            'url'   => '/candidato/registrar/cidadesAjax',
+            'url'   => '/registrar/cidadesAjax',
             'config' => '{ max: 30 }'
         ),array('placeholder' => 'Inicie digitação e selecione a cidade'));
       

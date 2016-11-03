@@ -4,10 +4,7 @@ SfMessages:
        enviroment:                    { type: string(20) }
        active:                        { type: boolean, default: false }
 
-TbLogradouro:
-  columns:
-    nome:                       { type: string(255), notnull: true }    
-    
+ 
 TbBanco:
   columns:
     nome:                       { type: string(255), notnull: true }
@@ -52,8 +49,7 @@ TbCandidato:
     mae:                        { type: string(255) }  
     data_nascimento:            { type: date }  
     cidade_nascimento:          { type: integer, notnull: true }  
-    cep:                        { type: string(255) }  
-    logradouro:                 { type: string(255) }  
+    cep:                        { type: string(255) }    
     endereco:                   { type: string(255) }  
     numero:                     { type: string(255) }  
     complemento:               { type: string(255) }  
@@ -63,7 +59,7 @@ TbCandidato:
     tel2:                       { type: string(255) }  
     tel3:                       { type: string(255) }  
     email:                      { type: string(255) }  
-    user_id:          { type: integer, notnull: true }  
+    user_id:                    { type: integer }  
   relations:
     TbEstado:                 { local: rguf, foreign: id }   
     TbCidade:                 { local: cidade_nascimento, foreign: id }   
@@ -71,7 +67,7 @@ TbCandidato:
     TbRgtipo:                 { local: rgtipo, foreign: id , foreignAlias: TbRgtipo}   
     SfGuardUserId:            { local: user_id, foreign: id , foreignAlias: GuardUser}   
     TbRgemissor:              { local: rgemissor, foreign: id , foreignAlias: TbRgEmissor}   
-    TbLogradouro:             { local: logradouro, foreign: id , foreignAlias: TbLogradouro}   
+ 
     
 TbCargo:
   actAs:
@@ -104,6 +100,7 @@ TbCertame:
     data_inicio_isencao:        { type: date}  
     data_fim_isencao:           { type: date}  
     publicado:                  { type: boolean, notnull: true }  
+    tem_redacao:                { type: boolean, notnull: true }  
     data_inicio_inscricao:      { type: date}  
     data_fim_inscricao:         { type: date}
   relations:
@@ -211,7 +208,7 @@ TbLocal:
      sigla:                       { type:  string(255) }        
      telefone:                    { type:  string(255)}        
      endereco:                    { type:  string(255)}        
-     nsalas:                      { type:  string(255) }        
+     nsalas:                      { type: integer }        
      status:                      { type: boolean }        
    relations:    
     TbCidade:                    { local: id_cidade, foreign: id }   
@@ -246,13 +243,26 @@ TbLotacaoProva:
     TbSala:                   { local: id_sala, foreign: id }     
     TbInscricao:              { local: id_inscricao, foreign: id}       
 
+TbProvaVaga:
+   columns:
+        id_prova:                  { type: integer, notnull: true }            
+        id_vaga:                   { type: integer, notnull: true }            
+        gabarito:                  { type: string}        
+   relations:    
+    TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
+    TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva }   
+   indexes:
+    prova_vaga:
+      fields: [id_prova,id_vaga]
+      type: unique 
+    
+
 TbProva:
    actAs:
     Timestampable: ~
     Signable: ~  
    columns:
-     id_certame:                { type: integer, notnull: true }        
-     id_vaga:                   { type: integer, notnull: true }        
+     id_certame:                { type: integer, notnull: true }           
      data_inicio:               { type: date, notnull: true }        
      hora_inicio:               { type: time, notnull: true }        
      duracao:                   { type: string(10), notnull: true }        
@@ -307,8 +317,7 @@ TbColaboracao:
      presente:                  { type: boolean}        
      listagem:                  { type: boolean}        
    relations:
-    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
-    TbProva:                     { local: id_prova, foreign: id}   
+    TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }         
     TbFuncao:                    { local: id_funcao, foreign: id}   
     TbLocalProva:                { local: id_local_prova, foreign: id}           
     TbColaborador:               { local: id_colaborador, foreign: id, foreignAlias: TbColaborador }  
@@ -326,8 +335,7 @@ TbColaborador:
     rgemissor:                  { type: integer, notnull: true }  
     cpf:                        { type: string(255), unique: true, notnull: true }
     pispasep:                   { type: string(255) }    
-    cep:                        { type: string(255) }  
-    logradouro:                 { type: string(255) }  
+    cep:                        { type: string(255) }     
     endereco:                   { type: string(255) }         
     bairro:                     { type: string(255) }  
     id_cidade:                  { type: integer }  
@@ -348,7 +356,7 @@ TbColaborador:
     TbRgemissor:              { local: rgemissor, foreign: id }   
     TbBanco:                  { local: id_banco, foreign: id }        
     TbEstado:                 { local: rguf, foreign: id }   
-    TbLogradouro:             { local: logradouro, foreign: id , foreignAlias: TbLogradouro} 
+    
     
 TbSalaProva:
    actAs:
@@ -356,10 +364,10 @@ TbSalaProva:
     Signable: ~  
    columns:
      id_local_prova:               { type: integer, notnull: true }        
-     especial:                   { type: integer, notnull: true }        
-     numero_sala:                { type: integer, notnull: true }        
+     especial:                   { type: string(255), notnull: true }        
+     numero_sala:                { type: string(255), notnull: true }        
      vagas:                      { type: integer, notnull: true }        
-     status:                     { type: integer, notnull: true }       
+     status:                     { type: boolean, notnull: true }       
    relations:      
      TbLocalProva:                { local: id_local_prova, foreign: id, foreignAlias: TbLocalProva }      
      

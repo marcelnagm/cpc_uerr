@@ -28,7 +28,6 @@ abstract class BaseTbCandidatoForm extends BaseFormDoctrine
       'data_nascimento'   => new sfWidgetFormDate(),
       'cidade_nascimento' => new sfWidgetFormInputText(),
       'cep'               => new sfWidgetFormInputText(),
-      'logradouro'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbLogradouro'), 'add_empty' => true)),
       'endereco'          => new sfWidgetFormInputText(),
       'numero'            => new sfWidgetFormInputText(),
       'complemento'       => new sfWidgetFormInputText(),
@@ -55,7 +54,6 @@ abstract class BaseTbCandidatoForm extends BaseFormDoctrine
       'data_nascimento'   => new sfValidatorDate(array('required' => false)),
       'cidade_nascimento' => new sfValidatorInteger(),
       'cep'               => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'logradouro'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbLogradouro'), 'required' => false)),
       'endereco'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'numero'            => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'complemento'       => new sfValidatorString(array('max_length' => 255, 'required' => false)),
@@ -65,7 +63,7 @@ abstract class BaseTbCandidatoForm extends BaseFormDoctrine
       'tel2'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'tel3'              => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email'             => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'user_id'           => new sfValidatorInteger(),
+      'user_id'           => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

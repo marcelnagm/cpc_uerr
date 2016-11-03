@@ -13,7 +13,7 @@
 class TbProva extends BaseTbProva
 {
     public function __toString() {
-        return $this->getTbVaga().' / '.$this->getDataInicio();
+        return $this->getTbCertame().' / '.$this->getDataInicio();
     }
     
 }

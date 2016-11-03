@@ -141,7 +141,7 @@ h1 {
   display: block;
   width: 270px;
   height: 78px;
-  background: url('../img/logo.png') center bottom no-repeat;
+  background: url('../images/logo.png') center bottom no-repeat;
   margin: 0 auto 25px;
   padding-top: 70px;
 }
@@ -162,14 +162,22 @@ p {
   color: #204f7d;
 }
 
-#session form .user {
+#signin_username {
     display: inline-block;
-    background: url('../image/user.png') left center no-repeat;
+    background: url('../images/user.png') left center no-repeat;
     background-color: #f0f0f0;
 }
 
-#session form .senha {
+#signin_password {
     display: inline-block;
-    background: url('../image/senha.png') left center no-repeat;
+    background: url('../images/senha.png') left center no-repeat;
     background-color: #f0f0f0;
+}
+
+label{
+        font-size: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 130%;
+    color: #204f7d;
 }

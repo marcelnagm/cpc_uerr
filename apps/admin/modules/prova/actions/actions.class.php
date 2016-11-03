@@ -13,4 +13,14 @@ require_once dirname(__FILE__).'/../lib/provaGeneratorHelper.class.php';
  */
 class provaActions extends autoProvaActions
 {
+     public function executeListVagas(\sfWebRequest $request) {
+        $prova =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
+        $this->forward('prova_vaga','index');
+    }
+    
+     public function executeListCertames(\sfWebRequest $request) {    
+        $this->redirect('certame/index');
+    }
+    
 }

@@ -10,7 +10,7 @@
  * @property string $sigla
  * @property string $telefone
  * @property string $endereco
- * @property string $nsalas
+ * @property integer $nsalas
  * @property boolean $status
  * @property TbCidade $TbCidade
  * @property Doctrine_Collection $TbLocal
@@ -20,7 +20,7 @@
  * @method string              getSigla()     Returns the current record's "sigla" value
  * @method string              getTelefone()  Returns the current record's "telefone" value
  * @method string              getEndereco()  Returns the current record's "endereco" value
- * @method string              getNsalas()    Returns the current record's "nsalas" value
+ * @method integer             getNsalas()    Returns the current record's "nsalas" value
  * @method boolean             getStatus()    Returns the current record's "status" value
  * @method TbCidade            getTbCidade()  Returns the current record's "TbCidade" value
  * @method Doctrine_Collection getTbLocal()   Returns the current record's "TbLocal" collection
@@ -64,9 +64,8 @@ abstract class BaseTbLocal extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('nsalas', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
+        $this->hasColumn('nsalas', 'integer', null, array(
+             'type' => 'integer',
              ));
         $this->hasColumn('status', 'boolean', null, array(
              'type' => 'boolean',

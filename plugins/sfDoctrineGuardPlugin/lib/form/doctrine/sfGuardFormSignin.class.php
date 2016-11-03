@@ -20,5 +20,6 @@ class sfGuardFormSignin extends BasesfGuardFormSignin
             'password' => 'Senha:',
             'remember' => 'Lembrar Senha:'
         ));
+         $this->widgetSchema['username']->setAttribute('maxlength', '11');
     }
 }

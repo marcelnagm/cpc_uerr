@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbSalaProva
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_sala_prova
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+          actions:
+              _new: ~
+              LocalProva: 
+                  label: Lista de Locais de Prova
+          title: Lista de Salas de Prova
+          display: [numero_sala,especial,vagas,status]
+          table_method:  getPorLocalProva
+      filter:  
+          class: false
+      form:    ~
+      edit:    ~
+      new:     ~

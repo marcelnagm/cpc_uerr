@@ -13,4 +13,8 @@ require_once dirname(__FILE__).'/../lib/vagaGeneratorHelper.class.php';
  */
 class vagaActions extends autoVagaActions
 {
+     public function executeListCertames(\sfWebRequest $request) {    
+        $this->redirect('certame/index');
+    }
+    
 }

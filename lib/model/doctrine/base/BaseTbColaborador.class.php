@@ -14,7 +14,6 @@
  * @property string $cpf
  * @property string $pispasep
  * @property string $cep
- * @property string $logradouro
  * @property string $endereco
  * @property string $bairro
  * @property integer $id_cidade
@@ -34,7 +33,6 @@
  * @property TbRgemissor $TbRgemissor
  * @property TbBanco $TbBanco
  * @property TbEstado $TbEstado
- * @property TbLogradouro $TbLogradouro
  * @property Doctrine_Collection $TbColaborador
  * @property Doctrine_Collection $TbResponsavelSala
  * 
@@ -47,7 +45,6 @@
  * @method string              getCpf()               Returns the current record's "cpf" value
  * @method string              getPispasep()          Returns the current record's "pispasep" value
  * @method string              getCep()               Returns the current record's "cep" value
- * @method string              getLogradouro()        Returns the current record's "logradouro" value
  * @method string              getEndereco()          Returns the current record's "endereco" value
  * @method string              getBairro()            Returns the current record's "bairro" value
  * @method integer             getIdCidade()          Returns the current record's "id_cidade" value
@@ -67,7 +64,6 @@
  * @method TbRgemissor         getTbRgemissor()       Returns the current record's "TbRgemissor" value
  * @method TbBanco             getTbBanco()           Returns the current record's "TbBanco" value
  * @method TbEstado            getTbEstado()          Returns the current record's "TbEstado" value
- * @method TbLogradouro        getTbLogradouro()      Returns the current record's "TbLogradouro" value
  * @method Doctrine_Collection getTbColaborador()     Returns the current record's "TbColaborador" collection
  * @method Doctrine_Collection getTbResponsavelSala() Returns the current record's "TbResponsavelSala" collection
  * @method TbColaborador       setNome()              Sets the current record's "nome" value
@@ -79,7 +75,6 @@
  * @method TbColaborador       setCpf()               Sets the current record's "cpf" value
  * @method TbColaborador       setPispasep()          Sets the current record's "pispasep" value
  * @method TbColaborador       setCep()               Sets the current record's "cep" value
- * @method TbColaborador       setLogradouro()        Sets the current record's "logradouro" value
  * @method TbColaborador       setEndereco()          Sets the current record's "endereco" value
  * @method TbColaborador       setBairro()            Sets the current record's "bairro" value
  * @method TbColaborador       setIdCidade()          Sets the current record's "id_cidade" value
@@ -99,7 +94,6 @@
  * @method TbColaborador       setTbRgemissor()       Sets the current record's "TbRgemissor" value
  * @method TbColaborador       setTbBanco()           Sets the current record's "TbBanco" value
  * @method TbColaborador       setTbEstado()          Sets the current record's "TbEstado" value
- * @method TbColaborador       setTbLogradouro()      Sets the current record's "TbLogradouro" value
  * @method TbColaborador       setTbColaborador()     Sets the current record's "TbColaborador" collection
  * @method TbColaborador       setTbResponsavelSala() Sets the current record's "TbResponsavelSala" collection
  * 
@@ -151,10 +145,6 @@ abstract class BaseTbColaborador extends sfDoctrineRecord
              'length' => 255,
              ));
         $this->hasColumn('cep', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('logradouro', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));
@@ -234,10 +224,6 @@ abstract class BaseTbColaborador extends sfDoctrineRecord
 
         $this->hasOne('TbEstado', array(
              'local' => 'rguf',
-             'foreign' => 'id'));
-
-        $this->hasOne('TbLogradouro', array(
-             'local' => 'logradouro',
              'foreign' => 'id'));
 
         $this->hasMany('TbLocalProva as TbColaborador', array(

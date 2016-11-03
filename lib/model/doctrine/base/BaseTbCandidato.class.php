@@ -17,7 +17,6 @@
  * @property date $data_nascimento
  * @property integer $cidade_nascimento
  * @property string $cep
- * @property string $logradouro
  * @property string $endereco
  * @property string $numero
  * @property string $complemento
@@ -32,7 +31,6 @@
  * @property TbCidade $TbCidade
  * @property TbRgtipo $TbRgtipo
  * @property TbRgemissor $TbRgemissor
- * @property TbLogradouro $TbLogradouro
  * @property Doctrine_Collection $TbInscricao
  * 
  * @method string              getNome()              Returns the current record's "nome" value
@@ -47,7 +45,6 @@
  * @method date                getDataNascimento()    Returns the current record's "data_nascimento" value
  * @method integer             getCidadeNascimento()  Returns the current record's "cidade_nascimento" value
  * @method string              getCep()               Returns the current record's "cep" value
- * @method string              getLogradouro()        Returns the current record's "logradouro" value
  * @method string              getEndereco()          Returns the current record's "endereco" value
  * @method string              getNumero()            Returns the current record's "numero" value
  * @method string              getComplemento()       Returns the current record's "complemento" value
@@ -62,7 +59,6 @@
  * @method TbCidade            getTbCidade()          Returns the current record's "TbCidade" value
  * @method TbRgtipo            getTbRgtipo()          Returns the current record's "TbRgtipo" value
  * @method TbRgemissor         getTbRgemissor()       Returns the current record's "TbRgemissor" value
- * @method TbLogradouro        getTbLogradouro()      Returns the current record's "TbLogradouro" value
  * @method Doctrine_Collection getTbInscricao()       Returns the current record's "TbInscricao" collection
  * @method TbCandidato         setNome()              Sets the current record's "nome" value
  * @method TbCandidato         setSexo()              Sets the current record's "sexo" value
@@ -76,7 +72,6 @@
  * @method TbCandidato         setDataNascimento()    Sets the current record's "data_nascimento" value
  * @method TbCandidato         setCidadeNascimento()  Sets the current record's "cidade_nascimento" value
  * @method TbCandidato         setCep()               Sets the current record's "cep" value
- * @method TbCandidato         setLogradouro()        Sets the current record's "logradouro" value
  * @method TbCandidato         setEndereco()          Sets the current record's "endereco" value
  * @method TbCandidato         setNumero()            Sets the current record's "numero" value
  * @method TbCandidato         setComplemento()       Sets the current record's "complemento" value
@@ -91,7 +86,6 @@
  * @method TbCandidato         setTbCidade()          Sets the current record's "TbCidade" value
  * @method TbCandidato         setTbRgtipo()          Sets the current record's "TbRgtipo" value
  * @method TbCandidato         setTbRgemissor()       Sets the current record's "TbRgemissor" value
- * @method TbCandidato         setTbLogradouro()      Sets the current record's "TbLogradouro" value
  * @method TbCandidato         setTbInscricao()       Sets the current record's "TbInscricao" collection
  * 
  * @package    uerr
@@ -156,10 +150,6 @@ abstract class BaseTbCandidato extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('logradouro', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
         $this->hasColumn('endereco', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
@@ -197,7 +187,6 @@ abstract class BaseTbCandidato extends sfDoctrineRecord
              ));
         $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => true,
              ));
     }
 
@@ -218,10 +207,6 @@ abstract class BaseTbCandidato extends sfDoctrineRecord
 
         $this->hasOne('TbRgemissor', array(
              'local' => 'rgemissor',
-             'foreign' => 'id'));
-
-        $this->hasOne('TbLogradouro', array(
-             'local' => 'logradouro',
              'foreign' => 'id'));
 
         $this->hasMany('TbInscricao', array(

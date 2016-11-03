@@ -13,4 +13,23 @@ require_once dirname(__FILE__).'/../lib/local_provaGeneratorHelper.class.php';
  */
 class local_provaActions extends autoLocal_provaActions
 {
+    public function executeListLocal(\sfWebRequest $request) {    
+        $this->redirect('local/index');
+    }
+    
+     public function executeListSalaProva(\sfWebRequest $request) {
+        $local_prova =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('local_prova', $local_prova->getId());
+        $this->forward('sala_prova','index');
+    }
+    
+   public function executeIndex(\sfWebRequest $request) {
+        $this->certame = TbCertameTable::getInstance()->find(sfContext::getInstance()->getUser()->getAttribute('certame'));
+    parent::executeIndex($request);
+
+    }
+    public function executeListCertames(\sfWebRequest $request) {    
+        $this->redirect('certame/index');
+    }
+    
 }

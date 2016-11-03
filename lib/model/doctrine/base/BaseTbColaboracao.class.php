@@ -14,7 +14,6 @@
  * @property boolean $presente
  * @property boolean $listagem
  * @property TbCertame $TbCertame
- * @property TbProva $TbProva
  * @property TbFuncao $TbFuncao
  * @property TbLocalProva $TbLocalProva
  * @property TbColaborador $TbColaborador
@@ -28,7 +27,6 @@
  * @method boolean       getPresente()       Returns the current record's "presente" value
  * @method boolean       getListagem()       Returns the current record's "listagem" value
  * @method TbCertame     getTbCertame()      Returns the current record's "TbCertame" value
- * @method TbProva       getTbProva()        Returns the current record's "TbProva" value
  * @method TbFuncao      getTbFuncao()       Returns the current record's "TbFuncao" value
  * @method TbLocalProva  getTbLocalProva()   Returns the current record's "TbLocalProva" value
  * @method TbColaborador getTbColaborador()  Returns the current record's "TbColaborador" value
@@ -41,7 +39,6 @@
  * @method TbColaboracao setPresente()       Sets the current record's "presente" value
  * @method TbColaboracao setListagem()       Sets the current record's "listagem" value
  * @method TbColaboracao setTbCertame()      Sets the current record's "TbCertame" value
- * @method TbColaboracao setTbProva()        Sets the current record's "TbProva" value
  * @method TbColaboracao setTbFuncao()       Sets the current record's "TbFuncao" value
  * @method TbColaboracao setTbLocalProva()   Sets the current record's "TbLocalProva" value
  * @method TbColaboracao setTbColaborador()  Sets the current record's "TbColaborador" value
@@ -92,10 +89,6 @@ abstract class BaseTbColaboracao extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('TbCertame', array(
              'local' => 'id_certame',
-             'foreign' => 'id'));
-
-        $this->hasOne('TbProva', array(
-             'local' => 'id_prova',
              'foreign' => 'id'));
 
         $this->hasOne('TbFuncao', array(

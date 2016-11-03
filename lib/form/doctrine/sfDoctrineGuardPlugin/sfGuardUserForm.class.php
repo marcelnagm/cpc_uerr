@@ -13,6 +13,6 @@ class sfGuardUserForm extends PluginsfGuardUserForm
   public function configure()
   {
       $this->widgetSchema['username']->setHelper('Digite o Usuario');
-      
+     
   }
 }

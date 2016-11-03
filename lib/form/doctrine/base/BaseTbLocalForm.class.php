@@ -36,7 +36,7 @@ abstract class BaseTbLocalForm extends BaseFormDoctrine
       'sigla'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'telefone'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'endereco'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'nsalas'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'nsalas'     => new sfValidatorInteger(array('required' => false)),
       'status'     => new sfValidatorBoolean(array('required' => false)),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),

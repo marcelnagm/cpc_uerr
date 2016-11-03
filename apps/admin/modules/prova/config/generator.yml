@@ -14,15 +14,24 @@ generator:
     config:
       actions: ~
       fields:  
-          TbCertame: {label: Certame}
-          TbVaga: {label: Vaga}
+          TbCertame: {label: Certame}         
           id_certame: {label: Certame}
           id_vaga: {label: Vaga}
-      list:    
-          display: [TbVaga,data_inicio,hora_inicio,duracao]
+      list:
+          title: Lista de Provas do certame        
+          display: [data_inicio,hora_inicio,duracao]
           table_method:  getPorCertame
+          actions:
+              _new: ~
+              Certames: 
+                  label: Retornar Certames
+          object_actions:
+               _edit: ~
+               _delete: ~
+               Vagas:
+                   label: Vagas 
       filter:  
-          display: [id_vaga]
+          class: false
       form:    ~
       edit:    ~
       new:     ~

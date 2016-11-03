@@ -1,3 +1,21 @@
+tb_sala_prova:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbSalaProva
+    module:               sala_prova
+    prefix_path:          /sala_prova
+    column:               id
+    with_wildcard_routes: true
+
+tb_prova_vaga:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbProvaVaga
+    module:               prova_vaga
+    prefix_path:          /prova_vaga
+    column:               id
+    with_wildcard_routes: true
+
 tb_local:
   class: sfDoctrineRouteCollection
   options:
