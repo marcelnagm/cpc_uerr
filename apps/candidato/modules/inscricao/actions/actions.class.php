@@ -39,7 +39,15 @@ class inscricaoActions extends autoInscricaoActions
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
       try {
-        $tb_inscricao = $form->save();
+        $certame = sfContext::getInstance()->getUser()->getAttribute('certame');
+        $values = $form->getValues();
+        $tb_inscricao = new TbInscricao(); 
+        $tb_inscricao->setArray($values);
+        $tb_inscricao->setTbCertame($certame);
+        $candidato = TbCandidatoTable::getInstance()->findOneBy('user_id', sfContext::getInstance()->getUser()->getId());
+        $tb_inscricao->setTbCandidato($candidato);
+        
+        $tb_inscricao->save();
         $tb_inscricao->setBoleto($tb_inscricao->getId());
         $tb_inscricao->save();
       } catch (Doctrine_Validator_Exception $e) {
