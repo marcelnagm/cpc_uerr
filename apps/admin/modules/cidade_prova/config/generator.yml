@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbCidadeProva
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_cidade_prova
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+          TbCidade:
+              label: Cidade de Prova
+      list:    
+          title: Lista de Cidades de Prova do Certame
+          actions:
+              _new: ~
+              Certames:
+                  label: Lista de Certames
+          table_method:  getPorCertame
+          display: [TbCidade] 
+      filter:  
+          class: false
+      form:    ~
+      edit:    ~
+      new:     ~

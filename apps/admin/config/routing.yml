@@ -1,3 +1,21 @@
+tb_cidade_prova:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbCidadeProva
+    module:               cidade_prova
+    prefix_path:          /cidade_prova
+    column:               id
+    with_wildcard_routes: true
+
+tb_inscricao:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbInscricao
+    module:               inscricao
+    prefix_path:          /inscricao
+    column:               id
+    with_wildcard_routes: true
+
 tb_sala_prova:
   class: sfDoctrineRouteCollection
   options:

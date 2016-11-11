@@ -1,0 +1,24 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbInscricao
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_inscricao
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:           
+      fields:  ~
+      list:    
+          actions: []
+          batch_actions: []
+      filter:  
+          display: [id_vaga]
+      form:    ~
+      edit:    ~
+      new:     ~

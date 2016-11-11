@@ -40,14 +40,24 @@ class certameActions extends autoCertameActions {
     public function executeListInscrever(\sfWebRequest $request) {
         $certame = new TbCertame();
         $certame = $this->getRoute()->getObject();
-        $data = date('Y-m-d');
-        if (( $data >= $certame->getDataInicio()) && ( $data <= $certame->getDataFim() )) {
-            sfContext::getInstance()->getUser()->setAttribute('certame', $certame);
-            $this->redirect('inscricao/index');
-        } else {
-            $this->getUser()->setFlash('error','Certame Fechado para inscrição');
+        $data = date('Y-m-d H:s');
+        
+        if(!$certame->getPublicado() ){
+            $this->getUser()->setFlash('error','Certame inexistente');
             $this->redirect('@homepage');
         }
+        
+         $this->data = $data;
+         $this->certame = $certame;
+          if (( $data >= $certame->getDataInicioInscricao()) && ( $data <= $certame->getDataFimInscricao() )) {
+            sfContext::getInstance()->getUser()->setAttribute('certame', $certame);                       
+            
+            $this->redirect('inscricao/new');
+        }else{
+            $this->getUser()->setFlash('error','Certame Fechado para inscrição');            
+            $this->redirect('@homepage');
+        }
+        
     }
 
     public function executeUpdate(\sfWebRequest $request) {

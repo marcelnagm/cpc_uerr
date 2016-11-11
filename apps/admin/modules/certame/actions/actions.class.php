@@ -20,6 +20,12 @@ class certameActions extends autoCertameActions
         $this->forward('vaga','index');
     }
     
+    public function executeListInscricao(\sfWebRequest $request) {
+        $certame =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
+        $this->forward('inscricao','index');
+    }
+    
     public function executeListProvas(\sfWebRequest $request) {
         $certame =$this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
@@ -30,6 +36,12 @@ class certameActions extends autoCertameActions
         $certame =$this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
         $this->forward('local_prova','index');
+    }
+    
+    public function executeListCidadeProva(\sfWebRequest $request) {
+        $certame =$this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
+        $this->forward('cidade_prova','index');
     }
     
     public function executeListColaboracao(\sfWebRequest $request) {

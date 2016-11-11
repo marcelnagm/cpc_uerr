@@ -15,7 +15,12 @@ class inscricaoActions extends autoInscricaoActions
 {
     public function executeNew(\sfWebRequest $request) {
         $certame = sfContext::getInstance()->getUser()->getAttribute('certame');
-          if (!( $data >= $certame->getDataInicio()) && !( $data <= $certame->getDataFim() )) {
+        $data = date('Y-m-d H:s');
+        if(!$certame->getPublicado() ){
+            $this->getUser()->setFlash('error','Certame inexistente');
+            $this->redirect('@homepage');
+        }
+          if (!(( $data >= $certame->getDataInicioInscricao()) && ( $data <= $certame->getDataFimInscricao() ))) {
             sfContext::getInstance()->getUser()->setAttribute('certame', $certame);
             $this->getUser()->setFlash('error','Certame Fechado para inscrição');
             $this->redirect('@homepage');

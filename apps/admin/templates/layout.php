@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR"><head profile="http://gmpg.org/xfn/11">
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                
+
 
                 <!--[if lt IE 8]><link rel="stylesheet" href="http://uerr.edu.br/wp-content/themes/uerr/lib/css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
 
@@ -58,6 +58,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div id="sf_admin_container">
 
                                                 <div id="header">
@@ -77,14 +78,37 @@
 
                                                 <div class="clearfix">
                                                     <div class="menu-primary-container"><ul id="menu-principal" class="menus menu-primary sub-menu sf-js-enabled">
-                                                            <li><a href="<? echo url_for('homepage')?>">HOME</a></li>
-                                                            <li><a href="<? echo url_for('tb_certame')?>">Certames</a></li>
-                                                            <li><a href="<? echo url_for('tb_tipo_certame')?>">Tipo de Certame</a></li>
-                                                            <li><a href="<? echo url_for('tb_prova_vaga')?>">Prova Vaga</a></li>
-                                                            <li><a href="<? echo url_for('tb_cargo')?>">Cargo</a></li>                                                                                                                        
-                                                            <li><a href="<? echo url_for('tb_local')?>">Locais</a></li>                                                                                                                              
-                                                            <li><a href="<? echo url_for('tb_colaborador')?>">Colaborador</a></li>                                                                                                                                                                              
-                                                            <li><a href="<? echo url_for('tb_funcao')?>">Função</a></li>                                                                                                                                                                                   
+                                                            <li><a href="<? echo url_for('homepage') ?>">HOME</a></li>
+                                                            <li><a href="<? echo url_for('tb_certame') ?>">Certames</a></li>
+                                                            <li><a href="<? echo url_for('tb_tipo_certame') ?>">Tipo de Certame</a></li>
+                                                            <li><a href="<? echo url_for('tb_prova_vaga') ?>">Prova Vaga</a></li>
+                                                            <li><a href="<? echo url_for('tb_cargo') ?>">Cargo</a></li>                                                                                                                        
+                                                            <li><a href="<? echo url_for('tb_local') ?>">Locais</a></li>                                                                                                                              
+                                                            <li><a href="<? echo url_for('tb_colaborador') ?>">Colaborador</a></li>                                                                                                                                                                              
+                                                            <li><a href="<? echo url_for('tb_funcao') ?>">Função</a></li>                                                                                                                                                                                   
+                                                            <?php if ($sf_user->isAuthenticated()): ?>
+                                                                <?php if ($sf_user->isSuperAdmin()): ?>
+
+                                                                    <?php if ($sf_user->hasCredential('list_user')): ?>
+                                                                        <li class="left"><?php print link_to('Usuários', '@sf_guard_user', array('class' => 'user ico')) ?></li>                                                        
+                                                                    <?php endif ?>
+
+                                                                    <?php if ($sf_user->hasCredential('list_group')): ?>
+                                                                        <li class="left"><?php print link_to('Grupos', '@sf_guard_group', array('class' => 'group ico')) ?></li>
+                                                                    <?php endif ?>
+
+                                                                    <?php if ($sf_user->isSuperAdmin()): ?>
+                                                                        <li class="left"><?php print link_to('Permissões', '@sf_guard_permission', array('class' => 'permission ico')) ?></li>
+                                                                    <?php endif ?>
+                                                                    <?php if ($sf_user->isSuperAdmin()): ?>
+                                                                        <li class="left"><?php print link_to('Modulo', '@sf_guard_module', array('class' => 'permission ico')) ?></li>
+                                                                    <?php endif ?>
+                                                                    <?php if ($sf_user->isSuperAdmin()): ?>
+                                                                        <li class="left"><?php print link_to('Mensagens', '@sf_messages', array('class' => 'permission ico')) ?></li>                                                                                            
+
+                                                                    <?php endif ?>
+                                                                <?php endif ?>
+                                                            <?php endif ?>
                                                             <li><?php print link_to('Sair', '@sf_guard_signout', array('class' => 'delete ico')) ?></li>
                                                     </div>
                                                 </div>
@@ -111,31 +135,31 @@
                                                                         
                                                             </div> Post ID 6599     -->
 
-                                                    
-<!--                                                        <div class="navigation clearfix">
 
-                                                            <div class="alignleft"><a href="#">Ver mais</a></div>
-                                                            <div class="alignright"></div> 
-
-                                                        </div> .navigation -->
+                                                        <!--                                                        <div class="navigation clearfix">
+                                                        
+                                                                                                                    <div class="alignleft"><a href="#">Ver mais</a></div>
+                                                                                                                    <div class="alignright"></div> 
+                                                        
+                                                                                                                </div> .navigation -->
 
 
 
                                                     </div><!-- #content -->
 
 
-<!--                                                    <div id="sidebar-primary">
-
-                                                        <div class="seg-menu">
-                                                            <ul>
-                                                                <li><span class="meta_topo_conc"><a href="editais.html">Editais Abertos</a></span></li>
-                                                                <li><span class="meta_topo_vest"><a href="#">Inscrições Abertas</a></span></li>
-                                                                <li><span class="meta_topo_serv"><a href="#">Em Andamento</a></span></li>
-                                                                <li><span class="meta_topo_aluno"><a href="#">Encerrados</a></span></li>
-                                                            </ul>
-                                                        </div>
-
-                                                    </div> #sidebar-primary -->
+                                                    <!--                                                    <div id="sidebar-primary">
+                                                    
+                                                                                                            <div class="seg-menu">
+                                                                                                                <ul>
+                                                                                                                    <li><span class="meta_topo_conc"><a href="editais.html">Editais Abertos</a></span></li>
+                                                                                                                    <li><span class="meta_topo_vest"><a href="#">Inscrições Abertas</a></span></li>
+                                                                                                                    <li><span class="meta_topo_serv"><a href="#">Em Andamento</a></span></li>
+                                                                                                                    <li><span class="meta_topo_aluno"><a href="#">Encerrados</a></span></li>
+                                                                                                                </ul>
+                                                                                                            </div>
+                                                    
+                                                                                                        </div> #sidebar-primary -->
 
 
 

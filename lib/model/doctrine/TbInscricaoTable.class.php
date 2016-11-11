@@ -24,4 +24,10 @@ class TbInscricaoTable extends Doctrine_Table
        return  $q;
     }
     
+     public function getPorCertame() {
+          $q = Doctrine_Query::create()->from('TbInscricao')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'));
+          return $q;
+           
+    }
+    
 }

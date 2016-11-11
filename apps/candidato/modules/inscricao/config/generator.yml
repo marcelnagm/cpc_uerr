@@ -32,7 +32,8 @@ generator:
                   label: Gerar Boleto
       filter:  
           class: false
-      form:    ~
+      form:    
+          display: [id_vaga,id_condicao_especial,id_cidade_prova,id_idioma,vaga_deficiente]
       edit:    ~
       new:     ~
       show: 

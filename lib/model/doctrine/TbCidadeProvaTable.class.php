@@ -16,4 +16,11 @@ class TbCidadeProvaTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('TbCidadeProva');
     }
+    
+      public function getPorCertame() {
+          $q = Doctrine_Query::create()->from('TbCidadeProva')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'));
+          return $q;
+           
+    }
+    
 }

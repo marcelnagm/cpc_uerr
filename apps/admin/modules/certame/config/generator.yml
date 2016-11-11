@@ -28,6 +28,10 @@ generator:
                    label: Provas
                Locais:
                    label: Locais de Prova
+               CidadeProva:
+                   label: Cidades de Prova
+               Inscricao:
+                   label: Inscricões
                Colaboracao:
                    label: Colaboração
       filter:  
