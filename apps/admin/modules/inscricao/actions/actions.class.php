@@ -13,4 +13,15 @@ require_once dirname(__FILE__).'/../lib/inscricaoGeneratorHelper.class.php';
  */
 class inscricaoActions extends autoInscricaoActions
 {
+      public function executeShow(\sfWebRequest $request) {
+      parent::executeShow($request);
+      $this->setLayout('print');
+  }
+ 
+  public function executeListBoleto(\sfWebRequest $request) {
+//      $this->inscricao = new TbInscricao();
+      $this->inscricao = $this->getRoute()->getObject();
+        $this->setLayout(false);
+  }
+    
 }

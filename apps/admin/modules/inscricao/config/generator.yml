@@ -4,7 +4,7 @@ generator:
     model_class:           TbInscricao
     theme:                 adminWithShow
     non_verbose_templates: true
-    with_show:             false
+    with_show:             true
     singular:              ~
     plural:                ~
     route_prefix:          tb_inscricao
@@ -14,9 +14,14 @@ generator:
     config:
       actions:           
       fields:  ~
-      list:    
+      list:
+          display: [TbCandidato,TbVaga,pago] 
           actions: []
           batch_actions: []
+          object_actions:
+              _show: ~
+              boleto: 
+                  label: Gerar Boleto
       filter:  
           display: [id_vaga]
       form:    ~

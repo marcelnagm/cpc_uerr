@@ -24,6 +24,8 @@ generator:
           object_actions:
               inscrever: 
                   label: Inscrever-se
+              Inscricao: 
+                  label: Listar Inscrições
           table_method:  getCertameAtivos
       filter:  
           class: false

@@ -37,6 +37,11 @@ class certameActions extends autoCertameActions {
         $this->redirect('certame/index');
     }
 
+    public function executeListInscricao(\sfWebRequest $request) {
+            $this->redirect('inscricao/index');
+    }
+    
+    
     public function executeListInscrever(\sfWebRequest $request) {
         $certame = new TbCertame();
         $certame = $this->getRoute()->getObject();

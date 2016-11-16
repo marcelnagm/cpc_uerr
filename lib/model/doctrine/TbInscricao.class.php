@@ -16,4 +16,11 @@ class TbInscricao extends BaseTbInscricao
         return $this->getPago() == 1 ? 'Sim' : 'Não';
     }
     
+    public function construct(array $data = null) {
+        if(!isset($data))        parent::construct();
+        else{
+            $this->setArray($data);
+        }
+    }
+    
 }
