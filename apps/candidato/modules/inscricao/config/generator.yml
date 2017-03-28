@@ -24,6 +24,7 @@ generator:
           title: Lista de Inscrições no Certame 
           display: [TbVaga,TbCidadeProva]
           table_method:  getInscricaoCandidato
+          actions: {} 
           batch_actions: {}
           object_actions:
               _edit: ~

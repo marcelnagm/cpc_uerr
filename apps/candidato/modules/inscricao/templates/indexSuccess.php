@@ -7,10 +7,7 @@
   <h2 class="title">Lista de Inscrições no Certame: <? echo $certame; ?> </h2>
 
   <ul class="sf_admin_actions left">
-        <?php echo $helper->linkToNew(array(  'params' =>   array(  ),  'class_suffix' => 'new',  'label' => 'New',)) ?>
-        </ul>
-
-
+    
   <div id="sf_admin_header">
     <?php include_partial('inscricao/list_header', array('pager' => $pager)) ?>
   </div>

@@ -14,11 +14,16 @@ class TbInscricaoForm extends BaseTbInscricaoForm
   {
       unset($this->widgetSchema['boleto']);
       unset($this->widgetSchema['pago']);
-      
+      if(!$this->isNew()){
+          unset($this['id_vaga']);
+          unset($this['id_idioma']);
+      }
       
       $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();
       $this->widgetSchema['id_candidato'] = new sfWidgetFormInputHidden();
       $this->widgetSchema['id_condicao_especial']->setDefault(15);
       
   }
+  
+  
 }

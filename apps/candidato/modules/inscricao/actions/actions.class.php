@@ -116,4 +116,11 @@ class inscricaoActions extends autoInscricaoActions {
         $this->setLayout(false);
     }
 
+    public function executeEdit(\sfWebRequest $request) {
+          sfContext::getInstance()->getUser()->setFlash('error', 'Você não pode exitar inscrições feitas');
+           $this->redirect('certame/index');
+       
+        
+    }
+    
 }
