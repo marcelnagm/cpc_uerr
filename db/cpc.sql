@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 28/03/2017 às 09:36
+-- Tempo de geração: 28/03/2017 às 11:41
 -- Versão do servidor: 5.7.17
 -- Versão do PHP: 5.6.30-7+deb.sury.org~xenial+1
 
@@ -259,7 +259,7 @@ CREATE TABLE `sf_guard_user` (
 
 INSERT INTO `sf_guard_user` (`id`, `first_name`, `last_name`, `email_address`, `username`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `created_at`, `updated_at`) VALUES
 (0, 'teste', 'user', 'teste@teste.com', 'temp', 'sha1', '592b70c9f6798b427daca0b91058e526', 'ad769c7ac62b2c155590c1f046133e9fe3ff70bc', 1, 0, NULL, '2016-05-20 09:41:06', '2016-05-20 09:41:06'),
-(1, 'Marcel', 'Nagm', 'marcel.nagm@gmail.com', 'admin', 'sha1', '1d5a4132828b7c132a5d6a2cfb5109bd', 'bfc6ce9d17d31d88892d1cb39c1b7630b6022830', 1, 1, '2017-03-28 08:49:51', '2012-01-12 18:00:45', '2017-03-28 08:49:51'),
+(1, 'Marcel', 'Nagm', 'marcel.nagm@gmail.com', 'admin', 'sha1', '1d5a4132828b7c132a5d6a2cfb5109bd', 'bfc6ce9d17d31d88892d1cb39c1b7630b6022830', 1, 1, '2017-03-28 10:58:51', '2012-01-12 18:00:45', '2017-03-28 10:58:51'),
 (3, 'candidato', 'user', 'teste2@teste.com', 'marcel\r\n', 'sha1', '592b70c9f6798b427daca0b91058e526', 'ad769c7ac62b2c155590c1f046133e9fe3ff70bc', 1, 0, NULL, '2016-05-20 09:41:06', '2016-05-20 09:41:06');
 
 -- --------------------------------------------------------
@@ -541,7 +541,6 @@ CREATE TABLE `tb_candidato` (
   `data_nascimento` date DEFAULT NULL COMMENT 'Data de nascimento do candidato.',
   `cidade_nascimento` int(11) NOT NULL,
   `cep` varchar(9) DEFAULT NULL COMMENT 'CEP do endereço do candidato.',
-  `logradouro` int(11) NOT NULL COMMENT 'Logradouro (rua, avenida, viela, etc).',
   `endereco` varchar(100) DEFAULT NULL COMMENT 'Nome do logradouro do endereço do candidato.',
   `numero` varchar(10) NOT NULL COMMENT 'Número do endereço do candidato.',
   `complemento` varchar(50) NOT NULL COMMENT 'Complemento do endereço do candidato.',
@@ -10411,7 +10410,6 @@ CREATE TABLE `tb_colaborador` (
   `rgemissor` int(11) NOT NULL COMMENT 'Órgão que expediu a identidade do candidato.',
   `pispasep` varchar(50) DEFAULT NULL,
   `endereco` varchar(200) DEFAULT NULL,
-  `logradouro` int(11) NOT NULL COMMENT 'Logradouro (rua, avenida, viela, etc).',
   `cep` varchar(9) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `bairro` varchar(30) DEFAULT NULL,
   `id_cidade` int(11) DEFAULT NULL,
@@ -10431,6 +10429,13 @@ CREATE TABLE `tb_colaborador` (
   `created_by` bigint(20) NOT NULL,
   `updated_by` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Fazendo dump de dados para tabela `tb_colaborador`
+--
+
+INSERT INTO `tb_colaborador` (`id`, `nome`, `sexo`, `cpf`, `rg`, `rgtipo`, `rguf`, `rgemissor`, `pispasep`, `endereco`, `cep`, `bairro`, `id_cidade`, `telefone`, `celular`, `contabanco`, `agenciabanco`, `id_banco`, `email`, `localidade`, `experiencia`, `profissao`, `tipo_conta`, `observacao`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(3, 'dsadas', 1, '132123123123', '1321312', 1, '1', 1, 'fdssfd13231231', '3412', '13231', '3212312', 15, '432', '3424234', 'dasda', 'adsasd', 15, 'marcel.nagm@gmail.com', '321312', '31231', '31231', 0, '31231', '2017-03-28 11:34:54', '2017-03-28 11:34:54', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -10601,6 +10606,7 @@ CREATE TABLE `tb_funcao` (
   `nome` varchar(200) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
   `valorbase` decimal(10,2) DEFAULT '0.00',
   `descricao` varchar(255) NOT NULL,
+  `valor` float NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `created_by` bigint(20) NOT NULL,
@@ -10681,6 +10687,7 @@ CREATE TABLE `tb_local_prova` (
   `id_prova` int(11) NOT NULL,
   `id_certame` int(11) NOT NULL,
   `id_responsavel` int(11) NOT NULL,
+  `id_local` int(11) NOT NULL,
   `nome` varchar(150) DEFAULT NULL,
   `id_cidade` int(11) DEFAULT NULL,
   `sigla` varchar(20) DEFAULT NULL,
@@ -10693,6 +10700,13 @@ CREATE TABLE `tb_local_prova` (
   `created_by` bigint(20) NOT NULL,
   `updated_by` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Fazendo dump de dados para tabela `tb_local_prova`
+--
+
+INSERT INTO `tb_local_prova` (`id`, `id_prova`, `id_certame`, `id_responsavel`, `id_local`, `nome`, `id_cidade`, `sigla`, `telefone`, `endereco`, `nsalas`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 1, 2, 3, 1, NULL, NULL, NULL, NULL, NULL, NULL, 1, '2017-03-28 11:35:49', '2017-03-28 11:35:49', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -10957,7 +10971,8 @@ CREATE TABLE `tb_prova` (
 --
 
 INSERT INTO `tb_prova` (`id`, `id_certame`, `id_vaga`, `data_inicio`, `hora_inicio`, `duracao`, `created_at`, `updated_at`, `created_by`, `updated_by`, `gabarito`) VALUES
-(1, 2, 1, '2014-01-17 00:00:00', '16:17:00', '4 Horas', '2016-05-23 11:28:23', '2016-05-23 11:28:23', 1, 1, NULL);
+(1, 2, 1, '2014-01-17 00:00:00', '16:17:00', '4 Horas', '2016-05-23 11:28:23', '2016-05-23 11:28:23', 1, 1, NULL),
+(5, 2, 0, '2013-01-02 00:00:00', '00:01:00', '4', '2017-03-28 11:37:45', '2017-03-28 11:37:45', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -10978,7 +10993,8 @@ CREATE TABLE `tb_prova_vaga` (
 
 INSERT INTO `tb_prova_vaga` (`id`, `id_prova`, `id_vaga`, `gabarito`) VALUES
 (1, 1, 1, NULL),
-(2, 1, 2, '');
+(2, 1, 2, ''),
+(3, 5, 2, '');
 
 -- --------------------------------------------------------
 
@@ -11210,7 +11226,6 @@ ALTER TABLE `tb_candidato`
   ADD KEY `cidade` (`id_cidade`),
   ADD KEY `rgemissor` (`rgemissor`),
   ADD KEY `rguf` (`rguf`),
-  ADD KEY `logradouro` (`logradouro`),
   ADD KEY `rgtipo` (`rgtipo`),
   ADD KEY `user_id` (`user_id`);
 
@@ -11265,7 +11280,6 @@ ALTER TABLE `tb_colaboracao`
 ALTER TABLE `tb_colaborador`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_cidade` (`id_cidade`),
-  ADD KEY `logradouro` (`logradouro`),
   ADD KEY `rgemissor` (`rgemissor`),
   ADD KEY `id_banco` (`id_banco`),
   ADD KEY `created_by` (`created_by`),
@@ -11367,7 +11381,8 @@ ALTER TABLE `tb_local_prova`
   ADD KEY `id_prova` (`id_prova`),
   ADD KEY `created_by` (`created_by`),
   ADD KEY `updated_by` (`updated_by`),
-  ADD KEY `id_certame` (`id_certame`);
+  ADD KEY `id_certame` (`id_certame`),
+  ADD KEY `id_local` (`id_local`);
 
 --
 -- Índices de tabela `tb_logradouro`
@@ -11513,7 +11528,7 @@ ALTER TABLE `tb_banco`
 -- AUTO_INCREMENT de tabela `tb_candidato`
 --
 ALTER TABLE `tb_candidato`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de tabela `tb_cargo`
 --
@@ -11543,7 +11558,7 @@ ALTER TABLE `tb_colaboracao`
 -- AUTO_INCREMENT de tabela `tb_colaborador`
 --
 ALTER TABLE `tb_colaborador`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de tabela `tb_condicao_especial`
 --
@@ -11598,7 +11613,7 @@ ALTER TABLE `tb_local`
 -- AUTO_INCREMENT de tabela `tb_local_prova`
 --
 ALTER TABLE `tb_local_prova`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de tabela `tb_logradouro`
 --
@@ -11618,12 +11633,12 @@ ALTER TABLE `tb_noticia`
 -- AUTO_INCREMENT de tabela `tb_prova`
 --
 ALTER TABLE `tb_prova`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de tabela `tb_prova_vaga`
 --
 ALTER TABLE `tb_prova_vaga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de tabela `tb_responsavel_sala`
 --
@@ -11705,7 +11720,6 @@ ALTER TABLE `tb_candidato`
   ADD CONSTRAINT `tb_candidato_ibfk_2` FOREIGN KEY (`id_cidade`) REFERENCES `tb_cidade` (`id`),
   ADD CONSTRAINT `tb_candidato_ibfk_3` FOREIGN KEY (`rgemissor`) REFERENCES `tb_rgemissor` (`id`),
   ADD CONSTRAINT `tb_candidato_ibfk_4` FOREIGN KEY (`rguf`) REFERENCES `tb_estado` (`id`),
-  ADD CONSTRAINT `tb_candidato_ibfk_5` FOREIGN KEY (`logradouro`) REFERENCES `tb_logradouro` (`id`),
   ADD CONSTRAINT `tb_candidato_ibfk_6` FOREIGN KEY (`rgtipo`) REFERENCES `tb_rgtipo` (`id`),
   ADD CONSTRAINT `tb_candidato_ibfk_7` FOREIGN KEY (`user_id`) REFERENCES `sf_guard_user` (`id`);
 
@@ -11744,7 +11758,6 @@ ALTER TABLE `tb_colaboracao`
 --
 ALTER TABLE `tb_colaborador`
   ADD CONSTRAINT `tb_colaborador_ibfk_1` FOREIGN KEY (`id_cidade`) REFERENCES `tb_cidade` (`id`),
-  ADD CONSTRAINT `tb_colaborador_ibfk_2` FOREIGN KEY (`logradouro`) REFERENCES `tb_logradouro` (`id`),
   ADD CONSTRAINT `tb_colaborador_ibfk_3` FOREIGN KEY (`rgemissor`) REFERENCES `tb_rgemissor` (`id`),
   ADD CONSTRAINT `tb_colaborador_ibfk_4` FOREIGN KEY (`id_banco`) REFERENCES `tb_banco` (`seq_banco`),
   ADD CONSTRAINT `tb_colaborador_ibfk_5` FOREIGN KEY (`created_by`) REFERENCES `sf_guard_user` (`id`),
@@ -11807,7 +11820,8 @@ ALTER TABLE `tb_local_prova`
   ADD CONSTRAINT `tb_local_prova_ibfk_4` FOREIGN KEY (`id_responsavel`) REFERENCES `tb_colaborador` (`id`),
   ADD CONSTRAINT `tb_local_prova_ibfk_5` FOREIGN KEY (`created_by`) REFERENCES `sf_guard_user` (`id`),
   ADD CONSTRAINT `tb_local_prova_ibfk_6` FOREIGN KEY (`updated_by`) REFERENCES `sf_guard_user` (`id`),
-  ADD CONSTRAINT `tb_local_prova_ibfk_7` FOREIGN KEY (`id_certame`) REFERENCES `tb_certame` (`id`);
+  ADD CONSTRAINT `tb_local_prova_ibfk_7` FOREIGN KEY (`id_certame`) REFERENCES `tb_certame` (`id`),
+  ADD CONSTRAINT `tb_local_prova_ibfk_8` FOREIGN KEY (`id_local`) REFERENCES `tb_local` (`id`);
 
 --
 -- Restrições para tabelas `tb_lotacao_prova`
@@ -11828,7 +11842,6 @@ ALTER TABLE `tb_noticia`
 -- Restrições para tabelas `tb_prova`
 --
 ALTER TABLE `tb_prova`
-  ADD CONSTRAINT `fk_tb_prova` FOREIGN KEY (`id_vaga`) REFERENCES `tb_vaga` (`id`),
   ADD CONSTRAINT `fk_tb_prova_0` FOREIGN KEY (`id_certame`) REFERENCES `tb_certame` (`id`),
   ADD CONSTRAINT `tb_prova_ibfk_2` FOREIGN KEY (`created_by`) REFERENCES `sf_guard_user` (`id`),
   ADD CONSTRAINT `tb_prova_ibfk_3` FOREIGN KEY (`updated_by`) REFERENCES `sf_guard_user` (`id`);
