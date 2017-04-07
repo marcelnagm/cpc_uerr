@@ -122,5 +122,8 @@ class inscricaoActions extends autoInscricaoActions {
        
         
     }
+      public function executeListCertames(\sfWebRequest $request) {    
+        $this->redirect('certame/index');
+    }
     
 }

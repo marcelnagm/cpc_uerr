@@ -12,6 +12,10 @@
  */
 class TbInscricao extends BaseTbInscricao
 {
+    public function getVagaDeficienteText(){
+        return $this->getVagaDeficiente() == 1 ? 'Sim' : 'Não';
+    }
+    
     public function getPagoText(){
         return $this->getPago() == 1 ? 'Sim' : 'Não';
     }

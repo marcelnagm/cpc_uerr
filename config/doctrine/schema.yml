@@ -187,8 +187,8 @@ TbInscricao:
      id_condicao_especial:        { type: integer, notnull: true }        
      id_cidade_prova:             { type: integer, notnull: true }        
      boleto:                      { type: integer }        
-     pago:                        { type: integer}        
-     vaga_deficiente:             { type: integer}        
+     pago:                        { type: boolean}        
+     vaga_deficiente:             { type: boolean}        
      id_idioma:                   { type: integer, notnull: true }        
    relations:
     TbCandidato:                 { local: id_candidato, foreign: id}     

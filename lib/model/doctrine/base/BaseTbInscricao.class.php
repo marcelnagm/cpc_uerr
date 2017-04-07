@@ -11,8 +11,8 @@
  * @property integer $id_condicao_especial
  * @property integer $id_cidade_prova
  * @property integer $boleto
- * @property integer $pago
- * @property integer $vaga_deficiente
+ * @property boolean $pago
+ * @property boolean $vaga_deficiente
  * @property integer $id_idioma
  * @property TbCandidato $TbCandidato
  * @property TbCertame $TbCertame
@@ -29,8 +29,8 @@
  * @method integer             getIdCondicaoEspecial()   Returns the current record's "id_condicao_especial" value
  * @method integer             getIdCidadeProva()        Returns the current record's "id_cidade_prova" value
  * @method integer             getBoleto()               Returns the current record's "boleto" value
- * @method integer             getPago()                 Returns the current record's "pago" value
- * @method integer             getVagaDeficiente()       Returns the current record's "vaga_deficiente" value
+ * @method boolean             getPago()                 Returns the current record's "pago" value
+ * @method boolean             getVagaDeficiente()       Returns the current record's "vaga_deficiente" value
  * @method integer             getIdIdioma()             Returns the current record's "id_idioma" value
  * @method TbCandidato         getTbCandidato()          Returns the current record's "TbCandidato" value
  * @method TbCertame           getTbCertame()            Returns the current record's "TbCertame" value
@@ -91,11 +91,11 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
         $this->hasColumn('boleto', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('pago', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('pago', 'boolean', null, array(
+             'type' => 'boolean',
              ));
-        $this->hasColumn('vaga_deficiente', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('vaga_deficiente', 'boolean', null, array(
+             'type' => 'boolean',
              ));
         $this->hasColumn('id_idioma', 'integer', null, array(
              'type' => 'integer',

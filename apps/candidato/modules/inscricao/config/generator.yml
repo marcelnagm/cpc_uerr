@@ -16,15 +16,26 @@ generator:
           _show: 
               label: "Comprovante de Inscrição"
       fields:  
+          id_vaga: 
+              label: Vaga
+          id_condicao_especial: 
+              label: "Necessita de Condição Especial?"
           TbVaga: 
               label: Vaga
           TbCidadeProva:
               label: Cidade de Prova
+          id_cidade_prova:
+              label: Cidade de Prova
+          id_idioma:
+              label: Idioma
       list:
           title: Lista de Inscrições no Certame 
           display: [TbVaga,TbCidadeProva]
           table_method:  getInscricaoCandidato
-          actions: {} 
+          actions:
+              _new: ~
+              Certames:
+                  label: Lista de Certames
           batch_actions: {}
           object_actions:
               _edit: ~
@@ -36,7 +47,11 @@ generator:
       form:    
           display: [id_vaga,id_condicao_especial,id_cidade_prova,id_idioma,vaga_deficiente]
       edit:    ~
-      new:     ~
+      new:     
+          title: "Nova Inscrição"
+          actions:
+              _save: ~
+              _list: ~
       show: 
           title: "Comprovante de Inscrição"
           

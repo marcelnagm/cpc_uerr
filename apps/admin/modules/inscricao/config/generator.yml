@@ -15,7 +15,8 @@ generator:
       actions:           
       fields:  ~
       list:
-          display: [TbCandidato,TbVaga,pago] 
+          title: Lista de Inscrições no Certame 
+          display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente] 
           actions: []
           batch_actions: []
           object_actions:
@@ -23,7 +24,7 @@ generator:
               boleto: 
                   label: Gerar Boleto
       filter:  
-          display: [id_vaga]
+          display: [id_vaga,id_cidade_prova,pago,vaga_deficiente]
       form:    ~
       edit:    ~
       new:     ~
