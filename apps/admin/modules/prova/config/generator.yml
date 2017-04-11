@@ -24,7 +24,9 @@ generator:
           actions:
               _new: ~
               Certames: 
-                  label: Retornar Certames
+                  label: Lista de Certames
+              Locais: 
+                  label: Lista Locais de Prova
           object_actions:
                _edit: ~
                _delete: ~

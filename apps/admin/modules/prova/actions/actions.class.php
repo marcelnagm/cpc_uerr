@@ -23,4 +23,7 @@ class provaActions extends autoProvaActions
         $this->redirect('certame/index');
     }
     
+     public function executeListLocais(\sfWebRequest $request) {     
+        $this->forward('local_prova','index');
+    }
 }

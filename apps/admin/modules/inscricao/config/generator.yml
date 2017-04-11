@@ -13,7 +13,15 @@ generator:
 
     config:
       actions:           
-      fields:  ~
+      fields:  
+          id_vaga:
+              label: Vaga
+          TbVaga:
+              label: Vaga
+          id_cidade_prova:
+              label: Cidade de Prova
+          TbCidadeProva:
+              label: Cidade de Prova
       list:
           title: Lista de Inscrições no Certame 
           display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente] 

@@ -32,4 +32,7 @@ class local_provaActions extends autoLocal_provaActions
         $this->redirect('certame/index');
     }
     
+      public function executeListProvas(\sfWebRequest $request) {
+        $this->forward('prova','index');
+    }
 }

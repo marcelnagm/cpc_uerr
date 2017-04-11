@@ -14,10 +14,13 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    
+      list:
+          title: Lista de Locais
           display: [nome,sigla]
       filter:  
           display: [nome,sigla]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:    
+          title: Editar Local
+      new:     
+          title: Novo Local

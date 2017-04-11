@@ -15,12 +15,14 @@ generator:
       actions: ~
       fields:  ~
       list:    
-          title: Lista de Locais de Prova - "%%TbCertame%%"
+          title: Lista de Locais de Prova - %%TbCertame%%
           display: [Tb_local,status]
           actions:
               _new: ~
               Certames:
                   label: Lista de Certames
+              Provas:
+                  label: Lista de Provas
           table_method:  getPorCertame
           object_actions:
               _edit: ~
