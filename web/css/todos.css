@@ -2479,4 +2479,8 @@ image {
     height: auto !important;
 }
 
+.certame_info{
+    border: #004585 solid thin;
+    padding: 3px;
+}
 

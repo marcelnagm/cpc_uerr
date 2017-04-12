@@ -13,7 +13,7 @@ abstract class BaseTbLotacaoProvaFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id_sala'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'id_sala'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbSalaProva'), 'add_empty' => true)),
       'id_inscricao' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbInscricao'), 'add_empty' => true)),
       'created_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
@@ -22,7 +22,7 @@ abstract class BaseTbLotacaoProvaFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'id_sala'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'id_sala'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbSalaProva'), 'column' => 'id')),
       'id_inscricao' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbInscricao'), 'column' => 'id')),
       'created_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
@@ -48,7 +48,7 @@ abstract class BaseTbLotacaoProvaFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'           => 'Number',
-      'id_sala'      => 'Number',
+      'id_sala'      => 'ForeignKey',
       'id_inscricao' => 'ForeignKey',
       'created_at'   => 'Date',
       'updated_at'   => 'Date',

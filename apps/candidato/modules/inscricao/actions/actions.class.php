@@ -115,6 +115,27 @@ class inscricaoActions extends autoInscricaoActions {
         }
         $this->setLayout(false);
     }
+    public function executeListCartao(\sfWebRequest $request) {
+        try{
+        $this->inscricao = $this->getRoute()->getObject();
+        } catch(sfError404Exception $ex) {
+            sfContext::getInstance()->getUser()->setFlash('error', 'Inscricao não encontrada');
+            $this->redirect('certame/index');
+        }
+
+
+        if ($this->inscricao->getCreatedBy() != sfContext::getInstance()->getUser()->getId()) {
+            sfContext::getInstance()->getUser()->setFlash('error', 'Inscricao não pertence ao usuario, Evento reportado!!');
+            $this->redirect('certame/index');
+        }
+        $cartao = TbLotacaoProvaTable::getInstance()->findOneBy('id_inscricao',$this->inscricao->getId());
+        if($cartao == null){
+            sfContext::getInstance()->getUser()->setFlash('error', 'Cartão ainda não disponivel');
+            $this->redirect('certame/index');
+        }
+        $this->cartao = $cartao;
+        $this->setLayout(false);
+    }
 
     public function executeEdit(\sfWebRequest $request) {
           sfContext::getInstance()->getUser()->setFlash('error', 'Você não pode exitar inscrições feitas');

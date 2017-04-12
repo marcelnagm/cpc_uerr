@@ -38,10 +38,11 @@ generator:
                   label: Lista de Certames
           batch_actions: {}
           object_actions:
-              _edit: ~
               _show: ~
               boleto: 
                   label: Gerar Boleto
+              cartao: 
+                  label: Buscar Cartão de Confirmação
       filter:  
           class: false
       form:    

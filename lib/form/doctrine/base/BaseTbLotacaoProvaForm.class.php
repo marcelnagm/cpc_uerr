@@ -16,7 +16,7 @@ abstract class BaseTbLotacaoProvaForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
-      'id_sala'      => new sfWidgetFormInputText(),
+      'id_sala'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbSalaProva'), 'add_empty' => false)),
       'id_inscricao' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbInscricao'), 'add_empty' => false)),
       'created_at'   => new sfWidgetFormDateTime(),
       'updated_at'   => new sfWidgetFormDateTime(),
@@ -26,7 +26,7 @@ abstract class BaseTbLotacaoProvaForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'id_sala'      => new sfValidatorInteger(),
+      'id_sala'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbSalaProva'))),
       'id_inscricao' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbInscricao'))),
       'created_at'   => new sfValidatorDateTime(),
       'updated_at'   => new sfValidatorDateTime(),

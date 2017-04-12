@@ -434,7 +434,7 @@ table {
    background: linear-gradient(#cdc6c6, #838080);
   -pie-background: linear-gradient(#cdc6c6, #838080);
   behavior: url(PIE.htc);
-  margin-right: 15px;
+  margin-right: 15px;  
 }
 
 
@@ -445,5 +445,8 @@ table {
   font-size: 13px;
   text-decoration: none;
   list-style-type: none !important;
+  float: left;
+  width: 200px;
+  padding: 3px;
 }
 

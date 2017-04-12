@@ -240,7 +240,7 @@ TbLotacaoProva:
      id_sala:                { type: integer, notnull: true }        
      id_inscricao:           { type: integer, notnull: true }        
    relations:
-    TbSala:                   { local: id_sala, foreign: id }     
+    TbSalaProva:              { local: id_sala, foreign: id }     
     TbInscricao:              { local: id_inscricao, foreign: id}       
 
 TbProvaVaga:

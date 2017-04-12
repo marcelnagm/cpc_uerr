@@ -2486,3 +2486,8 @@ image {
 }
 
 
+
+.certame_info td{
+    border: #004585 solid thin;
+    padding: 3px;
+}

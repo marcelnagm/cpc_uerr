@@ -43,7 +43,7 @@ class certameActions extends autoCertameActions
         sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
         $this->forward('cidade_prova','index');
     }
-    
+           
     public function executeListColaboracao(\sfWebRequest $request) {
         $certame =$this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());

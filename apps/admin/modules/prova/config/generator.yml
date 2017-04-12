@@ -27,11 +27,15 @@ generator:
                   label: Lista de Certames
               Locais: 
                   label: Lista Locais de Prova
+            
           object_actions:
                _edit: ~
                _delete: ~
                Vagas:
                    label: Vagas 
+               Alocacao:
+                   label: Alocar Candidatos em Sala        
+                   
       filter:  
           class: false
       form:    ~

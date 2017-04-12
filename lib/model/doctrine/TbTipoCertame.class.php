@@ -12,7 +12,7 @@
  */
 class TbTipoCertame extends BaseTbTipoCertame
 {
-    public function __toString() {
+    public function toString() {
         return $this->getDescricao();
     }
     

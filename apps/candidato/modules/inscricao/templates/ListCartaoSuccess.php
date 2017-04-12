@@ -1,3 +1,4 @@
+<?php use_helper('I18N', 'Date') ?>
 <style>
     table{
         float: left;
@@ -29,7 +30,12 @@
 
 
 </style>
-
+<?php // $cartao = new TbLotacaoProva();
+$tb_inscricao = $cartao->getTbInscricao();
+//$tb_local_prova = new TbLocalProva();
+$tb_local_prova = $cartao->getTbSalaProva()->getTbLocalProva()->getTbLocal();
+$tb_prova = $cartao->getTbSalaProva()->getTbLocalProva()->getTbProva();
+?>
 <table >
     <tbody>
         <tr>
@@ -38,19 +44,19 @@
                 <? echo image_tag('rr.png', array('width' => "100", 'height' => "130", 'style' => 'float:right')) ?>  
                 <p><h3>Universidade Estadual de Roraima</h3></p>
                 <p><h3>Comissão Permanente de Concurso e Vestibular</h3></p>                
-                <h2>Comprovante de Inscrição</h2>
+                <h2>Comprovante de Confirmação</h2>
             </td>
         </tr>
         <tr>
-            <th>Id:</th>
+            <th>Identificador da Inscrição:</th>
             <td class="sf_admin_text sf_admin_list_th_id">
-                <?php echo $tb_inscricao->getId(); ?>
+                <?php echo $cartao->getTbInscricao()->getBoleto(); ?>
             </td>
         </tr>
         <tr>
             <th>Certame:</th>
             <td class="sf_admin_foreignkey sf_admin_list_th_id_certame">
-                <?php echo $tb_inscricao->getTbCertame() ?>
+                <?php echo $tb_inscricao->getTbCertame()->getNome(); ?>
             </td>
         </tr>
         <tr>
@@ -78,16 +84,35 @@
             </td>
         </tr>
         <tr>
-            <th>Pago:</th>
+            <th>Local de Prova:</th>
             <td class="sf_admin_text sf_admin_list_th_pago">
-                <?php echo $tb_inscricao->getPagoText() ?>
+                <?php echo $tb_local_prova->getNome();?>
             </td>
         </tr>
         <tr>
-            <th>Vaga deficiente:</th>
+            <th>Endereço:</th>
+            <td class="sf_admin_text sf_admin_list_th_pago">
+                <?php echo $tb_local_prova->getEndereco();?>
+            </td>
+        </tr>
+        <tr>
+            <th>Sala:</th>
+            <td class="sf_admin_text sf_admin_list_th_pago">
+                <?php echo $cartao->getTbSalaProva()->getNumeroSala();?>
+            </td>
+        </tr>
+        <tr>
+            <th>Data da Prova:</th>
             <td class="sf_admin_text sf_admin_list_th_vaga_deficiente">
-                <?php echo $tb_inscricao->getVagaDeficienteText() ?>
-            </td></tr>
+                <?php echo format_date($tb_prova->getDataInicio(),'d/MM/yyyy');?>
+            </td>
+        </tr>
+        <tr>
+            <th>Hora da Prova:</th>
+            <td class="sf_admin_text sf_admin_list_th_vaga_deficiente">
+                <?php echo $tb_prova->getHoraInicio();?>
+            </td>
+        </tr>              
         <tr>
             <th>Idioma selecionado:</th>
             <td class="sf_admin_foreignkey sf_admin_list_th_id_idioma">
