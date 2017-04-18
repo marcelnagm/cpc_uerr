@@ -15,13 +15,11 @@ abstract class BaseTbProvaVagaFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'id_prova' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbProva'), 'add_empty' => true)),
       'id_vaga'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => true)),
-      'gabarito' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
       'id_prova' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbProva'), 'column' => 'id')),
       'id_vaga'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbVaga'), 'column' => 'id')),
-      'gabarito' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('tb_prova_vaga_filters[%s]');
@@ -44,7 +42,6 @@ abstract class BaseTbProvaVagaFormFilter extends BaseFormFilterDoctrine
       'id'       => 'Number',
       'id_prova' => 'ForeignKey',
       'id_vaga'  => 'ForeignKey',
-      'gabarito' => 'Text',
     );
   }
 }

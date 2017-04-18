@@ -35,4 +35,13 @@ class local_provaActions extends autoLocal_provaActions
       public function executeListProvas(\sfWebRequest $request) {
         $this->forward('prova','index');
     }
+    
+       public function executeNew(sfWebRequest $request) {
+    
+        $this->form = $this->configuration->getForm();
+        $this->form->setDefault('id_certame', sfContext::getInstance()->getUser()->getAttribute('certame'));        
+        $this->form->setDefault('id_prova', sfContext::getInstance()->getUser()->getAttribute('prova'));        
+        $this->tb_local_prova = $this->form->getObject();
+    }   
+    
 }

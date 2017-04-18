@@ -38,6 +38,10 @@ abstract class BaseTbProvaForm extends BaseFormDoctrine
       'updated_by'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Updator'), 'required' => false)),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'TbProva', 'column' => array('id_prova')))
+    );
+
     $this->widgetSchema->setNameFormat('tb_prova[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

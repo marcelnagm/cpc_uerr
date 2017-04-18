@@ -13,5 +13,8 @@ class TbLocalProvaForm extends BaseTbLocalProvaForm
   public function configure()
   {
       
+       $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();   
+       $this->widgetSchema['id_prova'] = new sfWidgetFormInputHidden();   
+      
   }
 }

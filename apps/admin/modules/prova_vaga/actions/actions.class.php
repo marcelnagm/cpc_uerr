@@ -13,6 +13,13 @@ require_once dirname(__FILE__).'/../lib/prova_vagaGeneratorHelper.class.php';
  */
 class prova_vagaActions extends autoProva_vagaActions
 {
+      public function executeNew(sfWebRequest $request) {
+    
+        $this->form = $this->configuration->getForm();
+        $this->form->setDefault('id_prova', sfContext::getInstance()->getUser()->getAttribute('prova'));        
+        $this->tb_prova_vaga = $this->form->getObject();
+    }
+    
       public function executeListProvas(\sfWebRequest $request) {    
         $this->redirect('prova/index');
     }

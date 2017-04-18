@@ -104,7 +104,7 @@ TbCertame:
     data_inicio_inscricao:      { type: date}  
     data_fim_inscricao:         { type: date}
   relations:
-    TbTipoCertame:              { local: id_tipo_certame, foreign: id }     
+    TbTipoCertame:              { local: id_tipo_certame, foreign: id, foreignAlias: TbTipoCertame }     
             
 TbCidadeProva:
   actAs:
@@ -232,6 +232,18 @@ TbLocalProva:
     TbResponsavel:               { local: id_responsavel, foreign: id}          
     TbColaborador:               { local: id_responsavel, foreign: id, foreignAlias: TbColaborador }      
 
+TbQuestoes:
+   actAs:
+    Timestampable: ~
+    Signable: ~  
+   columns:
+     id_prova:                    { type: integer, notnull: true }        
+     numero:                      { type: integer, notnull: true }      
+     peso:                        { type: float, notnull: true }             
+     gabarito:                    { type: char, notnull: true }        
+   relations:
+    TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva}       
+
 TbLotacaoProva:
    actAs:
     Timestampable: ~
@@ -246,8 +258,7 @@ TbLotacaoProva:
 TbProvaVaga:
    columns:
         id_prova:                  { type: integer, notnull: true }            
-        id_vaga:                   { type: integer, notnull: true }            
-        gabarito:                  { type: string}        
+        id_vaga:                   { type: integer, notnull: true }                   
    relations:    
     TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
     TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva }   
@@ -269,6 +280,11 @@ TbProva:
    relations:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
     TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
+   indexes:
+    id_prova:
+      fields: [id_prova]
+      type: unique 
+      
 
 TbResponsavelSala:
    actAs:

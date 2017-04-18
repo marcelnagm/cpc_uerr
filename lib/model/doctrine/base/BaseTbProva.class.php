@@ -58,6 +58,15 @@ abstract class BaseTbProva extends sfDoctrineRecord
              'notnull' => true,
              'length' => 10,
              ));
+
+
+        $this->index('id_prova', array(
+             'fields' => 
+             array(
+              0 => 'id_prova',
+             ),
+             'type' => 'unique',
+             ));
     }
 
     public function setUp()

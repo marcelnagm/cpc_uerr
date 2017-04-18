@@ -23,7 +23,7 @@ generator:
                   label: Lista de Certames
               Provas:
                   label: Lista de Provas
-          table_method:  getPorCertame
+          table_method:  getPorCertameAndProva
           object_actions:
               _edit: ~
               _delete: ~

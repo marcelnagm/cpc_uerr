@@ -12,6 +12,8 @@ class TbVagaForm extends BaseTbVagaForm
 {
   public function configure()
   {
+      
+        $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();
       $this->widgetSchema['id_cidade'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
             'label' => 'Cidade',          
             'model' => 'TbCidade',

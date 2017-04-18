@@ -1,0 +1,33 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbQuestoes
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             true
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_questoes
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+          actions:
+              _new: ~
+              Gabarito: ~
+          title: Lista de Questões da Prova
+          table_method:  getPorProva
+          display: [numero,peso]
+      filter:            
+          class: false
+      form:    ~
+      edit:    
+          title: Editando Questão da Prova
+      new:     
+          title: Nova Questão da Prova
+      show:
+          title: Exibindo Questão
+          display: [numero,peso,gabarito]

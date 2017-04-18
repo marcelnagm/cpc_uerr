@@ -27,6 +27,7 @@ generator:
           display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente] 
           actions: []
           batch_actions: []
+          table_method:  getPorCertame
           object_actions:
               _show: ~
               boleto: 

@@ -17,4 +17,10 @@ class vagaActions extends autoVagaActions
         $this->redirect('certame/index');
     }
     
+     public function executeNew(sfWebRequest $request) {
+    
+        $this->form = $this->configuration->getForm();
+        $this->form->setDefault('id_certame', sfContext::getInstance()->getUser()->getAttribute('certame'));        
+        $this->tb_vaga = $this->form->getObject();
+    }
 }

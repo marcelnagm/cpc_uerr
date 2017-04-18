@@ -17,4 +17,11 @@ class sala_provaActions extends autoSala_provaActions
         $this->redirect('local_prova/index');
     }
     
+      public function executeNew(sfWebRequest $request) {
+    
+        $this->form = $this->configuration->getForm();    
+        $this->form->setDefault('id_local_prova', sfContext::getInstance()->getUser()->getAttribute('local_prova'));        
+        $this->tb_local_prova = $this->form->getObject();
+    }   
+    
 }

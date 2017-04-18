@@ -12,5 +12,11 @@ class TbProvaVagaForm extends BaseTbProvaVagaForm
 {
   public function configure()
   {
+           $this->widgetSchema['id_prova'] = new sfWidgetFormInputHidden();   
+           $this->widgetSchema['id_vaga'] = new sfWidgetFormDoctrineDependentSelect(array(                
+                 'model' => 'TbVaga', 
+                'table_method' => 'getPorCertame',                
+            ));
+      
   }
 }

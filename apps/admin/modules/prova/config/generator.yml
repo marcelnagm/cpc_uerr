@@ -24,17 +24,18 @@ generator:
           actions:
               _new: ~
               Certames: 
-                  label: Lista de Certames
-              Locais: 
-                  label: Lista Locais de Prova
-            
+                  label: Lista de Certames                        
           object_actions:
                _edit: ~
                _delete: ~
                Vagas:
                    label: Vagas 
+               Questoes:
+                   label: Questões 
                Alocacao:
-                   label: Alocar Candidatos em Sala        
+                   label: Alocar Candidatos em Sala
+               Locais: 
+                  label: Locais de Prova    
                    
       filter:  
           class: false

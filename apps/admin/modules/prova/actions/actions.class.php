@@ -12,11 +12,24 @@ require_once dirname(__FILE__) . '/../lib/provaGeneratorHelper.class.php';
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class provaActions extends autoProvaActions {
+    
+      public function executeNew(sfWebRequest $request) {
+    
+        $this->form = $this->configuration->getForm();
+        $this->form->setDefault('id_certame', sfContext::getInstance()->getUser()->getAttribute('certame'));        
+        $this->tb_prova = $this->form->getObject();
+    }   
 
     public function executeListVagas(\sfWebRequest $request) {
         $prova = $this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
         $this->forward('prova_vaga', 'index');
+    }
+    
+    public function executeListQuestoes(\sfWebRequest $request) {
+        $prova = $this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
+        $this->forward('questoes', 'index');
     }
 
     public function executeListCertames(\sfWebRequest $request) {
@@ -24,6 +37,8 @@ class provaActions extends autoProvaActions {
     }
 
     public function executeListLocais(\sfWebRequest $request) {
+        $prova = $this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
         $this->forward('local_prova', 'index');
     }
 

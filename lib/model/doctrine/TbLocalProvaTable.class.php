@@ -17,8 +17,9 @@ class TbLocalProvaTable extends Doctrine_Table
         return Doctrine_Core::getTable('TbLocalProva');
     }
     
-     public function getPorCertame() {
-          $q = Doctrine_Query::create()->from('TbLocalProva')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'));
+     public function getPorCertameAndProva() {
+          $q = Doctrine_Query::create()->from('TbLocalProva')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'))
+                  ->andWhere('id_prova = ?',  sfContext::getInstance()->getUser()->getAttribute('prova'));
           return $q;
            
     }

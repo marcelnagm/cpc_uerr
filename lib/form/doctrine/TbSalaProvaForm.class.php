@@ -12,5 +12,8 @@ class TbSalaProvaForm extends BaseTbSalaProvaForm
 {
   public function configure()
   {
+      $this->widgetSchema['id_local_prova'] = new sfWidgetFormInputHidden();   
+      $this->widgetSchema['especial']->setLabel('Vagas Reservadas p/ deficientes');   
+      
   }
 }
