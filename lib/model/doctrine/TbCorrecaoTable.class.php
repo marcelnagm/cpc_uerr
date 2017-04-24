@@ -16,4 +16,10 @@ class TbCorrecaoTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('TbCorrecao');
     }
+     public function getPorProva() {
+          $q = Doctrine_Query::create()->from('TbCorrecao')->where('id_prova = ?',  sfContext::getInstance()->getUser()->getAttribute('prova'));
+          return $q;
+           
+    }
+    
 }

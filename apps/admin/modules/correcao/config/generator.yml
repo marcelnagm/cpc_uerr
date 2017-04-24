@@ -1,0 +1,32 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbCorrecao
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_correcao
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+           title: Lista de Cartões de Prova
+           display: [TbInscricao,nota,gabarito]
+           table_method:  getPorProva
+           object_actions: []
+           batch_actions: []
+           actions:
+               import:
+                   label: Importar Cartões de Prova
+               provas:
+                   label: Lista de Provas
+      filter:  
+          class: false
+      form:    ~
+      edit:    ~
+      new:     ~

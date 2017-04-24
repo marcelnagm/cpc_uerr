@@ -18,6 +18,8 @@ generator:
           actions:
               _new: ~
               Gabarito: ~
+              Provas:
+                  label: Lista de Provas
           title: Lista de Questões da Prova
           table_method:  getPorProva
           display: [numero,peso]

@@ -22,4 +22,17 @@ class TbVagaTable extends Doctrine_Table
           return $q;
            
     }
+    
+    public function getPorCertameNaoIncluido() {
+        
+          $includes = TbProvaTable::getInstance()->findBy('id_certame',  sfContext::getInstance()->getUser()->getAttribute('certame'));
+          $incluidos = array();
+          foreach ($includes as $incl){
+              $incluidos[] = $incl->getIdVaga();
+          }
+          $q = Doctrine_Query::create()->from('TbVaga')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'))
+              ->andWhereNotIn('id',$incluidos);
+          return $q;
+           
+    }
 }

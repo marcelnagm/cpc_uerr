@@ -7,6 +7,7 @@
  * 
  * @property integer $id_prova
  * @property integer $id_inscricao
+ * @property string $gabarito
  * @property float $nota
  * @property float $nota_redacao_1
  * @property float $nota_redacao_2
@@ -18,6 +19,7 @@
  * 
  * @method integer     getIdProva()               Returns the current record's "id_prova" value
  * @method integer     getIdInscricao()           Returns the current record's "id_inscricao" value
+ * @method string      getGabarito()              Returns the current record's "gabarito" value
  * @method float       getNota()                  Returns the current record's "nota" value
  * @method float       getNotaRedacao1()          Returns the current record's "nota_redacao_1" value
  * @method float       getNotaRedacao2()          Returns the current record's "nota_redacao_2" value
@@ -28,6 +30,7 @@
  * @method TbInscricao getTbInscricao()           Returns the current record's "TbInscricao" value
  * @method TbCorrecao  setIdProva()               Sets the current record's "id_prova" value
  * @method TbCorrecao  setIdInscricao()           Sets the current record's "id_inscricao" value
+ * @method TbCorrecao  setGabarito()              Sets the current record's "gabarito" value
  * @method TbCorrecao  setNota()                  Sets the current record's "nota" value
  * @method TbCorrecao  setNotaRedacao1()          Sets the current record's "nota_redacao_1" value
  * @method TbCorrecao  setNotaRedacao2()          Sets the current record's "nota_redacao_2" value
@@ -54,6 +57,9 @@ abstract class BaseTbCorrecao extends sfDoctrineRecord
         $this->hasColumn('id_inscricao', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
+             ));
+        $this->hasColumn('gabarito', 'string', null, array(
+             'type' => 'string',
              ));
         $this->hasColumn('nota', 'float', null, array(
              'type' => 'float',

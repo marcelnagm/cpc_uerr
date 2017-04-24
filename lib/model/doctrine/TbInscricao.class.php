@@ -26,5 +26,9 @@ class TbInscricao extends BaseTbInscricao
             $this->setArray($data);
         }
     }
+ 
+    public function toString() {
+        return $this->getBoleto();    
+    }
     
 }

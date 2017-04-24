@@ -131,6 +131,7 @@ TbCorrecao:
   columns:
     id_prova:                         { type: integer, notnull: true }   
     id_inscricao:                     { type: integer, notnull: true }  
+    gabarito:                         { type: string}  
     nota:                             { type: float}  
     nota_redacao_1:                   { type: float}  
     nota_redacao_2:                   { type: float}  
@@ -255,31 +256,20 @@ TbLotacaoProva:
     TbSalaProva:              { local: id_sala, foreign: id }     
     TbInscricao:              { local: id_inscricao, foreign: id}       
 
-TbProvaVaga:
-   columns:
-        id_prova:                  { type: integer, notnull: true }            
-        id_vaga:                   { type: integer, notnull: true }                   
-   relations:    
-    TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
-    TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva }   
-   indexes:
-    prova_vaga:
-      fields: [id_prova,id_vaga]
-      type: unique 
-    
-
 TbProva:
    actAs:
     Timestampable: ~
     Signable: ~  
    columns:
      id_certame:                { type: integer, notnull: true }           
+     id_vaga:                   { type: integer, notnull: true }                    
      data_inicio:               { type: date, notnull: true }        
      hora_inicio:               { type: time, notnull: true }        
      duracao:                   { type: string(10), notnull: true }        
    relations:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
     TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
+    TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva }   
    indexes:
     id_prova:
       fields: [id_prova]

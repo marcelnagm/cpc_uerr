@@ -19,7 +19,7 @@ generator:
           id_vaga: {label: Vaga}
       list:
           title: Lista de Provas do certame        
-          display: [data_inicio,hora_inicio,duracao]
+          display: [data_inicio,hora_inicio,duracao,TbVaga]
           table_method:  getPorCertame
           actions:
               _new: ~
@@ -27,15 +27,17 @@ generator:
                   label: Lista de Certames                        
           object_actions:
                _edit: ~
-               _delete: ~
-               Vagas:
-                   label: Vagas 
+               _delete: ~               
                Questoes:
                    label: Questões 
                Alocacao:
                    label: Alocar Candidatos em Sala
                Locais: 
                   label: Locais de Prova    
+               Gabarito: 
+                  label: Cartões de Prova
+               Correcao: 
+                  label: Corrigir Cartões de Prova
                    
       filter:  
           class: false

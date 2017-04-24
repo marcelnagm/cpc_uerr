@@ -15,6 +15,7 @@ abstract class BaseTbCorrecaoFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'id_prova'              => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbProva'), 'add_empty' => true)),
       'id_inscricao'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbInscricao'), 'add_empty' => true)),
+      'gabarito'              => new sfWidgetFormFilterInput(),
       'nota'                  => new sfWidgetFormFilterInput(),
       'nota_redacao_1'        => new sfWidgetFormFilterInput(),
       'nota_redacao_2'        => new sfWidgetFormFilterInput(),
@@ -30,6 +31,7 @@ abstract class BaseTbCorrecaoFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'id_prova'              => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbProva'), 'column' => 'id')),
       'id_inscricao'          => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbInscricao'), 'column' => 'id')),
+      'gabarito'              => new sfValidatorPass(array('required' => false)),
       'nota'                  => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'nota_redacao_1'        => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'nota_redacao_2'        => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
@@ -62,6 +64,7 @@ abstract class BaseTbCorrecaoFormFilter extends BaseFormFilterDoctrine
       'id'                    => 'Number',
       'id_prova'              => 'ForeignKey',
       'id_inscricao'          => 'ForeignKey',
+      'gabarito'              => 'Text',
       'nota'                  => 'Number',
       'nota_redacao_1'        => 'Number',
       'nota_redacao_2'        => 'Number',

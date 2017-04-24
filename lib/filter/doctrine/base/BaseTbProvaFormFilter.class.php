@@ -14,6 +14,7 @@ abstract class BaseTbProvaFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'id_certame'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'), 'add_empty' => true)),
+      'id_vaga'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => true)),
       'data_inicio' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'hora_inicio' => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'duracao'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -25,6 +26,7 @@ abstract class BaseTbProvaFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'id_certame'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbCertame'), 'column' => 'id')),
+      'id_vaga'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbVaga'), 'column' => 'id')),
       'data_inicio' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDateTime(array('required' => false)))),
       'hora_inicio' => new sfValidatorPass(array('required' => false)),
       'duracao'     => new sfValidatorPass(array('required' => false)),
@@ -53,6 +55,7 @@ abstract class BaseTbProvaFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'          => 'Number',
       'id_certame'  => 'ForeignKey',
+      'id_vaga'     => 'ForeignKey',
       'data_inicio' => 'Date',
       'hora_inicio' => 'Text',
       'duracao'     => 'Text',

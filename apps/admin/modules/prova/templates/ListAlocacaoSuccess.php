@@ -4,7 +4,7 @@
  */
 //$prova = new TbProva();
 ?>
-
+<h1 style="color: red; background-color: black;">Tela de Verificação</h1>
 <h2><?php echo $prova->getTbCertame()->getNome(); ?></h2>
 detalhes do certame:
 <table>
@@ -51,4 +51,5 @@ foreach ($local_prova as $local):?>
 </table>
 
 
-<?php echo link_to1('Alocar Candidatos', 'prova/ListGenerate?id='.$prova->getId()); ?>
+<p><?php echo link_to1('Alocar Candidatos', 'prova/ListGenerate?id='.$prova->getId()); ?></p>
+<p><?php echo link_to1('Voltar a Lista de Provas', 'prova/index'); ?></p>

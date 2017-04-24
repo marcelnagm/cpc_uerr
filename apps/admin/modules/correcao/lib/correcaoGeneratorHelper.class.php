@@ -1,13 +1,13 @@
 <?php
 
 /**
- * prova_vaga module helper.
+ * correcao module helper.
  *
  * @package    uerr
- * @subpackage prova_vaga
+ * @subpackage correcao
  * @author     Marcel Nagm
  * @version    SVN: $Id: helper.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class prova_vagaGeneratorHelper extends BaseProva_vagaGeneratorHelper
+class correcaoGeneratorHelper extends BaseCorrecaoGeneratorHelper
 {
 }

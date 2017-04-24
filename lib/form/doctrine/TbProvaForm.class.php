@@ -13,6 +13,9 @@ class TbProvaForm extends BaseTbProvaForm
   public function configure()
   {
    $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();   
-      
+     $this->widgetSchema['id_vaga'] = new sfWidgetFormDoctrineDependentSelect(array(                
+                 'model' => 'TbVaga', 
+                'table_method' => 'getPorCertameNaoIncluido',                
+            ));   
   }
 }

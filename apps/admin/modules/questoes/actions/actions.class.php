@@ -26,4 +26,7 @@ class questoesActions extends autoQuestoesActions
     }
     
     
+      public function executeListProvas(\sfWebRequest $request) {
+        $this->forward('prova','index');
+    }
 }

@@ -17,6 +17,7 @@ abstract class BaseTbProvaForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
       'id_certame'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'), 'add_empty' => false)),
+      'id_vaga'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => false)),
       'data_inicio' => new sfWidgetFormDate(),
       'hora_inicio' => new sfWidgetFormTime(),
       'duracao'     => new sfWidgetFormInputText(),
@@ -29,6 +30,7 @@ abstract class BaseTbProvaForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'id_certame'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'))),
+      'id_vaga'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'))),
       'data_inicio' => new sfValidatorDate(),
       'hora_inicio' => new sfValidatorTime(),
       'duracao'     => new sfValidatorString(array('max_length' => 10)),

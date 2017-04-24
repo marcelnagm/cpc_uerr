@@ -17,8 +17,14 @@ class TbQuestoesTable extends Doctrine_Table
         return Doctrine_Core::getTable('TbQuestoes');
     }
     
-       public function getPorProva() {
+       public static function getPorProva() {
           $q = Doctrine_Query::create()->from('TbQuestoes')->where('id_prova = ?',  sfContext::getInstance()->getUser()->getAttribute('prova'));
           return $q;           
+        }
+        
+       public static function getPorProvaOrderByNumber() {
+          $q = Doctrine_Query::create()->from('TbQuestoes')->where('id_prova = ?',  sfContext::getInstance()->getUser()->getAttribute('prova'));
+          $q->orderBy('numero');           
+          return $q->execute();
         }
 }

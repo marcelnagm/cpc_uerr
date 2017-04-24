@@ -18,12 +18,14 @@ abstract class BaseTbProvaVagaForm extends BaseFormDoctrine
       'id'       => new sfWidgetFormInputHidden(),
       'id_prova' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbProva'), 'add_empty' => false)),
       'id_vaga'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => false)),
+      'gabarito' => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
       'id'       => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'id_prova' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbProva'))),
       'id_vaga'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'))),
+      'gabarito' => new sfValidatorString(),
     ));
 
     $this->validatorSchema->setPostValidator(
