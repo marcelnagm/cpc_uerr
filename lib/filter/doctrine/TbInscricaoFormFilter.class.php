@@ -12,5 +12,10 @@ class TbInscricaoFormFilter extends BaseTbInscricaoFormFilter
 {
   public function configure()
   {
+       $this->widgetSchema['id_vaga'] = new sfWidgetFormDoctrineDependentSelect(array(                
+                 'model' => 'TbVaga', 
+                'table_method' => 'getPorCertame',                
+            )); 
+      
   }
 }

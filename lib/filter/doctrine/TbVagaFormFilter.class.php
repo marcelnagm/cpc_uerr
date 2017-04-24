@@ -11,6 +11,6 @@
 class TbVagaFormFilter extends BaseTbVagaFormFilter
 {
   public function configure()
-  {
+  {           
   }
 }
