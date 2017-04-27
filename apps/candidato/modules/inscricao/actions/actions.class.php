@@ -45,7 +45,7 @@ class inscricaoActions extends autoInscricaoActions {
                 $tb_inscricao->setTbCandidato($candidato);
 
                 $tb_inscricao->save();
-                $tb_inscricao->setBoleto($tb_inscricao->getId());
+                $tb_inscricao->generateBoleto();
                 $tb_inscricao->save();
             } catch (Doctrine_Validator_Exception $e) {
 
@@ -89,7 +89,7 @@ class inscricaoActions extends autoInscricaoActions {
             sfContext::getInstance()->getUser()->setFlash('error', 'Inscricao não encontrada');
             $this->redirect('certame/index');
         }
-
+        
 
         if ($this->tb_inscricao ->getCreatedBy() != sfContext::getInstance()->getUser()->getId()) {
             sfContext::getInstance()->getUser()->setFlash('error', 'Inscricao não pertence ao usuario, Evento reportado!!');

@@ -44,7 +44,7 @@
         <tr>
             <th>Id:</th>
             <td class="sf_admin_text sf_admin_list_th_id">
-                <?php echo $tb_inscricao->getId(); ?>
+                <?php echo $tb_inscricao->getBoleto(); ?>
             </td>
         </tr>
         <tr>

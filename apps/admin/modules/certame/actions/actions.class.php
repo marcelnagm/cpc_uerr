@@ -32,12 +32,6 @@ class certameActions extends autoCertameActions
         $this->forward('prova','index');
     }
     
-    public function executeListLocais(\sfWebRequest $request) {
-        $certame =$this->getRoute()->getObject();
-        sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());
-        $this->forward('local_prova','index');
-    }
-    
     public function executeListCidadeProva(\sfWebRequest $request) {
         $certame =$this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('certame', $certame->getId());

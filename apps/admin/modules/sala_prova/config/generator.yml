@@ -12,16 +12,32 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions: 
+              presenca: 
+                  label: Lista de Chamada
+              presenca_porta: 
+                  label: Listagem  de Porta
+              prova_discursiva: 
+                  label: Listagem  de Conferência Prova Discursiva
+              LocalProva: 
+                  label: Lista de Locais de Prova
       fields:  ~
       list:
           actions:
-              _new: ~
+              _new: ~   
+              presenca: ~
+              presenca_porta: ~
+              prova_discursiva: ~
               LocalProva: 
                   label: Lista de Locais de Prova
+          batch_actions:
+              delete: ~               
           title: Lista de Salas de Prova
           display: [numero_sala,especial,vagas,status]
           table_method:  getPorLocalProva
+          object_actions:
+              edit: ~
+              delete: ~
       filter:  
           class: false
       form:    ~

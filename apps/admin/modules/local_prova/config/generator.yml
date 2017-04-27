@@ -28,7 +28,9 @@ generator:
               _edit: ~
               _delete: ~
               SalaProva: 
-                  label: Salas de Prova
+                  label: Salas de Prova              
+              presenca: 
+                  label: Lista Geral    
       filter:  
           display: [id_local]
       form:    ~

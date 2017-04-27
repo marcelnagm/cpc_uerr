@@ -187,7 +187,7 @@ TbInscricao:
      id_vaga:                     { type: integer, notnull: true }        
      id_condicao_especial:        { type: integer, notnull: true }        
      id_cidade_prova:             { type: integer, notnull: true }        
-     boleto:                      { type: integer }        
+     boleto:                      { type: string }        
      pago:                        { type: boolean}        
      vaga_deficiente:             { type: boolean}        
      id_idioma:                   { type: integer, notnull: true }        

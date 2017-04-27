@@ -3,15 +3,24 @@
         float: left;
         text-align: left;
         width: 750px;
+        padding: 10px;
+        border-radius: 30px 30px 0 0 ;
+    }
+    
+    table td:first-child{
+    border-radius: 30px 30px 0 0 ;  
     }
     table td{
         border:  #000 solid thin;
+        padding: 10px;        
     }
     table th{
         border:  #000 solid thin;
+        padding: 2px;
     }
     table tr th{
         width: 30.5%;
+        padding: 2px;
     }
     
     h2{
@@ -35,7 +44,7 @@
         <tr>
             <th>Id:</th>
             <td class="sf_admin_text sf_admin_list_th_id">
-                <?php echo $tb_inscricao->getId(); ?>
+                <?php echo $tb_inscricao->getBoleto(); ?>
             </td>
         </tr>
         <tr>
@@ -45,21 +54,27 @@
             </td>
         </tr>
         <tr>
-            <th>Vaga:</th>
+            <th>Vaga </th>
             <td class="sf_admin_foreignkey sf_admin_list_th_id_vaga">
-                <?php echo $tb_inscricao->getTbVaga() ?>
+                <?php echo $tb_inscricao->getTbVaga()->getTbCargo() ?>
+            </td>
+        </tr>
+        <tr>
+            <th>Escolaridade:</th>
+            <td class="sf_admin_foreignkey sf_admin_list_th_id_vaga">
+                <?php echo $tb_inscricao->getTbVaga()->getTbEscolaridade() ?>
+            </td>
+        </tr>        
+        <tr>
+            <th>Cidade de Prova:</th>
+            <td class="sf_admin_foreignkey sf_admin_list_th_id_cidade_prova">
+                <?php echo $tb_inscricao->getTbCidadeProva() ?>
             </td>
         </tr>
         <tr>
             <th>Necessita de Condicao especial?:</th>
             <td class="sf_admin_foreignkey sf_admin_list_th_id_condicao_especial">
                 <?php echo $tb_inscricao->getTbCondicaoEspecial() ?>
-            </td>
-        </tr>
-        <tr>
-            <th>Cidade de Prova:</th>
-            <td class="sf_admin_foreignkey sf_admin_list_th_id_cidade_prova">
-                <?php echo $tb_inscricao->getTbCidadeProva() ?>
             </td>
         </tr>
         <tr>
@@ -71,7 +86,7 @@
         <tr>
             <th>Vaga deficiente:</th>
             <td class="sf_admin_text sf_admin_list_th_vaga_deficiente">
-                <?php echo $tb_inscricao->getVagaDeficiente() ?>
+                <?php echo $tb_inscricao->getVagaDeficienteText() ?>
             </td></tr>
         <tr>
             <th>Idioma selecionado:</th>

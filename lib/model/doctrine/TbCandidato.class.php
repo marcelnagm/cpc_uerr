@@ -12,4 +12,8 @@
  */
 class TbCandidato extends BaseTbCandidato
 {
+    public function getRgFormatted() {
+        return $this->getRg().'/'.$this->getRgemissor().' - '.$this->getRgtipo();
+    }
+    
 }

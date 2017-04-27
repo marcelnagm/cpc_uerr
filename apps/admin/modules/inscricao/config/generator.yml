@@ -12,7 +12,9 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions:           
+      actions: 
+          relatorio:
+              label: Gerar Lista
       fields:  
           id_vaga:
               label: Vaga
@@ -25,7 +27,8 @@ generator:
       list:
           title: Lista de Inscrições no Certame 
           display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente] 
-          actions: []
+          actions: 
+              relatorio: ~
           batch_actions: []
           table_method:  getPorCertame
           object_actions:

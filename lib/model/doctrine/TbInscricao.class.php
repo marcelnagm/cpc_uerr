@@ -27,8 +27,24 @@ class TbInscricao extends BaseTbInscricao
         }
     }
  
+    public function generateBoleto() {
+        $nboleto = '';
+        
+        
+        for($i=  strlen(''.$this->getId());$i<9;$i++){
+            $nboleto.='0';
+        }
+        $nboleto = '7'.$nboleto;
+        $nboleto .= $this->getId();
+        $this->setBoleto($nboleto);
+    }
+    
+    
     public function toString() {
         return $this->getBoleto();    
     }
+    
+    
+    
     
 }

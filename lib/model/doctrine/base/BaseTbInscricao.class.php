@@ -10,7 +10,7 @@
  * @property integer $id_vaga
  * @property integer $id_condicao_especial
  * @property integer $id_cidade_prova
- * @property integer $boleto
+ * @property string $boleto
  * @property boolean $pago
  * @property boolean $vaga_deficiente
  * @property integer $id_idioma
@@ -28,7 +28,7 @@
  * @method integer             getIdVaga()               Returns the current record's "id_vaga" value
  * @method integer             getIdCondicaoEspecial()   Returns the current record's "id_condicao_especial" value
  * @method integer             getIdCidadeProva()        Returns the current record's "id_cidade_prova" value
- * @method integer             getBoleto()               Returns the current record's "boleto" value
+ * @method string              getBoleto()               Returns the current record's "boleto" value
  * @method boolean             getPago()                 Returns the current record's "pago" value
  * @method boolean             getVagaDeficiente()       Returns the current record's "vaga_deficiente" value
  * @method integer             getIdIdioma()             Returns the current record's "id_idioma" value
@@ -88,8 +88,8 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('boleto', 'integer', null, array(
-             'type' => 'integer',
+        $this->hasColumn('boleto', 'string', null, array(
+             'type' => 'string',
              ));
         $this->hasColumn('pago', 'boolean', null, array(
              'type' => 'boolean',

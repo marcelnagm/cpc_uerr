@@ -13,6 +13,13 @@ require_once dirname(__FILE__).'/../lib/inscricaoGeneratorHelper.class.php';
  */
 class inscricaoActions extends autoInscricaoActions
 {
+      public function executeListRelatorio(\sfWebRequest $request) {
+          $this->setFilters($this->configuration->getFilterDefaults());
+          $this->filters = $this->configuration->getFilterForm($this->getFilters());
+
+         $this->filters->bind($request->getParameter($this->filters->getName()));
+      }
+      
       public function executeShow(\sfWebRequest $request) {
       parent::executeShow($request);
       $this->setLayout('print');

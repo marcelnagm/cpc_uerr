@@ -18,6 +18,10 @@ class TbVagaTable extends Doctrine_Table
     }
     
     public function getPorCertame() {
+        if(sfContext::getInstance()->getUser()->getAttribute('certame') instanceof TbCertame){
+          $q = Doctrine_Query::create()->from('TbVaga')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame')->getId());
+          return $q;   
+        }
           $q = Doctrine_Query::create()->from('TbVaga')->where('id_certame = ?',  sfContext::getInstance()->getUser()->getAttribute('certame'));
           return $q;
            
