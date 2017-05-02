@@ -28,6 +28,11 @@ class inscricaoActions extends autoInscricaoActions {
         parent::executeNew($request);
         $this->form->setDefault('id_certame', sfContext::getInstance()->getUser()->getAttribute('certame')->getId());
         $this->form->setDefault('id_candidato', sfContext::getInstance()->getUser()->getTbCandidato());
+        
+         if (!$certame->getTemIdioma()) {
+             $this->form->configureForCertameNoIdioma();
+         }
+        
     }
 
     protected function processForm(sfWebRequest $request, sfForm $form) {

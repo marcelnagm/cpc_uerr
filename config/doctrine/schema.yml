@@ -101,6 +101,7 @@ TbCertame:
     data_fim_isencao:           { type: date}  
     publicado:                  { type: boolean, notnull: true }  
     tem_redacao:                { type: boolean, notnull: true }  
+    tem_idioma:                { type: boolean, notnull: true }  
     data_inicio_inscricao:      { type: date}  
     data_fim_inscricao:         { type: date}
   relations:

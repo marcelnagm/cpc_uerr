@@ -17,6 +17,7 @@
  * @property date $data_fim_isencao
  * @property boolean $publicado
  * @property boolean $tem_redacao
+ * @property boolean $tem_idioma
  * @property date $data_inicio_inscricao
  * @property date $data_fim_inscricao
  * @property TbTipoCertame $TbTipoCertame
@@ -35,6 +36,7 @@
  * @method date                getDataFimIsencao()        Returns the current record's "data_fim_isencao" value
  * @method boolean             getPublicado()             Returns the current record's "publicado" value
  * @method boolean             getTemRedacao()            Returns the current record's "tem_redacao" value
+ * @method boolean             getTemIdioma()             Returns the current record's "tem_idioma" value
  * @method date                getDataInicioInscricao()   Returns the current record's "data_inicio_inscricao" value
  * @method date                getDataFimInscricao()      Returns the current record's "data_fim_inscricao" value
  * @method TbTipoCertame       getTbTipoCertame()         Returns the current record's "TbTipoCertame" value
@@ -52,6 +54,7 @@
  * @method TbCertame           setDataFimIsencao()        Sets the current record's "data_fim_isencao" value
  * @method TbCertame           setPublicado()             Sets the current record's "publicado" value
  * @method TbCertame           setTemRedacao()            Sets the current record's "tem_redacao" value
+ * @method TbCertame           setTemIdioma()             Sets the current record's "tem_idioma" value
  * @method TbCertame           setDataInicioInscricao()   Sets the current record's "data_inicio_inscricao" value
  * @method TbCertame           setDataFimInscricao()      Sets the current record's "data_fim_inscricao" value
  * @method TbCertame           setTbTipoCertame()         Sets the current record's "TbTipoCertame" value
@@ -108,6 +111,10 @@ abstract class BaseTbCertame extends sfDoctrineRecord
              'notnull' => true,
              ));
         $this->hasColumn('tem_redacao', 'boolean', null, array(
+             'type' => 'boolean',
+             'notnull' => true,
+             ));
+        $this->hasColumn('tem_idioma', 'boolean', null, array(
              'type' => 'boolean',
              'notnull' => true,
              ));
