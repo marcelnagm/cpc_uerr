@@ -190,6 +190,8 @@ TbInscricao:
      id_cidade_prova:             { type: integer, notnull: true }        
      boleto:                      { type: string }        
      pago:                        { type: boolean}        
+     isencao:                     { type: boolean}        
+     isento:                      { type: boolean}        
      vaga_deficiente:             { type: boolean}        
      id_idioma:                   { type: integer, notnull: true }        
    relations:
@@ -264,13 +266,15 @@ TbProva:
    columns:
      id_certame:                { type: integer, notnull: true }           
      id_vaga:                   { type: integer, notnull: true }                    
+     id_cidade_prova:             { type: integer, notnull: true } 
      data_inicio:               { type: date, notnull: true }        
      hora_inicio:               { type: time, notnull: true }        
      duracao:                   { type: string(10), notnull: true }        
    relations:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
     TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }     
-    TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva }   
+    TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva }
+    TbCidadeProva:               { local: id_cidade_prova, foreign: id, foreignAlias: TbCidadeProva }    
    indexes:
     id_prova:
       fields: [id_prova]

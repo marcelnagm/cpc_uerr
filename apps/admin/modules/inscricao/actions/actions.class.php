@@ -13,11 +13,17 @@ require_once dirname(__FILE__).'/../lib/inscricaoGeneratorHelper.class.php';
  */
 class inscricaoActions extends autoInscricaoActions
 {
+      public function executeGenerate(\sfWebRequest $request) {
+          $this->query = TbInscricaoTable::generateReport($request);
+          $this->inscricoes = $this->query->execute();  
+          $this->vaga = TbVagaTable::getInstance()->find($request->getParameter('id_vaga')) ;
+          $this->cidade = TbCidadeProvaTable::getInstance()->find($request->getParameter('id_cidade')) ;
+          $this->setLayout('print');
+      }
+      
+      
       public function executeListRelatorio(\sfWebRequest $request) {
-          $this->setFilters($this->configuration->getFilterDefaults());
-          $this->filters = $this->configuration->getFilterForm($this->getFilters());
-
-         $this->filters->bind($request->getParameter($this->filters->getName()));
+          $this->form = new RelatorioInscricaoForm();       
       }
       
       public function executeShow(\sfWebRequest $request) {

@@ -12,6 +12,8 @@
  * @property integer $id_cidade_prova
  * @property string $boleto
  * @property boolean $pago
+ * @property boolean $isencao
+ * @property boolean $isento
  * @property boolean $vaga_deficiente
  * @property integer $id_idioma
  * @property TbCandidato $TbCandidato
@@ -30,6 +32,8 @@
  * @method integer             getIdCidadeProva()        Returns the current record's "id_cidade_prova" value
  * @method string              getBoleto()               Returns the current record's "boleto" value
  * @method boolean             getPago()                 Returns the current record's "pago" value
+ * @method boolean             getIsencao()              Returns the current record's "isencao" value
+ * @method boolean             getIsento()               Returns the current record's "isento" value
  * @method boolean             getVagaDeficiente()       Returns the current record's "vaga_deficiente" value
  * @method integer             getIdIdioma()             Returns the current record's "id_idioma" value
  * @method TbCandidato         getTbCandidato()          Returns the current record's "TbCandidato" value
@@ -47,6 +51,8 @@
  * @method TbInscricao         setIdCidadeProva()        Sets the current record's "id_cidade_prova" value
  * @method TbInscricao         setBoleto()               Sets the current record's "boleto" value
  * @method TbInscricao         setPago()                 Sets the current record's "pago" value
+ * @method TbInscricao         setIsencao()              Sets the current record's "isencao" value
+ * @method TbInscricao         setIsento()               Sets the current record's "isento" value
  * @method TbInscricao         setVagaDeficiente()       Sets the current record's "vaga_deficiente" value
  * @method TbInscricao         setIdIdioma()             Sets the current record's "id_idioma" value
  * @method TbInscricao         setTbCandidato()          Sets the current record's "TbCandidato" value
@@ -92,6 +98,12 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
              'type' => 'string',
              ));
         $this->hasColumn('pago', 'boolean', null, array(
+             'type' => 'boolean',
+             ));
+        $this->hasColumn('isencao', 'boolean', null, array(
+             'type' => 'boolean',
+             ));
+        $this->hasColumn('isento', 'boolean', null, array(
              'type' => 'boolean',
              ));
         $this->hasColumn('vaga_deficiente', 'boolean', null, array(

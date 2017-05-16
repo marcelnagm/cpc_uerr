@@ -15,29 +15,31 @@ abstract class BaseTbProvaForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'          => new sfWidgetFormInputHidden(),
-      'id_certame'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'), 'add_empty' => false)),
-      'id_vaga'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => false)),
-      'data_inicio' => new sfWidgetFormDate(),
-      'hora_inicio' => new sfWidgetFormTime(),
-      'duracao'     => new sfWidgetFormInputText(),
-      'created_at'  => new sfWidgetFormDateTime(),
-      'updated_at'  => new sfWidgetFormDateTime(),
-      'created_by'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Creator'), 'add_empty' => true)),
-      'updated_by'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Updator'), 'add_empty' => true)),
+      'id'              => new sfWidgetFormInputHidden(),
+      'id_certame'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'), 'add_empty' => false)),
+      'id_vaga'         => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'), 'add_empty' => false)),
+      'id_cidade_prova' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbCidadeProva'), 'add_empty' => false)),
+      'data_inicio'     => new sfWidgetFormDate(),
+      'hora_inicio'     => new sfWidgetFormTime(),
+      'duracao'         => new sfWidgetFormInputText(),
+      'created_at'      => new sfWidgetFormDateTime(),
+      'updated_at'      => new sfWidgetFormDateTime(),
+      'created_by'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Creator'), 'add_empty' => true)),
+      'updated_by'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Updator'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'id_certame'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'))),
-      'id_vaga'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'))),
-      'data_inicio' => new sfValidatorDate(),
-      'hora_inicio' => new sfValidatorTime(),
-      'duracao'     => new sfValidatorString(array('max_length' => 10)),
-      'created_at'  => new sfValidatorDateTime(),
-      'updated_at'  => new sfValidatorDateTime(),
-      'created_by'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Creator'), 'required' => false)),
-      'updated_by'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Updator'), 'required' => false)),
+      'id'              => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'id_certame'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbCertame'))),
+      'id_vaga'         => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbVaga'))),
+      'id_cidade_prova' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbCidadeProva'))),
+      'data_inicio'     => new sfValidatorDate(),
+      'hora_inicio'     => new sfValidatorTime(),
+      'duracao'         => new sfValidatorString(array('max_length' => 10)),
+      'created_at'      => new sfValidatorDateTime(),
+      'updated_at'      => new sfValidatorDateTime(),
+      'created_by'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Creator'), 'required' => false)),
+      'updated_by'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Updator'), 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

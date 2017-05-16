@@ -17,5 +17,9 @@ class TbProvaForm extends BaseTbProvaForm
                  'model' => 'TbVaga', 
                 'table_method' => 'getPorCertameNaoIncluido',                
             ));   
+     $this->widgetSchema['id_cidade_prova'] = new sfWidgetFormDoctrineDependentSelect(array(                
+                 'model' => 'TbCidadeProva', 
+                'table_method' => 'getPorCertame',                
+            ));   
   }
 }

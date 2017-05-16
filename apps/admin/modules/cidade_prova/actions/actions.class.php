@@ -26,5 +26,10 @@ class cidade_provaActions extends autoCidade_provaActions
         return $this->renderText(json_encode($disciplines));
     }
     
+      public function executeNew(sfWebRequest $request) {
+    
+        $this->form = $this->configuration->getForm();
+        $this->form->setDefault('id_certame', sfContext::getInstance()->getUser()->getAttribute('certame'));                
+    }
     
 }

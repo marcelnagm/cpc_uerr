@@ -54,7 +54,8 @@ class provaActions extends autoProvaActions {
         $local_prova = TbLocalProvaTable::getInstance()->findBy('id_prova', $prova->getId());
 //        $inscritos = TbInscricaoTable::getInstance()->findByDql('id_certame = ? and id_vaga = ? and pago = 1', array('1' => $prova->getTbCertame()->getId(),'2'=>$prova->getTbVaga()->getId()));
         $q = Doctrine_Query::create()->from('TbInscricao i')->innerJoin('i.TbCandidato c')->where('i.id_certame = ? ',$prova->getTbCertame()->getId())
-                ->andWhere('i.id_vaga = ? and i.pago = 1',$prova->getTbVaga()->getId())->orderBy('c.nome');
+                ->andWhere('i.id_vaga = ? and i.pago = 1',$prova->getTbVaga()->getId())
+                ->andWhere('i.id_cidade_prova = ?',$prova->getTbCidadeProva()->getId())->orderBy('c.nome');
         $inscritos = $q->execute();
         $this->totalinscritos = count($inscritos);
         $j = 0;

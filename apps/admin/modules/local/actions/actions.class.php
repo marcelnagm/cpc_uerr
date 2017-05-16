@@ -13,4 +13,8 @@ require_once dirname(__FILE__).'/../lib/localGeneratorHelper.class.php';
  */
 class localActions extends autoLocalActions
 {
+    public function executeListCertames(\sfWebRequest $request) {    
+        $this->redirect('certame/index');
+    }
+    
 }

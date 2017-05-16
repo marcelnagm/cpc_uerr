@@ -19,6 +19,6 @@ class TbCidadeProvaForm extends BaseTbCidadeProvaForm
             'config' => '{ max: 10 }'
                 ), array('placeholder' => 'Inicie digitação e selecione a cidade'));
 
-      
+       $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();
   }
 }

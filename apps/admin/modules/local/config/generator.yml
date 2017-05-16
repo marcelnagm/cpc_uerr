@@ -17,6 +17,10 @@ generator:
       list:
           title: Lista de Locais
           display: [nome,sigla]
+          actions:
+              _new: ~
+              Certames:
+                  label: Lista de Certames
       filter:  
           display: [nome,sigla]
       form:    ~

@@ -14,7 +14,7 @@ generator:
     config:
       actions: 
           relatorio:
-              label: Gerar Lista
+              label: Relatório Inscritos
       fields:  
           id_vaga:
               label: Vaga
@@ -26,7 +26,7 @@ generator:
               label: Cidade de Prova
       list:
           title: Lista de Inscrições no Certame 
-          display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente] 
+          display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente,isencao,isento] 
           actions: 
               relatorio: ~
           batch_actions: []
@@ -36,7 +36,7 @@ generator:
               boleto: 
                   label: Gerar Boleto
       filter:  
-          display: [id_vaga,id_cidade_prova,pago,vaga_deficiente]
+          display: [id_vaga,id_cidade_prova,pago,vaga_deficiente,isencao,isento]
       form:    ~
       edit:    ~
       new:     ~

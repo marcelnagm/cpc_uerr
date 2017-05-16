@@ -795,107 +795,57 @@ border=0></TD>
 <TD width=5></TD>
 <TD width=5><IMG height=1 
 src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+border=0></TD>  
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
@@ -1771,7 +1721,8 @@ Ficha de Compensação</TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
-<TD><? geraCodigoBarra($dadosboleto["codigo_barras"]); ?></TD></TR></TBODY></TABLE><BR>
+<TD ><?
+geraCodigoBarra($dadosboleto["codigo_barras"]); ?></TD></TR></TBODY></TABLE><BR>
 <TABLE cellSpacing=0 cellPadding=0 width=666 border=0>
 <TBODY>
 <TR>
@@ -1805,221 +1756,113 @@ Ficha de Compensação</TD></TR></TBODY></TABLE><BR>
 <TD width=5></TD>
 <TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD>
-<TD width=5><IMG height=1 
-src="images/imgpxlazu.gif" width=6 
-border=0></TD>
+<TD width=5><? echo image_tag('imgpxlazu.gif',array('height' => '1','width' => '6','border' => '0')) ?></TD>
 <TD width=5></TD></TR></TBODY></TABLE>
 </DIV></BODY></HTML>
 
