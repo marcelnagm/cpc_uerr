@@ -35,6 +35,11 @@ class inscricaoActions extends autoInscricaoActions {
         
     }
 
+      public function executeFilter(sfWebRequest $request)
+  {
+            $this->redirect('certame/index');
+      }
+    
     protected function processForm(sfWebRequest $request, sfForm $form) {
         $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
         if ($form->isValid()) {
@@ -150,6 +155,10 @@ class inscricaoActions extends autoInscricaoActions {
     }
       public function executeListCertames(\sfWebRequest $request) {    
         $this->redirect('certame/index');
+    }
+    
+    public function executeDelete(sfWebRequest $request){
+         $this->redirect('certame/index');
     }
     
 }

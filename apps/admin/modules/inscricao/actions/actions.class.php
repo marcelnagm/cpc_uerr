@@ -38,6 +38,19 @@ class inscricaoActions extends autoInscricaoActions
       $this->setLayout('print');
   }
  
+  public function executeListIsentar(\sfWebRequest $request) {
+//      $this->inscricao = new TbInscricao();
+      $this->inscricao = $this->getRoute()->getObject();
+      if($this->inscricao->getIsencao() ){
+         $this->inscricao->setIsento(1) ;
+         $this->inscricao->save();
+         sfContext::getInstance()->getUser()->setFlash('notice','Isento com Sucesso');
+             $this->redirect('inscricao/index');
+      }else{
+          sfContext::getInstance()->getUser()->setFlash('error','Não Solicitou inseção');
+             $this->redirect('inscricao/index');
+      }
+  }
   public function executeListBoleto(\sfWebRequest $request) {
 //      $this->inscricao = new TbInscricao();
       $this->inscricao = $this->getRoute()->getObject();

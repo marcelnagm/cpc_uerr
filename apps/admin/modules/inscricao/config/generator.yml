@@ -38,8 +38,10 @@ generator:
               _show: ~
               boleto: 
                   label: Gerar Boleto
+              isentar:
+                  label: Insentar
       filter:  
-          display: [id_vaga,id_cidade_prova,pago,vaga_deficiente,isencao,isento]
+          display: [boleto,id_vaga,id_cidade_prova,pago,vaga_deficiente,isencao,isento]
       form:    ~
       edit:    ~
       new:     ~
