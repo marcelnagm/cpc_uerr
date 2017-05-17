@@ -15,6 +15,8 @@ generator:
       actions: 
           relatorio:
               label: Relatório Inscritos
+          outros:
+              label: Dados Estatisticos Inscritos
       fields:  
           id_vaga:
               label: Vaga
@@ -29,6 +31,7 @@ generator:
           display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente,isencao,isento] 
           actions: 
               relatorio: ~
+              outros: ~
           batch_actions: []
           table_method:  getPorCertame
           object_actions:

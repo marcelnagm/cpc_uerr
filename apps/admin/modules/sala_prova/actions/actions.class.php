@@ -30,6 +30,7 @@ class sala_provaActions extends autoSala_provaActions {
 
     public function executeListPresencaPorta(sfWebRequest $request) {
         $this->setLayout('print');
+        $this->local_prova = TbLocalProvaTable::getInstance()->find(sfContext::getInstance()->getUser()->getAttribute('local_prova'));
         $this->salas = TbSalaProvaTable::getInstance()->getPorLocalProva()->execute();
     }
 

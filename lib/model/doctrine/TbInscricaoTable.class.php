@@ -27,6 +27,29 @@ class TbInscricaoTable extends Doctrine_Table {
         $q = Doctrine_Query::create()->from('TbInscricao')->where('id_certame = ?', sfContext::getInstance()->getUser()->getAttribute('certame'));
         return $q;
     }
+    
+    /**
+     * Retora query usando o certame informado
+     * @param TbCertame $certame
+     * @param Tbvaga $vaga
+     * @return Doctrine_Query $q
+     */
+    public  function getPorCertameAndVaga1($certame,$vaga) {
+        $q = Doctrine_Query::create()->from('TbInscricao')->where('id_certame = ?', $certame->getId());
+        $q->andWhere('id_vaga = ? ',$vaga);    
+        return $q;
+    }
+    
+    /**
+     *  Retora query usando o certame em sessão
+     * @param Tbvaga $vaga
+     * @return Doctrine_Query $q
+     */
+    public  function getPorCertameAndVaga($vaga) {
+        $q = Doctrine_Query::create()->from('TbInscricao')->where('id_certame = ?', sfContext::getInstance()->getUser()->getAttribute('certame'))
+                ->andWhere('id_vaga = '.$vaga->getId());    
+        return $q;
+    }
 
     public static function generateReport(sfWebRequest $request) {
         $query = Doctrine_Query::create()->from('TbInscricao ins')

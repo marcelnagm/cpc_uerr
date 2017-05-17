@@ -22,6 +22,13 @@ class inscricaoActions extends autoInscricaoActions
       }
       
       
+      public function executeListOutros(\sfWebRequest $request) {
+          
+      }
+      public function executeDadosGerais(\sfWebRequest $request) {
+          $this->vagas = TbVagaTable::getInstance()->getPorCertame()->execute();   
+      }
+      
       public function executeListRelatorio(\sfWebRequest $request) {
           $this->form = new RelatorioInscricaoForm();       
       }

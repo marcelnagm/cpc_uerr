@@ -13,6 +13,6 @@
 class TbLocalProva extends BaseTbLocalProva
 {
     public function __toString() {
-        return $this->getTbProva().' / '.$this->getTbLocal();
+        return $this->getTbLocal();
     }
 }

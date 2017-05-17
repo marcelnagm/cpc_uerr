@@ -57,7 +57,7 @@
 
     <?php $sala = new TbSalaProva(); ?>
 
-    <?php echo image_tag('logo-cpc.png'); ?>
+    <?php echo image_tag('logo-cpc.png', array('width' => '530px', 'heigth' => '53')); ?>
     <h1>Listagem Geral - <?php echo $local_prova->getTbLocal()->getNome(); ?></h1>
     <table id="presence_list_container_info">
         <tr>                
@@ -72,11 +72,13 @@
         <?php foreach ($salas as $sala): ?>   
             <?php
             $lotacao = new TbLotacaoProva();
+            $in = false;
             foreach ($sala->getTbLotacaoProva() as $lotacao):
                 $inscricao = $lotacao->getTbInscricao();
                 $candidato = $inscricao->getTbCandidato();
+                 $color = $in ? '#CCCCCC' : '#FFFFFF';
                 ?>
-                <tr>
+                <tr style="background-color: <?php echo $color; ?>">
                     <td><?php echo $inscricao->getBoleto(); ?></td>                    
                     <td><?php echo $candidato->getNome(); ?></td>
                     <td><?php echo $inscricao->getTbVaga()->getTbCargo(); ?></td>
@@ -85,7 +87,9 @@
                     <td><?php echo $inscricao->getTbIdioma(); ?></td>
                     <td><?php echo $sala->getNumeroSala(); ?></td>
                 </tr>
-                <?php  endforeach; ?>
+                <?php  
+                 $in = !$in;
+                endforeach; ?>
         <?php endforeach; ?>
     </table>
 
