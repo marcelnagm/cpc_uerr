@@ -16,4 +16,11 @@ class TbTipoIsencaoTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('TbTipoIsencao');
     }
+    
+    public function getPorAtivo() {
+        
+          $q = Doctrine_Query::create()->from('TbTipoIsencao')->where('ativo = 1');
+          return $q;
+           
+    }
 }

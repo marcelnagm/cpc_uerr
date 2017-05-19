@@ -27,6 +27,10 @@ class TbInscricaoForm extends BaseTbInscricaoForm
                  'model' => 'TbVaga', 
                 'table_method' => 'getPorCertame',                
             )); 
+        $this->widgetSchema['id_tipo_isencao'] = new sfWidgetFormDoctrineDependentSelect(array(                
+                 'model' => 'TbTipoIsencao', 
+                'table_method' => 'getPorAtivo',                
+            )); 
   }
   
   public function configureForCertameNoIdioma(){
