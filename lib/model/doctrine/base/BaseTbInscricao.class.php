@@ -12,7 +12,7 @@
  * @property integer $id_cidade_prova
  * @property string $boleto
  * @property boolean $pago
- * @property boolean $isencao
+ * @property boolean $id_tipo_isencao
  * @property boolean $isento
  * @property boolean $vaga_deficiente
  * @property integer $id_idioma
@@ -22,6 +22,7 @@
  * @property TbVaga $TbVaga
  * @property TbCondicaoEspecial $TbCondicaoEspecial
  * @property TbCidadeProva $TbCidadeProva
+ * @property TbTipoIsencao $TbTipoIsencao
  * @property Doctrine_Collection $TbInscricao
  * @property Doctrine_Collection $TbLotacaoProva
  * 
@@ -32,7 +33,7 @@
  * @method integer             getIdCidadeProva()        Returns the current record's "id_cidade_prova" value
  * @method string              getBoleto()               Returns the current record's "boleto" value
  * @method boolean             getPago()                 Returns the current record's "pago" value
- * @method boolean             getIsencao()              Returns the current record's "isencao" value
+ * @method boolean             getIdTipoIsencao()        Returns the current record's "id_tipo_isencao" value
  * @method boolean             getIsento()               Returns the current record's "isento" value
  * @method boolean             getVagaDeficiente()       Returns the current record's "vaga_deficiente" value
  * @method integer             getIdIdioma()             Returns the current record's "id_idioma" value
@@ -42,6 +43,7 @@
  * @method TbVaga              getTbVaga()               Returns the current record's "TbVaga" value
  * @method TbCondicaoEspecial  getTbCondicaoEspecial()   Returns the current record's "TbCondicaoEspecial" value
  * @method TbCidadeProva       getTbCidadeProva()        Returns the current record's "TbCidadeProva" value
+ * @method TbTipoIsencao       getTbTipoIsencao()        Returns the current record's "TbTipoIsencao" value
  * @method Doctrine_Collection getTbInscricao()          Returns the current record's "TbInscricao" collection
  * @method Doctrine_Collection getTbLotacaoProva()       Returns the current record's "TbLotacaoProva" collection
  * @method TbInscricao         setIdCandidato()          Sets the current record's "id_candidato" value
@@ -51,7 +53,7 @@
  * @method TbInscricao         setIdCidadeProva()        Sets the current record's "id_cidade_prova" value
  * @method TbInscricao         setBoleto()               Sets the current record's "boleto" value
  * @method TbInscricao         setPago()                 Sets the current record's "pago" value
- * @method TbInscricao         setIsencao()              Sets the current record's "isencao" value
+ * @method TbInscricao         setIdTipoIsencao()        Sets the current record's "id_tipo_isencao" value
  * @method TbInscricao         setIsento()               Sets the current record's "isento" value
  * @method TbInscricao         setVagaDeficiente()       Sets the current record's "vaga_deficiente" value
  * @method TbInscricao         setIdIdioma()             Sets the current record's "id_idioma" value
@@ -61,6 +63,7 @@
  * @method TbInscricao         setTbVaga()               Sets the current record's "TbVaga" value
  * @method TbInscricao         setTbCondicaoEspecial()   Sets the current record's "TbCondicaoEspecial" value
  * @method TbInscricao         setTbCidadeProva()        Sets the current record's "TbCidadeProva" value
+ * @method TbInscricao         setTbTipoIsencao()        Sets the current record's "TbTipoIsencao" value
  * @method TbInscricao         setTbInscricao()          Sets the current record's "TbInscricao" collection
  * @method TbInscricao         setTbLotacaoProva()       Sets the current record's "TbLotacaoProva" collection
  * 
@@ -100,8 +103,9 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
         $this->hasColumn('pago', 'boolean', null, array(
              'type' => 'boolean',
              ));
-        $this->hasColumn('isencao', 'boolean', null, array(
+        $this->hasColumn('id_tipo_isencao', 'boolean', null, array(
              'type' => 'boolean',
+             'notnull' => true,
              ));
         $this->hasColumn('isento', 'boolean', null, array(
              'type' => 'boolean',
@@ -140,6 +144,10 @@ abstract class BaseTbInscricao extends sfDoctrineRecord
 
         $this->hasOne('TbCidadeProva', array(
              'local' => 'id_cidade_prova',
+             'foreign' => 'id'));
+
+        $this->hasOne('TbTipoIsencao', array(
+             'local' => 'id_tipo_isencao',
              'foreign' => 'id'));
 
         $this->hasMany('TbCorrecao as TbInscricao', array(

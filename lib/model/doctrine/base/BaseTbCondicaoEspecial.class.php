@@ -7,14 +7,14 @@
  * 
  * @property string $nome
  * @property text $descricao
- * @property Doctrine_Collection $TbInscricao
+ * @property Doctrine_Collection $TbCondicaoEspecial
  * 
- * @method string              getNome()        Returns the current record's "nome" value
- * @method text                getDescricao()   Returns the current record's "descricao" value
- * @method Doctrine_Collection getTbInscricao() Returns the current record's "TbInscricao" collection
- * @method TbCondicaoEspecial  setNome()        Sets the current record's "nome" value
- * @method TbCondicaoEspecial  setDescricao()   Sets the current record's "descricao" value
- * @method TbCondicaoEspecial  setTbInscricao() Sets the current record's "TbInscricao" collection
+ * @method string              getNome()               Returns the current record's "nome" value
+ * @method text                getDescricao()          Returns the current record's "descricao" value
+ * @method Doctrine_Collection getTbCondicaoEspecial() Returns the current record's "TbCondicaoEspecial" collection
+ * @method TbCondicaoEspecial  setNome()               Sets the current record's "nome" value
+ * @method TbCondicaoEspecial  setDescricao()          Sets the current record's "descricao" value
+ * @method TbCondicaoEspecial  setTbCondicaoEspecial() Sets the current record's "TbCondicaoEspecial" collection
  * 
  * @package    uerr
  * @subpackage model
@@ -39,7 +39,7 @@ abstract class BaseTbCondicaoEspecial extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('TbInscricao', array(
+        $this->hasMany('TbInscricao as TbCondicaoEspecial', array(
              'local' => 'id',
              'foreign' => 'id_condicao_especial'));
     }

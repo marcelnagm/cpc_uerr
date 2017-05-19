@@ -1,3 +1,12 @@
+tb_tipo_isencao:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                TbTipoIsencao
+    module:               tipo_isencao
+    prefix_path:          /tipo_isencao
+    column:               id
+    with_wildcard_routes: true
+
 tb_correcao:
   class: sfDoctrineRouteCollection
   options:

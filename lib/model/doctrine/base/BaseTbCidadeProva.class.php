@@ -9,20 +9,17 @@
  * @property integer $id_cidade
  * @property TbCidade $TbCidade
  * @property TbCertame $TbCertame
- * @property Doctrine_Collection $TbInscricao
  * @property Doctrine_Collection $TbCidadeProva
  * 
  * @method integer             getIdCertame()     Returns the current record's "id_certame" value
  * @method integer             getIdCidade()      Returns the current record's "id_cidade" value
  * @method TbCidade            getTbCidade()      Returns the current record's "TbCidade" value
  * @method TbCertame           getTbCertame()     Returns the current record's "TbCertame" value
- * @method Doctrine_Collection getTbInscricao()   Returns the current record's "TbInscricao" collection
  * @method Doctrine_Collection getTbCidadeProva() Returns the current record's "TbCidadeProva" collection
  * @method TbCidadeProva       setIdCertame()     Sets the current record's "id_certame" value
  * @method TbCidadeProva       setIdCidade()      Sets the current record's "id_cidade" value
  * @method TbCidadeProva       setTbCidade()      Sets the current record's "TbCidade" value
  * @method TbCidadeProva       setTbCertame()     Sets the current record's "TbCertame" value
- * @method TbCidadeProva       setTbInscricao()   Sets the current record's "TbInscricao" collection
  * @method TbCidadeProva       setTbCidadeProva() Sets the current record's "TbCidadeProva" collection
  * 
  * @package    uerr
@@ -56,11 +53,7 @@ abstract class BaseTbCidadeProva extends sfDoctrineRecord
              'local' => 'id_certame',
              'foreign' => 'id'));
 
-        $this->hasMany('TbInscricao', array(
-             'local' => 'id',
-             'foreign' => 'id_cidade_prova'));
-
-        $this->hasMany('TbProva as TbCidadeProva', array(
+        $this->hasMany('TbInscricao as TbCidadeProva', array(
              'local' => 'id',
              'foreign' => 'id_cidade_prova'));
 

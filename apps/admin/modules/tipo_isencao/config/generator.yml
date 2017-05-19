@@ -1,0 +1,24 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           TbTipoIsencao
+    theme:                 adminWithShow
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tb_tipo_isencao
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+          title: "Lista de Tipo de Isenção"
+      filter:  ~
+      form:    ~
+      edit:    
+          title: "Editando Tipo de Isenção"
+      new:     
+          title: "Novo Tipo de Isenção"

@@ -19,10 +19,11 @@ class RelatorioInscricaoForm extends BaseForm
         'label' => 'Vaga de Deficiente?'
             )
             );
-    $this->widgetSchema['isencao'] = new sfWidgetFormInputCheckbox(array(
-        'label' => 'Pediu Isenção?'
-            )
-            );
+    $this->widgetSchema['isencao'] =new sfWidgetFormDoctrineChoice(array(                
+                 'model' => 'TbTipoIsencao', 
+                 'label' => 'Escolha o Tipo de Isencao',
+//                'table_method' => 'getPorCertame',                
+            )); 
     $this->widgetSchema['isento'] = new sfWidgetFormInputCheckbox(array(
         'label' => 'Foi Isento?'
             )

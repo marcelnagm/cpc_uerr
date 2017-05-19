@@ -17,6 +17,12 @@ TbRgemissor:
 TbRgtipo:
     columns:
         rgtipo:                       { type: string(255), notnull: true }  
+
+
+TbTipoIsencao:
+    columns:
+        descricao:                       { type: string(255), notnull: true }  
+        ativo:                           { type: boolean, notnull: true }  
         
         
 TbIdioma:
@@ -190,7 +196,7 @@ TbInscricao:
      id_cidade_prova:             { type: integer, notnull: true }        
      boleto:                      { type: string }        
      pago:                        { type: boolean}        
-     isencao:                     { type: boolean}        
+     id_tipo_isencao:          { type: boolean, notnull: true }        
      isento:                      { type: boolean}        
      vaga_deficiente:             { type: boolean}        
      id_idioma:                   { type: integer, notnull: true }        
@@ -199,8 +205,9 @@ TbInscricao:
     TbCertame:                   { local: id_certame, foreign: id, foreignAlias: TbCertame }     
     TbIdioma:                    { local: id_idioma, foreign: id, foreignAlias: TbIdioma}     
     TbVaga:                      { local: id_vaga, foreign: id, foreignAlias: TbVaga }         
-    TbCondicaoEspecial:          { local: id_condicao_especial, foreign: id}     
-    TbCidadeProva:               { local: id_cidade_prova, foreign: id}     
+    TbCondicaoEspecial:          { local: id_condicao_especial, foreign: id, foreignAlias: TbCondicaoEspecial }     
+    TbCidadeProva:               { local: id_cidade_prova, foreign: id, foreignAlias: TbCidadeProva }     
+    TbTipoIsencao:               { local: id_tipo_isencao, foreign: id, foreignAlias: TbTipoIsencao }     
 
 TbLocal:
    actAs:

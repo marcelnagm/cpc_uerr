@@ -20,6 +20,10 @@ generator:
       fields:  
           id_vaga:
               label: Vaga
+          TbTipoIsencao:
+              label: Tipo de Isenção
+          id_tipo_isencao:
+              label: Tipo de Isenção
           TbVaga:
               label: Vaga
           id_cidade_prova:
@@ -28,7 +32,7 @@ generator:
               label: Cidade de Prova
       list:
           title: Lista de Inscrições no Certame 
-          display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente,isencao,isento] 
+          display: [boleto,TbVaga,TbCidadeProva,pago,vaga_deficiente,TbTipoIsencao,isento] 
           actions: 
               relatorio: ~
               outros: ~
@@ -41,7 +45,7 @@ generator:
               isentar:
                   label: Insentar
       filter:  
-          display: [boleto,id_vaga,id_cidade_prova,pago,vaga_deficiente,isencao,isento]
+          display: [boleto,id_vaga,id_cidade_prova,pago,vaga_deficiente,id_tipo_isencao,isento]
       form:    ~
       edit:    ~
       new:     ~

@@ -22,7 +22,7 @@ generator:
               label: "Necessita de Condição Especial?"
           TbVaga: 
               label: Vaga
-          isencao: 
+          id_tipo_isencao: 
               label: Solicitar Isencao
           TbCidadeProva:
               label: Cidade de Prova
@@ -48,7 +48,7 @@ generator:
       filter:  
           class: false
       form:    
-          display: [id_vaga,id_condicao_especial,id_cidade_prova,id_idioma,vaga_deficiente,isencao]
+          display: [id_vaga,id_condicao_especial,id_cidade_prova,id_idioma,vaga_deficiente,id_tipo_isencao]
       edit:    ~
       new:     
           title: "Nova Inscrição"

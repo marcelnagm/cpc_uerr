@@ -79,6 +79,7 @@
                                                     <div class="menu-primary-container"><ul id="menu-principal" class="menus menu-primary sub-menu sf-js-enabled">
                                                             <li><a href="<? echo url_for('homepage') ?>">HOME</a></li>
                                                             <li><a href="<? echo url_for('tb_certame') ?>">Certames</a></li>
+                                                            <li><a href="<? echo url_for('tb_tipo_isencao') ?>">Tipo de Isenção</a></li>                                                            
                                                             <li><a href="<? echo url_for('tb_tipo_certame') ?>">Tipo de Certame</a></li>                                                            
                                                             <li><a href="<? echo url_for('tb_cargo') ?>">Cargo</a></li>                                                                                                                        
                                                             <li><a href="<? echo url_for('tb_idioma') ?>">Idioma</a></li>                                                                                                                        

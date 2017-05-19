@@ -22,6 +22,7 @@ class TbInscricaoForm extends BaseTbInscricaoForm
       $this->widgetSchema['id_certame'] = new sfWidgetFormInputHidden();
       $this->widgetSchema['id_candidato'] = new sfWidgetFormInputHidden();    
       $this->widgetSchema['id_condicao_especial']->setDefault(15);
+      $this->widgetSchema['id_tipo_isencao']->setDefault(1);
         $this->widgetSchema['id_vaga'] = new sfWidgetFormDoctrineDependentSelect(array(                
                  'model' => 'TbVaga', 
                 'table_method' => 'getPorCertame',                

@@ -55,11 +55,12 @@ class TbInscricaoTable extends Doctrine_Table {
         $query = Doctrine_Query::create()->from('TbInscricao ins')
                 ->innerJoin('ins.TbCandidato cand')
                 ->innerJoin('ins.TbCidadeProva cidade')
-                ->innerJoin('ins.TbVaga vag');
+                ->innerJoin('ins.TbVaga vag')
+                ->innerJoin('ins.TbTipoIsencao ise');
         $form = new RelatorioInscricaoForm();
         foreach ($form->getFields() as $field) {
             if ($request->hasParameter($field)) {
-                if (in_array($field, array('pago','deficiente','isencao', 'isento'))){
+                if (in_array($field, array('pago','deficiente', 'isento'))){
                  $query->andWhere($field.' = '.($request->getParameter($field) == 'on' ? true: false ));                    
                 }
                 if ($field == 'id_cidade'){
@@ -67,6 +68,9 @@ class TbInscricaoTable extends Doctrine_Table {
                 }
                 if ($field == 'id_vaga'){
                  $query->andWhere('vag.id = '.$request->getParameter($field));                          
+                }
+                if ($field == 'id_tipo_isencao'){
+                 $query->andWhere('ise.id = '.$request->getParameter($field));                          
                 }
             }
         }
