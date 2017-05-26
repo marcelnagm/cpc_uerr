@@ -21,5 +21,15 @@ class TbCorrecaoTable extends Doctrine_Table
           return $q;
            
     }
+     
+    public function getPorProvaAndVaga($prova,$vaga,$deficiente) {
+          $q = Doctrine_Query::create()->from('TbCorrecao c')
+                  ->innerJoin('c.TbInscricao ins')                  
+                  ->where('c.id_prova = ?',  $prova->getId())
+                  ->andWhere('ins.vaga_deficiente = ?',$deficiente)
+                  ->orderBy('c.nota DESC');
+          return $q;
+           
+    }
     
 }

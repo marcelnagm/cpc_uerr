@@ -38,6 +38,8 @@ generator:
                   label: Cartões de Prova
                Correcao: 
                   label: Corrigir Cartões de Prova
+               resultado: 
+                  label: Dados de Resultado 
                    
       filter:  
           class: false

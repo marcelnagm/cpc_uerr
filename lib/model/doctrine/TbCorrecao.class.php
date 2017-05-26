@@ -10,6 +10,26 @@
  * @author     Marcel Nagm
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class TbCorrecao extends BaseTbCorrecao
-{
+class TbCorrecao extends BaseTbCorrecao {
+
+    public function getNotaF() {
+        return number_format(parent::getNota(), 2);
+    }
+
+    public function getNotaRedacao1F() {
+        return number_format(parent::getNotaRedacao1(), 2);
+    }
+
+    public function getNotaRedacao2F() {
+        return number_format(parent::getNotaRedacao2(), 2);
+    }
+
+    public function getNotaFinalRedacaof() {
+        return number_format(parent::getNotaFinalRedacao(), 2);
+    }
+    public function getNotaFinalF() {
+        return number_format(parent::getNota() +parent::getNotaFinalRedacao(), 2);
+    }
+
+        
 }

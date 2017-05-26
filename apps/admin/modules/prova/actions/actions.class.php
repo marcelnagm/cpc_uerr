@@ -20,6 +20,13 @@ class provaActions extends autoProvaActions {
         $this->tb_prova = $this->form->getObject();
     }   
 
+    public function executeListResultado(\sfWebRequest $request) {
+        $prova = $this->getRoute()->getObject();
+        sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
+        $this->prova = $prova;
+        $this->form = new RelatorioResultadoForm();
+    }
+    
     public function executeListVagas(\sfWebRequest $request) {
         $prova = $this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
@@ -81,6 +88,16 @@ class provaActions extends autoProvaActions {
         $this->j = $j;
     }
 
+    public function executeListResultadoGenerate(\sfWebRequest $request) {
+        
+        $this->vaga = TbVagaTable::getInstance()->find($request->getParameter('id_vaga'));
+        $this->prova = TbProvaTable::getInstance()->find(sfContext::getInstance()->getUser()->getAttribute('prova'));
+        $this->final = $request->getParameter('final')  == 'on'? true : false;
+        $this->deficiente = $request->getParameter('deficiente')  == 'on'? true : false;
+        $this->redacao = $request->getParameter('redacao')  == 'on'? true : false;
+        $this->setLayout('print');
+    }
+            
     public function executeListAlocacao(\sfWebRequest $request) {
         $prova = $this->getRoute()->getObject();
         sfContext::getInstance()->getUser()->setAttribute('prova', $prova->getId());
