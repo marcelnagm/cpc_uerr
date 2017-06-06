@@ -40,4 +40,6 @@ if (($handle = fopen($_FILES['arquivo']['tmp_name'], "r")) !== FALSE) {
     }
 }
 fclose($handle);
-?>
+
+?><br>
+  <?php echo link_to1('Voltar Lista de Cartões','correcao/index')?>

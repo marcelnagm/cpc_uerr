@@ -23,7 +23,7 @@ detalhes do certame:
     <?php foreach ($cartoes as $cartao) { ?>
         <tr>        
             <td>
-                <?php echo $cartao; ?>
+                <?php echo $cartao->getTbInscricao()->getBoleto(); ?>
             </td>
             <?php
             $nota = 0;
