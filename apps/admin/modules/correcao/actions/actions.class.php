@@ -14,8 +14,22 @@ require_once dirname(__FILE__).'/../lib/correcaoGeneratorHelper.class.php';
 class correcaoActions extends autoCorrecaoActions
 {
     
+      public function executeListImport(\sfWebRequest $request) {
+          $this->form = new ImportacaoCorrecaoForm();
+          
+          
+      }
+      
+      public function executeProcess(\sfWebRequest $request) {
+          $this->file = $request->getFiles('arquivo');
+          $this->sub = $request->getParameter('sub') == 'on' ? true : false; 
+      }
+      
+      
       public function executeListProvas(\sfWebRequest $request) {
         $this->forward('prova','index');
     }
+    
+    
     
 }

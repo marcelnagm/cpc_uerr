@@ -21,6 +21,12 @@ class TbCorrecaoTable extends Doctrine_Table
           return $q;
            
     }
+     public function getPorProvaAndInscricao($insc) {
+          $q = Doctrine_Query::create()->from('TbCorrecao')->where('id_prova = ?',  sfContext::getInstance()->getUser()->getAttribute('prova'))
+                  ->andWhere('id_inscricao = ?',$insc);
+          return $q;
+           
+    }
      
     public function getPorProvaAndVaga($prova,$vaga,$deficiente) {
           $q = Doctrine_Query::create()->from('TbCorrecao c')
