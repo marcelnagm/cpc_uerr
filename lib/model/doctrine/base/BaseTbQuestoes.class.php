@@ -9,18 +9,21 @@
  * @property integer $numero
  * @property float $peso
  * @property char $gabarito
+ * @property boolean $discursiva
  * @property TbProva $TbProva
  * 
- * @method integer    getIdProva()  Returns the current record's "id_prova" value
- * @method integer    getNumero()   Returns the current record's "numero" value
- * @method float      getPeso()     Returns the current record's "peso" value
- * @method char       getGabarito() Returns the current record's "gabarito" value
- * @method TbProva    getTbProva()  Returns the current record's "TbProva" value
- * @method TbQuestoes setIdProva()  Sets the current record's "id_prova" value
- * @method TbQuestoes setNumero()   Sets the current record's "numero" value
- * @method TbQuestoes setPeso()     Sets the current record's "peso" value
- * @method TbQuestoes setGabarito() Sets the current record's "gabarito" value
- * @method TbQuestoes setTbProva()  Sets the current record's "TbProva" value
+ * @method integer    getIdProva()    Returns the current record's "id_prova" value
+ * @method integer    getNumero()     Returns the current record's "numero" value
+ * @method float      getPeso()       Returns the current record's "peso" value
+ * @method char       getGabarito()   Returns the current record's "gabarito" value
+ * @method boolean    getDiscursiva() Returns the current record's "discursiva" value
+ * @method TbProva    getTbProva()    Returns the current record's "TbProva" value
+ * @method TbQuestoes setIdProva()    Sets the current record's "id_prova" value
+ * @method TbQuestoes setNumero()     Sets the current record's "numero" value
+ * @method TbQuestoes setPeso()       Sets the current record's "peso" value
+ * @method TbQuestoes setGabarito()   Sets the current record's "gabarito" value
+ * @method TbQuestoes setDiscursiva() Sets the current record's "discursiva" value
+ * @method TbQuestoes setTbProva()    Sets the current record's "TbProva" value
  * 
  * @package    uerr
  * @subpackage model
@@ -46,6 +49,10 @@ abstract class BaseTbQuestoes extends sfDoctrineRecord
              ));
         $this->hasColumn('gabarito', 'char', null, array(
              'type' => 'char',
+             'notnull' => true,
+             ));
+        $this->hasColumn('discursiva', 'boolean', null, array(
+             'type' => 'boolean',
              'notnull' => true,
              ));
     }

@@ -15,15 +15,15 @@ abstract class BaseTbCidadeForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'     => new sfWidgetFormInputHidden(),
-      'estado' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'), 'add_empty' => false)),
-      'nome'   => new sfWidgetFormInputText(),
+      'id'           => new sfWidgetFormInputHidden(),
+      'tb_estado_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'), 'add_empty' => false)),
+      'nome'         => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
-      'id'     => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'estado' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'))),
-      'nome'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'tb_estado_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'))),
+      'nome'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('tb_cidade[%s]');

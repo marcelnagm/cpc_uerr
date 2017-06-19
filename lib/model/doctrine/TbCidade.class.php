@@ -17,7 +17,7 @@ class TbCidade extends BaseTbCidade
         return $this->getNome().' / '.$this->getTbEstado();
     }
     
-    public function toString() {
-        return $this->getNome().' / '.$this->getEstado();
-    }
+//    public function toString() {
+//        return $this->getNome().' / '.$this->getTbEstado();
+//    }
 }

@@ -37,10 +37,10 @@ TbEstado:
      
 TbCidade:  
   columns:
-     estado:                  { type: integer, notnull: true }       
+     tb_estado_id:            { type: integer, notnull: true }       
      nome:                    { type: string(255) }  
   relations:
-    TbEstado:                 { local: estado, foreign: id }      
+    TbEstado:                 { local: tb_estado_id, foreign: id }      
     
 TbCandidato:
   columns:
@@ -54,22 +54,24 @@ TbCandidato:
     pai:                        { type: string(255) }  
     mae:                        { type: string(255) }  
     data_nascimento:            { type: date }  
-    cidade_nascimento:          { type: integer, notnull: true }  
+    estado_nascimento:          { type: integer, notnull: true }  
+    cidade_nascimento:          { type: string(255), notnull: true }  
     cep:                        { type: string(255) }    
     endereco:                   { type: string(255) }  
     numero:                     { type: string(255) }  
     complemento:               { type: string(255) }  
     bairro:                     { type: string(255) }  
-    id_cidade:                  { type: integer }  
+    id_cidade:                  { type: string(255) }  
+    id_estado:                  { type: integer }      
     tel1:                       { type: string(255) }  
     tel2:                       { type: string(255) }  
     tel3:                       { type: string(255) }  
     email:                      { type: string(255) }  
     user_id:                    { type: integer }  
   relations:
-    TbEstado:                 { local: rguf, foreign: id }   
-    TbCidade:                 { local: cidade_nascimento, foreign: id }   
-    TbCidade:                 { local: id_cidade, foreign: id }   
+    TbEstado:                 { local: rguf, foreign: id }     
+    TbEstado:                 { local: id_estado, foreign: id, foreignAlias: TbEstado   }   
+    TbEstado:                 { local: estado_nascimento, foreign: id, foreignAlias: TbEstadoNascimento   }       
     TbRgtipo:                 { local: rgtipo, foreign: id , foreignAlias: TbRgtipo}   
     SfGuardUserId:            { local: user_id, foreign: id , foreignAlias: GuardUser}   
     TbRgemissor:              { local: rgemissor, foreign: id , foreignAlias: TbRgEmissor}   
@@ -252,6 +254,7 @@ TbQuestoes:
      numero:                      { type: integer, notnull: true }      
      peso:                        { type: float, notnull: true }             
      gabarito:                    { type: char, notnull: true }        
+     discursiva:                  { type: boolean, notnull: true }        
    relations:
     TbProva:                     { local: id_prova, foreign: id, foreignAlias: TbProva}       
 

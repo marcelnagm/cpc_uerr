@@ -38,5 +38,3 @@
 </script>
 
 <?php
-
-echo "VAi!";

@@ -15,20 +15,21 @@
  * @property string $pai
  * @property string $mae
  * @property date $data_nascimento
- * @property integer $cidade_nascimento
+ * @property integer $estado_nascimento
+ * @property string $cidade_nascimento
  * @property string $cep
  * @property string $endereco
  * @property string $numero
  * @property string $complemento
  * @property string $bairro
- * @property integer $id_cidade
+ * @property string $id_cidade
+ * @property integer $id_estado
  * @property string $tel1
  * @property string $tel2
  * @property string $tel3
  * @property string $email
  * @property integer $user_id
  * @property TbEstado $TbEstado
- * @property TbCidade $TbCidade
  * @property TbRgtipo $TbRgtipo
  * @property TbRgemissor $TbRgemissor
  * @property Doctrine_Collection $TbInscricao
@@ -43,20 +44,21 @@
  * @method string              getPai()               Returns the current record's "pai" value
  * @method string              getMae()               Returns the current record's "mae" value
  * @method date                getDataNascimento()    Returns the current record's "data_nascimento" value
- * @method integer             getCidadeNascimento()  Returns the current record's "cidade_nascimento" value
+ * @method integer             getEstadoNascimento()  Returns the current record's "estado_nascimento" value
+ * @method string              getCidadeNascimento()  Returns the current record's "cidade_nascimento" value
  * @method string              getCep()               Returns the current record's "cep" value
  * @method string              getEndereco()          Returns the current record's "endereco" value
  * @method string              getNumero()            Returns the current record's "numero" value
  * @method string              getComplemento()       Returns the current record's "complemento" value
  * @method string              getBairro()            Returns the current record's "bairro" value
- * @method integer             getIdCidade()          Returns the current record's "id_cidade" value
+ * @method string              getIdCidade()          Returns the current record's "id_cidade" value
+ * @method integer             getIdEstado()          Returns the current record's "id_estado" value
  * @method string              getTel1()              Returns the current record's "tel1" value
  * @method string              getTel2()              Returns the current record's "tel2" value
  * @method string              getTel3()              Returns the current record's "tel3" value
  * @method string              getEmail()             Returns the current record's "email" value
  * @method integer             getUserId()            Returns the current record's "user_id" value
  * @method TbEstado            getTbEstado()          Returns the current record's "TbEstado" value
- * @method TbCidade            getTbCidade()          Returns the current record's "TbCidade" value
  * @method TbRgtipo            getTbRgtipo()          Returns the current record's "TbRgtipo" value
  * @method TbRgemissor         getTbRgemissor()       Returns the current record's "TbRgemissor" value
  * @method Doctrine_Collection getTbInscricao()       Returns the current record's "TbInscricao" collection
@@ -70,6 +72,7 @@
  * @method TbCandidato         setPai()               Sets the current record's "pai" value
  * @method TbCandidato         setMae()               Sets the current record's "mae" value
  * @method TbCandidato         setDataNascimento()    Sets the current record's "data_nascimento" value
+ * @method TbCandidato         setEstadoNascimento()  Sets the current record's "estado_nascimento" value
  * @method TbCandidato         setCidadeNascimento()  Sets the current record's "cidade_nascimento" value
  * @method TbCandidato         setCep()               Sets the current record's "cep" value
  * @method TbCandidato         setEndereco()          Sets the current record's "endereco" value
@@ -77,13 +80,13 @@
  * @method TbCandidato         setComplemento()       Sets the current record's "complemento" value
  * @method TbCandidato         setBairro()            Sets the current record's "bairro" value
  * @method TbCandidato         setIdCidade()          Sets the current record's "id_cidade" value
+ * @method TbCandidato         setIdEstado()          Sets the current record's "id_estado" value
  * @method TbCandidato         setTel1()              Sets the current record's "tel1" value
  * @method TbCandidato         setTel2()              Sets the current record's "tel2" value
  * @method TbCandidato         setTel3()              Sets the current record's "tel3" value
  * @method TbCandidato         setEmail()             Sets the current record's "email" value
  * @method TbCandidato         setUserId()            Sets the current record's "user_id" value
  * @method TbCandidato         setTbEstado()          Sets the current record's "TbEstado" value
- * @method TbCandidato         setTbCidade()          Sets the current record's "TbCidade" value
  * @method TbCandidato         setTbRgtipo()          Sets the current record's "TbRgtipo" value
  * @method TbCandidato         setTbRgemissor()       Sets the current record's "TbRgemissor" value
  * @method TbCandidato         setTbInscricao()       Sets the current record's "TbInscricao" collection
@@ -142,9 +145,14 @@ abstract class BaseTbCandidato extends sfDoctrineRecord
         $this->hasColumn('data_nascimento', 'date', null, array(
              'type' => 'date',
              ));
-        $this->hasColumn('cidade_nascimento', 'integer', null, array(
+        $this->hasColumn('estado_nascimento', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
+             ));
+        $this->hasColumn('cidade_nascimento', 'string', 255, array(
+             'type' => 'string',
+             'notnull' => true,
+             'length' => 255,
              ));
         $this->hasColumn('cep', 'string', 255, array(
              'type' => 'string',
@@ -166,7 +174,11 @@ abstract class BaseTbCandidato extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('id_cidade', 'integer', null, array(
+        $this->hasColumn('id_cidade', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('id_estado', 'integer', null, array(
              'type' => 'integer',
              ));
         $this->hasColumn('tel1', 'string', 255, array(
@@ -194,11 +206,7 @@ abstract class BaseTbCandidato extends sfDoctrineRecord
     {
         parent::setUp();
         $this->hasOne('TbEstado', array(
-             'local' => 'rguf',
-             'foreign' => 'id'));
-
-        $this->hasOne('TbCidade', array(
-             'local' => 'id_cidade',
+             'local' => 'estado_nascimento',
              'foreign' => 'id'));
 
         $this->hasOne('TbRgtipo', array(

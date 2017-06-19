@@ -13,13 +13,13 @@ abstract class BaseTbCidadeFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'estado' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'), 'add_empty' => true)),
-      'nome'   => new sfWidgetFormFilterInput(),
+      'tb_estado_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'), 'add_empty' => true)),
+      'nome'         => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'estado' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbEstado'), 'column' => 'id')),
-      'nome'   => new sfValidatorPass(array('required' => false)),
+      'tb_estado_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('TbEstado'), 'column' => 'id')),
+      'nome'         => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('tb_cidade_filters[%s]');
@@ -39,9 +39,9 @@ abstract class BaseTbCidadeFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'     => 'Number',
-      'estado' => 'ForeignKey',
-      'nome'   => 'Text',
+      'id'           => 'Number',
+      'tb_estado_id' => 'ForeignKey',
+      'nome'         => 'Text',
     );
   }
 }
