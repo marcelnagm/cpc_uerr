@@ -9,12 +9,12 @@
  * @property text $descricao
  * @property Doctrine_Collection $TbCondicaoEspecial
  * 
- * @method string              getNome()               Returns the current record's "nome" value
- * @method text                getDescricao()          Returns the current record's "descricao" value
- * @method Doctrine_Collection getTbCondicaoEspecial() Returns the current record's "TbCondicaoEspecial" collection
- * @method TbCondicaoEspecial  setNome()               Sets the current record's "nome" value
- * @method TbCondicaoEspecial  setDescricao()          Sets the current record's "descricao" value
- * @method TbCondicaoEspecial  setTbCondicaoEspecial() Sets the current record's "TbCondicaoEspecial" collection
+ * @method string              get()                   Returns the current record's "nome" value
+ * @method text                get()                   Returns the current record's "descricao" value
+ * @method Doctrine_Collection get()                   Returns the current record's "TbCondicaoEspecial" collection
+ * @method TbCondicaoEspecial  set()                   Sets the current record's "nome" value
+ * @method TbCondicaoEspecial  set()                   Sets the current record's "descricao" value
+ * @method TbCondicaoEspecial  set()                   Sets the current record's "TbCondicaoEspecial" collection
  * 
  * @package    uerr
  * @subpackage model

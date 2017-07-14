@@ -11,16 +11,16 @@
  * @property TbCertame $TbCertame
  * @property Doctrine_Collection $TbCidadeProva
  * 
- * @method integer             getIdCertame()     Returns the current record's "id_certame" value
- * @method integer             getIdCidade()      Returns the current record's "id_cidade" value
- * @method TbCidade            getTbCidade()      Returns the current record's "TbCidade" value
- * @method TbCertame           getTbCertame()     Returns the current record's "TbCertame" value
- * @method Doctrine_Collection getTbCidadeProva() Returns the current record's "TbCidadeProva" collection
- * @method TbCidadeProva       setIdCertame()     Sets the current record's "id_certame" value
- * @method TbCidadeProva       setIdCidade()      Sets the current record's "id_cidade" value
- * @method TbCidadeProva       setTbCidade()      Sets the current record's "TbCidade" value
- * @method TbCidadeProva       setTbCertame()     Sets the current record's "TbCertame" value
- * @method TbCidadeProva       setTbCidadeProva() Sets the current record's "TbCidadeProva" collection
+ * @method integer             get()              Returns the current record's "id_certame" value
+ * @method integer             get()              Returns the current record's "id_cidade" value
+ * @method TbCidade            get()              Returns the current record's "TbCidade" value
+ * @method TbCertame           get()              Returns the current record's "TbCertame" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbCidadeProva" collection
+ * @method TbCidadeProva       set()              Sets the current record's "id_certame" value
+ * @method TbCidadeProva       set()              Sets the current record's "id_cidade" value
+ * @method TbCidadeProva       set()              Sets the current record's "TbCidade" value
+ * @method TbCidadeProva       set()              Sets the current record's "TbCertame" value
+ * @method TbCidadeProva       set()              Sets the current record's "TbCidadeProva" collection
  * 
  * @package    uerr
  * @subpackage model

@@ -19,32 +19,32 @@
  * @property TbCidade $TbCidade
  * @property Doctrine_Collection $TbVaga
  * 
- * @method integer             getIdCertame()       Returns the current record's "id_certame" value
- * @method integer             getIdCargo()         Returns the current record's "id_cargo" value
- * @method integer             getIdEscolaridade()  Returns the current record's "id_escolaridade" value
- * @method integer             getIdCidade()        Returns the current record's "id_cidade" value
- * @method integer             getQuantidade()      Returns the current record's "quantidade" value
- * @method integer             getVagaDeficiente()  Returns the current record's "vaga_deficiente" value
- * @method integer             getValor()           Returns the current record's "valor" value
- * @method date                getDataVencimento()  Returns the current record's "data_vencimento" value
- * @method TbCertame           getTbCertame()       Returns the current record's "TbCertame" value
- * @method TbCargo             getTbCargo()         Returns the current record's "TbCargo" value
- * @method TbEscolaridade      getTbEscolaridade()  Returns the current record's "TbEscolaridade" value
- * @method TbCidade            getTbCidade()        Returns the current record's "TbCidade" value
- * @method Doctrine_Collection getTbVaga()          Returns the current record's "TbVaga" collection
- * @method TbVaga              setIdCertame()       Sets the current record's "id_certame" value
- * @method TbVaga              setIdCargo()         Sets the current record's "id_cargo" value
- * @method TbVaga              setIdEscolaridade()  Sets the current record's "id_escolaridade" value
- * @method TbVaga              setIdCidade()        Sets the current record's "id_cidade" value
- * @method TbVaga              setQuantidade()      Sets the current record's "quantidade" value
- * @method TbVaga              setVagaDeficiente()  Sets the current record's "vaga_deficiente" value
- * @method TbVaga              setValor()           Sets the current record's "valor" value
- * @method TbVaga              setDataVencimento()  Sets the current record's "data_vencimento" value
- * @method TbVaga              setTbCertame()       Sets the current record's "TbCertame" value
- * @method TbVaga              setTbCargo()         Sets the current record's "TbCargo" value
- * @method TbVaga              setTbEscolaridade()  Sets the current record's "TbEscolaridade" value
- * @method TbVaga              setTbCidade()        Sets the current record's "TbCidade" value
- * @method TbVaga              setTbVaga()          Sets the current record's "TbVaga" collection
+ * @method integer             get()                Returns the current record's "id_certame" value
+ * @method integer             get()                Returns the current record's "id_cargo" value
+ * @method integer             get()                Returns the current record's "id_escolaridade" value
+ * @method integer             get()                Returns the current record's "id_cidade" value
+ * @method integer             get()                Returns the current record's "quantidade" value
+ * @method integer             get()                Returns the current record's "vaga_deficiente" value
+ * @method integer             get()                Returns the current record's "valor" value
+ * @method date                get()                Returns the current record's "data_vencimento" value
+ * @method TbCertame           get()                Returns the current record's "TbCertame" value
+ * @method TbCargo             get()                Returns the current record's "TbCargo" value
+ * @method TbEscolaridade      get()                Returns the current record's "TbEscolaridade" value
+ * @method TbCidade            get()                Returns the current record's "TbCidade" value
+ * @method Doctrine_Collection get()                Returns the current record's "TbVaga" collection
+ * @method TbVaga              set()                Sets the current record's "id_certame" value
+ * @method TbVaga              set()                Sets the current record's "id_cargo" value
+ * @method TbVaga              set()                Sets the current record's "id_escolaridade" value
+ * @method TbVaga              set()                Sets the current record's "id_cidade" value
+ * @method TbVaga              set()                Sets the current record's "quantidade" value
+ * @method TbVaga              set()                Sets the current record's "vaga_deficiente" value
+ * @method TbVaga              set()                Sets the current record's "valor" value
+ * @method TbVaga              set()                Sets the current record's "data_vencimento" value
+ * @method TbVaga              set()                Sets the current record's "TbCertame" value
+ * @method TbVaga              set()                Sets the current record's "TbCargo" value
+ * @method TbVaga              set()                Sets the current record's "TbEscolaridade" value
+ * @method TbVaga              set()                Sets the current record's "TbCidade" value
+ * @method TbVaga              set()                Sets the current record's "TbVaga" collection
  * 
  * @package    uerr
  * @subpackage model

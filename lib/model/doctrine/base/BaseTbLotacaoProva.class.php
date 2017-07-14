@@ -10,14 +10,14 @@
  * @property TbSalaProva $TbSalaProva
  * @property TbInscricao $TbInscricao
  * 
- * @method integer        getIdSala()       Returns the current record's "id_sala" value
- * @method integer        getIdInscricao()  Returns the current record's "id_inscricao" value
- * @method TbSalaProva    getTbSalaProva()  Returns the current record's "TbSalaProva" value
- * @method TbInscricao    getTbInscricao()  Returns the current record's "TbInscricao" value
- * @method TbLotacaoProva setIdSala()       Sets the current record's "id_sala" value
- * @method TbLotacaoProva setIdInscricao()  Sets the current record's "id_inscricao" value
- * @method TbLotacaoProva setTbSalaProva()  Sets the current record's "TbSalaProva" value
- * @method TbLotacaoProva setTbInscricao()  Sets the current record's "TbInscricao" value
+ * @method integer        get()             Returns the current record's "id_sala" value
+ * @method integer        get()             Returns the current record's "id_inscricao" value
+ * @method TbSalaProva    get()             Returns the current record's "TbSalaProva" value
+ * @method TbInscricao    get()             Returns the current record's "TbInscricao" value
+ * @method TbLotacaoProva set()             Sets the current record's "id_sala" value
+ * @method TbLotacaoProva set()             Sets the current record's "id_inscricao" value
+ * @method TbLotacaoProva set()             Sets the current record's "TbSalaProva" value
+ * @method TbLotacaoProva set()             Sets the current record's "TbInscricao" value
  * 
  * @package    uerr
  * @subpackage model

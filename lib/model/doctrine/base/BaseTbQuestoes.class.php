@@ -12,18 +12,18 @@
  * @property boolean $discursiva
  * @property TbProva $TbProva
  * 
- * @method integer    getIdProva()    Returns the current record's "id_prova" value
- * @method integer    getNumero()     Returns the current record's "numero" value
- * @method float      getPeso()       Returns the current record's "peso" value
- * @method char       getGabarito()   Returns the current record's "gabarito" value
- * @method boolean    getDiscursiva() Returns the current record's "discursiva" value
- * @method TbProva    getTbProva()    Returns the current record's "TbProva" value
- * @method TbQuestoes setIdProva()    Sets the current record's "id_prova" value
- * @method TbQuestoes setNumero()     Sets the current record's "numero" value
- * @method TbQuestoes setPeso()       Sets the current record's "peso" value
- * @method TbQuestoes setGabarito()   Sets the current record's "gabarito" value
- * @method TbQuestoes setDiscursiva() Sets the current record's "discursiva" value
- * @method TbQuestoes setTbProva()    Sets the current record's "TbProva" value
+ * @method integer    get()           Returns the current record's "id_prova" value
+ * @method integer    get()           Returns the current record's "numero" value
+ * @method float      get()           Returns the current record's "peso" value
+ * @method char       get()           Returns the current record's "gabarito" value
+ * @method boolean    get()           Returns the current record's "discursiva" value
+ * @method TbProva    get()           Returns the current record's "TbProva" value
+ * @method TbQuestoes set()           Sets the current record's "id_prova" value
+ * @method TbQuestoes set()           Sets the current record's "numero" value
+ * @method TbQuestoes set()           Sets the current record's "peso" value
+ * @method TbQuestoes set()           Sets the current record's "gabarito" value
+ * @method TbQuestoes set()           Sets the current record's "discursiva" value
+ * @method TbQuestoes set()           Sets the current record's "TbProva" value
  * 
  * @package    uerr
  * @subpackage model

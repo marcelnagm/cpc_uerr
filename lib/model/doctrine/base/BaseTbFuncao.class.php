@@ -11,16 +11,16 @@
  * @property Doctrine_Collection $TbFuncao
  * @property Doctrine_Collection $TbColaboracao
  * 
- * @method string              getNome()          Returns the current record's "nome" value
- * @method string              getValor()         Returns the current record's "valor" value
- * @method string              getDescricao()     Returns the current record's "descricao" value
- * @method Doctrine_Collection getTbFuncao()      Returns the current record's "TbFuncao" collection
- * @method Doctrine_Collection getTbColaboracao() Returns the current record's "TbColaboracao" collection
- * @method TbFuncao            setNome()          Sets the current record's "nome" value
- * @method TbFuncao            setValor()         Sets the current record's "valor" value
- * @method TbFuncao            setDescricao()     Sets the current record's "descricao" value
- * @method TbFuncao            setTbFuncao()      Sets the current record's "TbFuncao" collection
- * @method TbFuncao            setTbColaboracao() Sets the current record's "TbColaboracao" collection
+ * @method string              get()              Returns the current record's "nome" value
+ * @method string              get()              Returns the current record's "valor" value
+ * @method string              get()              Returns the current record's "descricao" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbFuncao" collection
+ * @method Doctrine_Collection get()              Returns the current record's "TbColaboracao" collection
+ * @method TbFuncao            set()              Sets the current record's "nome" value
+ * @method TbFuncao            set()              Sets the current record's "valor" value
+ * @method TbFuncao            set()              Sets the current record's "descricao" value
+ * @method TbFuncao            set()              Sets the current record's "TbFuncao" collection
+ * @method TbFuncao            set()              Sets the current record's "TbColaboracao" collection
  * 
  * @package    uerr
  * @subpackage model

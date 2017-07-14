@@ -18,30 +18,30 @@
  * @property TbLocalProva $TbLocalProva
  * @property TbColaborador $TbColaborador
  * 
- * @method integer       getIdCertame()      Returns the current record's "id_certame" value
- * @method integer       getIdColaborador()  Returns the current record's "id_colaborador" value
- * @method integer       getIdFuncao()       Returns the current record's "id_funcao" value
- * @method integer       getIdLocalProva()   Returns the current record's "id_local_prova" value
- * @method integer       getSala()           Returns the current record's "sala" value
- * @method boolean       getServidor()       Returns the current record's "servidor" value
- * @method boolean       getPresente()       Returns the current record's "presente" value
- * @method boolean       getListagem()       Returns the current record's "listagem" value
- * @method TbCertame     getTbCertame()      Returns the current record's "TbCertame" value
- * @method TbFuncao      getTbFuncao()       Returns the current record's "TbFuncao" value
- * @method TbLocalProva  getTbLocalProva()   Returns the current record's "TbLocalProva" value
- * @method TbColaborador getTbColaborador()  Returns the current record's "TbColaborador" value
- * @method TbColaboracao setIdCertame()      Sets the current record's "id_certame" value
- * @method TbColaboracao setIdColaborador()  Sets the current record's "id_colaborador" value
- * @method TbColaboracao setIdFuncao()       Sets the current record's "id_funcao" value
- * @method TbColaboracao setIdLocalProva()   Sets the current record's "id_local_prova" value
- * @method TbColaboracao setSala()           Sets the current record's "sala" value
- * @method TbColaboracao setServidor()       Sets the current record's "servidor" value
- * @method TbColaboracao setPresente()       Sets the current record's "presente" value
- * @method TbColaboracao setListagem()       Sets the current record's "listagem" value
- * @method TbColaboracao setTbCertame()      Sets the current record's "TbCertame" value
- * @method TbColaboracao setTbFuncao()       Sets the current record's "TbFuncao" value
- * @method TbColaboracao setTbLocalProva()   Sets the current record's "TbLocalProva" value
- * @method TbColaboracao setTbColaborador()  Sets the current record's "TbColaborador" value
+ * @method integer       get()               Returns the current record's "id_certame" value
+ * @method integer       get()               Returns the current record's "id_colaborador" value
+ * @method integer       get()               Returns the current record's "id_funcao" value
+ * @method integer       get()               Returns the current record's "id_local_prova" value
+ * @method integer       get()               Returns the current record's "sala" value
+ * @method boolean       get()               Returns the current record's "servidor" value
+ * @method boolean       get()               Returns the current record's "presente" value
+ * @method boolean       get()               Returns the current record's "listagem" value
+ * @method TbCertame     get()               Returns the current record's "TbCertame" value
+ * @method TbFuncao      get()               Returns the current record's "TbFuncao" value
+ * @method TbLocalProva  get()               Returns the current record's "TbLocalProva" value
+ * @method TbColaborador get()               Returns the current record's "TbColaborador" value
+ * @method TbColaboracao set()               Sets the current record's "id_certame" value
+ * @method TbColaboracao set()               Sets the current record's "id_colaborador" value
+ * @method TbColaboracao set()               Sets the current record's "id_funcao" value
+ * @method TbColaboracao set()               Sets the current record's "id_local_prova" value
+ * @method TbColaboracao set()               Sets the current record's "sala" value
+ * @method TbColaboracao set()               Sets the current record's "servidor" value
+ * @method TbColaboracao set()               Sets the current record's "presente" value
+ * @method TbColaboracao set()               Sets the current record's "listagem" value
+ * @method TbColaboracao set()               Sets the current record's "TbCertame" value
+ * @method TbColaboracao set()               Sets the current record's "TbFuncao" value
+ * @method TbColaboracao set()               Sets the current record's "TbLocalProva" value
+ * @method TbColaboracao set()               Sets the current record's "TbColaborador" value
  * 
  * @package    uerr
  * @subpackage model

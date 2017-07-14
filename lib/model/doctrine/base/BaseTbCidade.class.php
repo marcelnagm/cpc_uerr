@@ -13,20 +13,20 @@
  * @property Doctrine_Collection $TbCidade
  * @property Doctrine_Collection $TbColaborador
  * 
- * @method integer             getTbEstadoId()    Returns the current record's "tb_estado_id" value
- * @method string              getNome()          Returns the current record's "nome" value
- * @method TbEstado            getTbEstado()      Returns the current record's "TbEstado" value
- * @method Doctrine_Collection getTbCidadeProva() Returns the current record's "TbCidadeProva" collection
- * @method Doctrine_Collection getTbLocal()       Returns the current record's "TbLocal" collection
- * @method Doctrine_Collection getTbCidade()      Returns the current record's "TbCidade" collection
- * @method Doctrine_Collection getTbColaborador() Returns the current record's "TbColaborador" collection
- * @method TbCidade            setTbEstadoId()    Sets the current record's "tb_estado_id" value
- * @method TbCidade            setNome()          Sets the current record's "nome" value
- * @method TbCidade            setTbEstado()      Sets the current record's "TbEstado" value
- * @method TbCidade            setTbCidadeProva() Sets the current record's "TbCidadeProva" collection
- * @method TbCidade            setTbLocal()       Sets the current record's "TbLocal" collection
- * @method TbCidade            setTbCidade()      Sets the current record's "TbCidade" collection
- * @method TbCidade            setTbColaborador() Sets the current record's "TbColaborador" collection
+ * @method integer             get()              Returns the current record's "tb_estado_id" value
+ * @method string              get()              Returns the current record's "nome" value
+ * @method TbEstado            get()              Returns the current record's "TbEstado" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbCidadeProva" collection
+ * @method Doctrine_Collection get()              Returns the current record's "TbLocal" collection
+ * @method Doctrine_Collection get()              Returns the current record's "TbCidade" collection
+ * @method Doctrine_Collection get()              Returns the current record's "TbColaborador" collection
+ * @method TbCidade            set()              Sets the current record's "tb_estado_id" value
+ * @method TbCidade            set()              Sets the current record's "nome" value
+ * @method TbCidade            set()              Sets the current record's "TbEstado" value
+ * @method TbCidade            set()              Sets the current record's "TbCidadeProva" collection
+ * @method TbCidade            set()              Sets the current record's "TbLocal" collection
+ * @method TbCidade            set()              Sets the current record's "TbCidade" collection
+ * @method TbCidade            set()              Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
  * @subpackage model

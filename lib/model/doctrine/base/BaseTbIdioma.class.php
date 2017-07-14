@@ -8,10 +8,10 @@
  * @property string $descricao
  * @property Doctrine_Collection $TbIdioma
  * 
- * @method string              getDescricao() Returns the current record's "descricao" value
- * @method Doctrine_Collection getTbIdioma()  Returns the current record's "TbIdioma" collection
- * @method TbIdioma            setDescricao() Sets the current record's "descricao" value
- * @method TbIdioma            setTbIdioma()  Sets the current record's "TbIdioma" collection
+ * @method string              get()          Returns the current record's "descricao" value
+ * @method Doctrine_Collection get()          Returns the current record's "TbIdioma" collection
+ * @method TbIdioma            set()          Sets the current record's "descricao" value
+ * @method TbIdioma            set()          Sets the current record's "TbIdioma" collection
  * 
  * @package    uerr
  * @subpackage model

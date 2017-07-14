@@ -27,9 +27,13 @@ class TbCorrecao extends BaseTbCorrecao {
     public function getNotaFinalRedacaof() {
         return number_format(parent::getNotaFinalRedacao(), 2);
     }
+
     public function getNotaFinalF() {
-        return number_format(parent::getNota() +parent::getNotaFinalRedacao(), 2);
+        return number_format(parent::getNota() + parent::getNotaFinalRedacao(), 2);
     }
 
-        
+    public function getBoleto() {
+        return $this->getTbInscricao()->getBoleto();
+    }
+
 }

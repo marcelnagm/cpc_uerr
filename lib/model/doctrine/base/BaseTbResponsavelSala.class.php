@@ -12,18 +12,18 @@
  * @property TbFuncao $TbFuncao
  * @property TbColaborador $TbColaborador
  * 
- * @method integer           getIdColaborador()  Returns the current record's "id_colaborador" value
- * @method integer           getIdSalaProva()    Returns the current record's "id_sala_prova" value
- * @method integer           getIdFuncao()       Returns the current record's "id_funcao" value
- * @method TbSalaProva       getTbSalaProva()    Returns the current record's "TbSalaProva" value
- * @method TbFuncao          getTbFuncao()       Returns the current record's "TbFuncao" value
- * @method TbColaborador     getTbColaborador()  Returns the current record's "TbColaborador" value
- * @method TbResponsavelSala setIdColaborador()  Sets the current record's "id_colaborador" value
- * @method TbResponsavelSala setIdSalaProva()    Sets the current record's "id_sala_prova" value
- * @method TbResponsavelSala setIdFuncao()       Sets the current record's "id_funcao" value
- * @method TbResponsavelSala setTbSalaProva()    Sets the current record's "TbSalaProva" value
- * @method TbResponsavelSala setTbFuncao()       Sets the current record's "TbFuncao" value
- * @method TbResponsavelSala setTbColaborador()  Sets the current record's "TbColaborador" value
+ * @method integer           get()               Returns the current record's "id_colaborador" value
+ * @method integer           get()               Returns the current record's "id_sala_prova" value
+ * @method integer           get()               Returns the current record's "id_funcao" value
+ * @method TbSalaProva       get()               Returns the current record's "TbSalaProva" value
+ * @method TbFuncao          get()               Returns the current record's "TbFuncao" value
+ * @method TbColaborador     get()               Returns the current record's "TbColaborador" value
+ * @method TbResponsavelSala set()               Sets the current record's "id_colaborador" value
+ * @method TbResponsavelSala set()               Sets the current record's "id_sala_prova" value
+ * @method TbResponsavelSala set()               Sets the current record's "id_funcao" value
+ * @method TbResponsavelSala set()               Sets the current record's "TbSalaProva" value
+ * @method TbResponsavelSala set()               Sets the current record's "TbFuncao" value
+ * @method TbResponsavelSala set()               Sets the current record's "TbColaborador" value
  * 
  * @package    uerr
  * @subpackage model

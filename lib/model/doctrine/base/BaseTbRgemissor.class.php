@@ -9,12 +9,12 @@
  * @property Doctrine_Collection $TbRgEmissor
  * @property Doctrine_Collection $TbColaborador
  * 
- * @method string              getNome()          Returns the current record's "nome" value
- * @method Doctrine_Collection getTbRgEmissor()   Returns the current record's "TbRgEmissor" collection
- * @method Doctrine_Collection getTbColaborador() Returns the current record's "TbColaborador" collection
- * @method TbRgemissor         setNome()          Sets the current record's "nome" value
- * @method TbRgemissor         setTbRgEmissor()   Sets the current record's "TbRgEmissor" collection
- * @method TbRgemissor         setTbColaborador() Sets the current record's "TbColaborador" collection
+ * @method string              get()              Returns the current record's "nome" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbRgEmissor" collection
+ * @method Doctrine_Collection get()              Returns the current record's "TbColaborador" collection
+ * @method TbRgemissor         set()              Sets the current record's "nome" value
+ * @method TbRgemissor         set()              Sets the current record's "TbRgEmissor" collection
+ * @method TbRgemissor         set()              Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
  * @subpackage model

@@ -16,7 +16,7 @@ generator:
       fields:  ~
       list:
            title: Lista de Cartões de Prova
-           display: [TbInscricao,nota,gabarito]
+           display: [boleto,nota,gabarito]
            table_method:  getPorProva
            object_actions: []
            batch_actions: []

@@ -17,28 +17,28 @@
  * @property TbProva $TbProva
  * @property TbInscricao $TbInscricao
  * 
- * @method integer     getIdProva()               Returns the current record's "id_prova" value
- * @method integer     getIdInscricao()           Returns the current record's "id_inscricao" value
- * @method string      getGabarito()              Returns the current record's "gabarito" value
- * @method float       getNota()                  Returns the current record's "nota" value
- * @method float       getNotaRedacao1()          Returns the current record's "nota_redacao_1" value
- * @method float       getNotaRedacao2()          Returns the current record's "nota_redacao_2" value
- * @method float       getNotaFinalRedacao()      Returns the current record's "nota_final_redacao" value
- * @method text        getObs()                   Returns the current record's "obs" value
- * @method integer     getIdEliminacaoRedacao()   Returns the current record's "id_eliminacao_redacao" value
- * @method TbProva     getTbProva()               Returns the current record's "TbProva" value
- * @method TbInscricao getTbInscricao()           Returns the current record's "TbInscricao" value
- * @method TbCorrecao  setIdProva()               Sets the current record's "id_prova" value
- * @method TbCorrecao  setIdInscricao()           Sets the current record's "id_inscricao" value
- * @method TbCorrecao  setGabarito()              Sets the current record's "gabarito" value
- * @method TbCorrecao  setNota()                  Sets the current record's "nota" value
- * @method TbCorrecao  setNotaRedacao1()          Sets the current record's "nota_redacao_1" value
- * @method TbCorrecao  setNotaRedacao2()          Sets the current record's "nota_redacao_2" value
- * @method TbCorrecao  setNotaFinalRedacao()      Sets the current record's "nota_final_redacao" value
- * @method TbCorrecao  setObs()                   Sets the current record's "obs" value
- * @method TbCorrecao  setIdEliminacaoRedacao()   Sets the current record's "id_eliminacao_redacao" value
- * @method TbCorrecao  setTbProva()               Sets the current record's "TbProva" value
- * @method TbCorrecao  setTbInscricao()           Sets the current record's "TbInscricao" value
+ * @method integer     get()                      Returns the current record's "id_prova" value
+ * @method integer     get()                      Returns the current record's "id_inscricao" value
+ * @method string      get()                      Returns the current record's "gabarito" value
+ * @method float       get()                      Returns the current record's "nota" value
+ * @method float       get()                      Returns the current record's "nota_redacao_1" value
+ * @method float       get()                      Returns the current record's "nota_redacao_2" value
+ * @method float       get()                      Returns the current record's "nota_final_redacao" value
+ * @method text        get()                      Returns the current record's "obs" value
+ * @method integer     get()                      Returns the current record's "id_eliminacao_redacao" value
+ * @method TbProva     get()                      Returns the current record's "TbProva" value
+ * @method TbInscricao get()                      Returns the current record's "TbInscricao" value
+ * @method TbCorrecao  set()                      Sets the current record's "id_prova" value
+ * @method TbCorrecao  set()                      Sets the current record's "id_inscricao" value
+ * @method TbCorrecao  set()                      Sets the current record's "gabarito" value
+ * @method TbCorrecao  set()                      Sets the current record's "nota" value
+ * @method TbCorrecao  set()                      Sets the current record's "nota_redacao_1" value
+ * @method TbCorrecao  set()                      Sets the current record's "nota_redacao_2" value
+ * @method TbCorrecao  set()                      Sets the current record's "nota_final_redacao" value
+ * @method TbCorrecao  set()                      Sets the current record's "obs" value
+ * @method TbCorrecao  set()                      Sets the current record's "id_eliminacao_redacao" value
+ * @method TbCorrecao  set()                      Sets the current record's "TbProva" value
+ * @method TbCorrecao  set()                      Sets the current record's "TbInscricao" value
  * 
  * @package    uerr
  * @subpackage model

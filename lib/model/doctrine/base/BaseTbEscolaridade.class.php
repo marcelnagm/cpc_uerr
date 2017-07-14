@@ -8,10 +8,10 @@
  * @property string $descricao
  * @property Doctrine_Collection $TbEscolaridade
  * 
- * @method string              getDescricao()      Returns the current record's "descricao" value
- * @method Doctrine_Collection getTbEscolaridade() Returns the current record's "TbEscolaridade" collection
- * @method TbEscolaridade      setDescricao()      Sets the current record's "descricao" value
- * @method TbEscolaridade      setTbEscolaridade() Sets the current record's "TbEscolaridade" collection
+ * @method string              get()               Returns the current record's "descricao" value
+ * @method Doctrine_Collection get()               Returns the current record's "TbEscolaridade" collection
+ * @method TbEscolaridade      set()               Sets the current record's "descricao" value
+ * @method TbEscolaridade      set()               Sets the current record's "TbEscolaridade" collection
  * 
  * @package    uerr
  * @subpackage model

@@ -17,28 +17,28 @@
  * @property TbCidadeProva $TbCidadeProva
  * @property Doctrine_Collection $TbLocalProva
  * 
- * @method integer             getIdCertame()       Returns the current record's "id_certame" value
- * @method integer             getIdVaga()          Returns the current record's "id_vaga" value
- * @method integer             getIdCidadeProva()   Returns the current record's "id_cidade_prova" value
- * @method date                getDataInicio()      Returns the current record's "data_inicio" value
- * @method time                getHoraInicio()      Returns the current record's "hora_inicio" value
- * @method string              getDuracao()         Returns the current record's "duracao" value
- * @method TbCertame           getTbCertame()       Returns the current record's "TbCertame" value
- * @method TbVaga              getTbVaga()          Returns the current record's "TbVaga" value
- * @method TbProva             getTbProva()         Returns the current record's "TbProva" value
- * @method TbCidadeProva       getTbCidadeProva()   Returns the current record's "TbCidadeProva" value
- * @method Doctrine_Collection getTbLocalProva()    Returns the current record's "TbLocalProva" collection
- * @method TbProva             setIdCertame()       Sets the current record's "id_certame" value
- * @method TbProva             setIdVaga()          Sets the current record's "id_vaga" value
- * @method TbProva             setIdCidadeProva()   Sets the current record's "id_cidade_prova" value
- * @method TbProva             setDataInicio()      Sets the current record's "data_inicio" value
- * @method TbProva             setHoraInicio()      Sets the current record's "hora_inicio" value
- * @method TbProva             setDuracao()         Sets the current record's "duracao" value
- * @method TbProva             setTbCertame()       Sets the current record's "TbCertame" value
- * @method TbProva             setTbVaga()          Sets the current record's "TbVaga" value
- * @method TbProva             setTbProva()         Sets the current record's "TbProva" value
- * @method TbProva             setTbCidadeProva()   Sets the current record's "TbCidadeProva" value
- * @method TbProva             setTbLocalProva()    Sets the current record's "TbLocalProva" collection
+ * @method integer             get()                Returns the current record's "id_certame" value
+ * @method integer             get()                Returns the current record's "id_vaga" value
+ * @method integer             get()                Returns the current record's "id_cidade_prova" value
+ * @method date                get()                Returns the current record's "data_inicio" value
+ * @method time                get()                Returns the current record's "hora_inicio" value
+ * @method string              get()                Returns the current record's "duracao" value
+ * @method TbCertame           get()                Returns the current record's "TbCertame" value
+ * @method TbVaga              get()                Returns the current record's "TbVaga" value
+ * @method TbProva             get()                Returns the current record's "TbProva" value
+ * @method TbCidadeProva       get()                Returns the current record's "TbCidadeProva" value
+ * @method Doctrine_Collection get()                Returns the current record's "TbLocalProva" collection
+ * @method TbProva             set()                Sets the current record's "id_certame" value
+ * @method TbProva             set()                Sets the current record's "id_vaga" value
+ * @method TbProva             set()                Sets the current record's "id_cidade_prova" value
+ * @method TbProva             set()                Sets the current record's "data_inicio" value
+ * @method TbProva             set()                Sets the current record's "hora_inicio" value
+ * @method TbProva             set()                Sets the current record's "duracao" value
+ * @method TbProva             set()                Sets the current record's "TbCertame" value
+ * @method TbProva             set()                Sets the current record's "TbVaga" value
+ * @method TbProva             set()                Sets the current record's "TbProva" value
+ * @method TbProva             set()                Sets the current record's "TbCidadeProva" value
+ * @method TbProva             set()                Sets the current record's "TbLocalProva" collection
  * 
  * @package    uerr
  * @subpackage model

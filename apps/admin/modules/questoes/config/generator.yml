@@ -32,4 +32,4 @@ generator:
           title: Nova Questão da Prova
       show:
           title: Exibindo Questão
-          display: [numero,peso,gabarito]
+          display: [numero,peso,gabarito,discursiva]

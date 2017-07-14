@@ -49,7 +49,7 @@ class TbCandidatoForm extends BaseTbCandidatoForm {
         $this->widgetSchema['id_cidade']->setLabel('Cidade Residência');
         $this->widgetSchema['id_estado']=  new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('TbEstado'), 'add_empty' => false));
         $this->widgetSchema['id_estado']->setLabel('Estado Residência');
-
+        $this->widgetSchema['email']->setAttribute('style', 'width:450px !important;');
 
   $this->widgetSchema['cpf']->setAttribute('placeholder', 'CPF com apenas numeros');
         $this->widgetSchema['cpf']->setAttribute('maxlength', '11');

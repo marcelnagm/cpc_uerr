@@ -8,10 +8,10 @@
  * @property string $descricao
  * @property Doctrine_Collection $TbTipoCertame
  * 
- * @method string              getDescricao()     Returns the current record's "descricao" value
- * @method Doctrine_Collection getTbTipoCertame() Returns the current record's "TbTipoCertame" collection
- * @method TbTipoCertame       setDescricao()     Sets the current record's "descricao" value
- * @method TbTipoCertame       setTbTipoCertame() Sets the current record's "TbTipoCertame" collection
+ * @method string              get()              Returns the current record's "descricao" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbTipoCertame" collection
+ * @method TbTipoCertame       set()              Sets the current record's "descricao" value
+ * @method TbTipoCertame       set()              Sets the current record's "TbTipoCertame" collection
  * 
  * @package    uerr
  * @subpackage model

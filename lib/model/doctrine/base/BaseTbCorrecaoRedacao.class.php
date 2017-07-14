@@ -7,8 +7,8 @@
  * 
  * @property string $descricao
  * 
- * @method string            getDescricao() Returns the current record's "descricao" value
- * @method TbCorrecaoRedacao setDescricao() Sets the current record's "descricao" value
+ * @method string            get()          Returns the current record's "descricao" value
+ * @method TbCorrecaoRedacao set()          Sets the current record's "descricao" value
  * 
  * @package    uerr
  * @subpackage model

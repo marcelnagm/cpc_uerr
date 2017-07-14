@@ -9,12 +9,12 @@
  * @property string $cod
  * @property Doctrine_Collection $TbColaborador
  * 
- * @method string              getNome()          Returns the current record's "nome" value
- * @method string              getCod()           Returns the current record's "cod" value
- * @method Doctrine_Collection getTbColaborador() Returns the current record's "TbColaborador" collection
- * @method TbBanco             setNome()          Sets the current record's "nome" value
- * @method TbBanco             setCod()           Sets the current record's "cod" value
- * @method TbBanco             setTbColaborador() Sets the current record's "TbColaborador" collection
+ * @method string              get()              Returns the current record's "nome" value
+ * @method string              get()              Returns the current record's "cod" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbColaborador" collection
+ * @method TbBanco             set()              Sets the current record's "nome" value
+ * @method TbBanco             set()              Sets the current record's "cod" value
+ * @method TbBanco             set()              Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
  * @subpackage model

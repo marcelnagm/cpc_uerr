@@ -11,16 +11,16 @@
  * @property Doctrine_Collection $TbEstadoNascimento
  * @property Doctrine_Collection $TbColaborador
  * 
- * @method string              getUf()                 Returns the current record's "uf" value
- * @method string              getNome()               Returns the current record's "nome" value
- * @method Doctrine_Collection getTbCidade()           Returns the current record's "TbCidade" collection
- * @method Doctrine_Collection getTbEstadoNascimento() Returns the current record's "TbEstadoNascimento" collection
- * @method Doctrine_Collection getTbColaborador()      Returns the current record's "TbColaborador" collection
- * @method TbEstado            setUf()                 Sets the current record's "uf" value
- * @method TbEstado            setNome()               Sets the current record's "nome" value
- * @method TbEstado            setTbCidade()           Sets the current record's "TbCidade" collection
- * @method TbEstado            setTbEstadoNascimento() Sets the current record's "TbEstadoNascimento" collection
- * @method TbEstado            setTbColaborador()      Sets the current record's "TbColaborador" collection
+ * @method string              get()                   Returns the current record's "uf" value
+ * @method string              get()                   Returns the current record's "nome" value
+ * @method Doctrine_Collection get()                   Returns the current record's "TbCidade" collection
+ * @method Doctrine_Collection get()                   Returns the current record's "TbEstadoNascimento" collection
+ * @method Doctrine_Collection get()                   Returns the current record's "TbColaborador" collection
+ * @method TbEstado            set()                   Sets the current record's "uf" value
+ * @method TbEstado            set()                   Sets the current record's "nome" value
+ * @method TbEstado            set()                   Sets the current record's "TbCidade" collection
+ * @method TbEstado            set()                   Sets the current record's "TbEstadoNascimento" collection
+ * @method TbEstado            set()                   Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
  * @subpackage model

@@ -8,10 +8,10 @@
  * @property string $name
  * @property Doctrine_Collection $sfGuardPermission
  * 
- * @method string              getName()              Returns the current record's "name" value
- * @method Doctrine_Collection getSfGuardPermission() Returns the current record's "sfGuardPermission" collection
- * @method sfGuardModule       setName()              Sets the current record's "name" value
- * @method sfGuardModule       setSfGuardPermission() Sets the current record's "sfGuardPermission" collection
+ * @method string              get()                  Returns the current record's "name" value
+ * @method Doctrine_Collection get()                  Returns the current record's "sfGuardPermission" collection
+ * @method sfGuardModule       set()                  Sets the current record's "name" value
+ * @method sfGuardModule       set()                  Sets the current record's "sfGuardPermission" collection
  * 
  * @package    uerr
  * @subpackage model

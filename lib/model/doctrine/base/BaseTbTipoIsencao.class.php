@@ -9,12 +9,12 @@
  * @property boolean $ativo
  * @property Doctrine_Collection $TbTipoIsencao
  * 
- * @method string              getDescricao()     Returns the current record's "descricao" value
- * @method boolean             getAtivo()         Returns the current record's "ativo" value
- * @method Doctrine_Collection getTbTipoIsencao() Returns the current record's "TbTipoIsencao" collection
- * @method TbTipoIsencao       setDescricao()     Sets the current record's "descricao" value
- * @method TbTipoIsencao       setAtivo()         Sets the current record's "ativo" value
- * @method TbTipoIsencao       setTbTipoIsencao() Sets the current record's "TbTipoIsencao" collection
+ * @method string              get()              Returns the current record's "descricao" value
+ * @method boolean             get()              Returns the current record's "ativo" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbTipoIsencao" collection
+ * @method TbTipoIsencao       set()              Sets the current record's "descricao" value
+ * @method TbTipoIsencao       set()              Sets the current record's "ativo" value
+ * @method TbTipoIsencao       set()              Sets the current record's "TbTipoIsencao" collection
  * 
  * @package    uerr
  * @subpackage model

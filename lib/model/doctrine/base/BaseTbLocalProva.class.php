@@ -17,28 +17,28 @@
  * @property Doctrine_Collection $TbColaboracao
  * @property Doctrine_Collection $TbLocalProva
  * 
- * @method integer             getIdCertame()      Returns the current record's "id_certame" value
- * @method integer             getIdProva()        Returns the current record's "id_prova" value
- * @method integer             getIdResponsavel()  Returns the current record's "id_responsavel" value
- * @method integer             getIdLocal()        Returns the current record's "id_local" value
- * @method boolean             getStatus()         Returns the current record's "status" value
- * @method TbCertame           getTbCertame()      Returns the current record's "TbCertame" value
- * @method TbLocal             getTbLocal()        Returns the current record's "TbLocal" value
- * @method TbProva             getTbProva()        Returns the current record's "TbProva" value
- * @method TbColaborador       getTbColaborador()  Returns the current record's "TbColaborador" value
- * @method Doctrine_Collection getTbColaboracao()  Returns the current record's "TbColaboracao" collection
- * @method Doctrine_Collection getTbLocalProva()   Returns the current record's "TbLocalProva" collection
- * @method TbLocalProva        setIdCertame()      Sets the current record's "id_certame" value
- * @method TbLocalProva        setIdProva()        Sets the current record's "id_prova" value
- * @method TbLocalProva        setIdResponsavel()  Sets the current record's "id_responsavel" value
- * @method TbLocalProva        setIdLocal()        Sets the current record's "id_local" value
- * @method TbLocalProva        setStatus()         Sets the current record's "status" value
- * @method TbLocalProva        setTbCertame()      Sets the current record's "TbCertame" value
- * @method TbLocalProva        setTbLocal()        Sets the current record's "TbLocal" value
- * @method TbLocalProva        setTbProva()        Sets the current record's "TbProva" value
- * @method TbLocalProva        setTbColaborador()  Sets the current record's "TbColaborador" value
- * @method TbLocalProva        setTbColaboracao()  Sets the current record's "TbColaboracao" collection
- * @method TbLocalProva        setTbLocalProva()   Sets the current record's "TbLocalProva" collection
+ * @method integer             get()               Returns the current record's "id_certame" value
+ * @method integer             get()               Returns the current record's "id_prova" value
+ * @method integer             get()               Returns the current record's "id_responsavel" value
+ * @method integer             get()               Returns the current record's "id_local" value
+ * @method boolean             get()               Returns the current record's "status" value
+ * @method TbCertame           get()               Returns the current record's "TbCertame" value
+ * @method TbLocal             get()               Returns the current record's "TbLocal" value
+ * @method TbProva             get()               Returns the current record's "TbProva" value
+ * @method TbColaborador       get()               Returns the current record's "TbColaborador" value
+ * @method Doctrine_Collection get()               Returns the current record's "TbColaboracao" collection
+ * @method Doctrine_Collection get()               Returns the current record's "TbLocalProva" collection
+ * @method TbLocalProva        set()               Sets the current record's "id_certame" value
+ * @method TbLocalProva        set()               Sets the current record's "id_prova" value
+ * @method TbLocalProva        set()               Sets the current record's "id_responsavel" value
+ * @method TbLocalProva        set()               Sets the current record's "id_local" value
+ * @method TbLocalProva        set()               Sets the current record's "status" value
+ * @method TbLocalProva        set()               Sets the current record's "TbCertame" value
+ * @method TbLocalProva        set()               Sets the current record's "TbLocal" value
+ * @method TbLocalProva        set()               Sets the current record's "TbProva" value
+ * @method TbLocalProva        set()               Sets the current record's "TbColaborador" value
+ * @method TbLocalProva        set()               Sets the current record's "TbColaboracao" collection
+ * @method TbLocalProva        set()               Sets the current record's "TbLocalProva" collection
  * 
  * @package    uerr
  * @subpackage model

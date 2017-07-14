@@ -9,12 +9,12 @@
  * @property Doctrine_Collection $TbRgtipo
  * @property Doctrine_Collection $TbColaborador
  * 
- * @method string              getRgtipo()        Returns the current record's "rgtipo" value
- * @method Doctrine_Collection getTbRgtipo()      Returns the current record's "TbRgtipo" collection
- * @method Doctrine_Collection getTbColaborador() Returns the current record's "TbColaborador" collection
- * @method TbRgtipo            setRgtipo()        Sets the current record's "rgtipo" value
- * @method TbRgtipo            setTbRgtipo()      Sets the current record's "TbRgtipo" collection
- * @method TbRgtipo            setTbColaborador() Sets the current record's "TbColaborador" collection
+ * @method string              get()              Returns the current record's "rgtipo" value
+ * @method Doctrine_Collection get()              Returns the current record's "TbRgtipo" collection
+ * @method Doctrine_Collection get()              Returns the current record's "TbColaborador" collection
+ * @method TbRgtipo            set()              Sets the current record's "rgtipo" value
+ * @method TbRgtipo            set()              Sets the current record's "TbRgtipo" collection
+ * @method TbRgtipo            set()              Sets the current record's "TbColaborador" collection
  * 
  * @package    uerr
  * @subpackage model

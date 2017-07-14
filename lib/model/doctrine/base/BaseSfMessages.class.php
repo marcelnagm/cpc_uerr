@@ -9,12 +9,12 @@
  * @property string $enviroment
  * @property boolean $active
  * 
- * @method string     getMessage()    Returns the current record's "message" value
- * @method string     getEnviroment() Returns the current record's "enviroment" value
- * @method boolean    getActive()     Returns the current record's "active" value
- * @method SfMessages setMessage()    Sets the current record's "message" value
- * @method SfMessages setEnviroment() Sets the current record's "enviroment" value
- * @method SfMessages setActive()     Sets the current record's "active" value
+ * @method string     get()           Returns the current record's "message" value
+ * @method string     get()           Returns the current record's "enviroment" value
+ * @method boolean    get()           Returns the current record's "active" value
+ * @method SfMessages set()           Sets the current record's "message" value
+ * @method SfMessages set()           Sets the current record's "enviroment" value
+ * @method SfMessages set()           Sets the current record's "active" value
  * 
  * @package    uerr
  * @subpackage model

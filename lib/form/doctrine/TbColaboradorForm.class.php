@@ -12,6 +12,8 @@ class TbColaboradorForm extends BaseTbColaboradorForm
 {
   public function configure()
   {
+      
+         $this->widgetSchema['user_id'] = new sfWidgetFormInputHidden();
        $this->widgetSchema['id_cidade'] = new sfWidgetFormDoctrineJQueryAutocompleter(array(
             'label' => 'Cidade',          
             'model' => 'TbCidade',

@@ -14,22 +14,22 @@
  * @property Doctrine_Collection $TbLotacaoProva
  * @property Doctrine_Collection $TbSalaProva
  * 
- * @method integer             getIdLocalProva()   Returns the current record's "id_local_prova" value
- * @method string              getEspecial()       Returns the current record's "especial" value
- * @method string              getNumeroSala()     Returns the current record's "numero_sala" value
- * @method integer             getVagas()          Returns the current record's "vagas" value
- * @method boolean             getStatus()         Returns the current record's "status" value
- * @method TbLocalProva        getTbLocalProva()   Returns the current record's "TbLocalProva" value
- * @method Doctrine_Collection getTbLotacaoProva() Returns the current record's "TbLotacaoProva" collection
- * @method Doctrine_Collection getTbSalaProva()    Returns the current record's "TbSalaProva" collection
- * @method TbSalaProva         setIdLocalProva()   Sets the current record's "id_local_prova" value
- * @method TbSalaProva         setEspecial()       Sets the current record's "especial" value
- * @method TbSalaProva         setNumeroSala()     Sets the current record's "numero_sala" value
- * @method TbSalaProva         setVagas()          Sets the current record's "vagas" value
- * @method TbSalaProva         setStatus()         Sets the current record's "status" value
- * @method TbSalaProva         setTbLocalProva()   Sets the current record's "TbLocalProva" value
- * @method TbSalaProva         setTbLotacaoProva() Sets the current record's "TbLotacaoProva" collection
- * @method TbSalaProva         setTbSalaProva()    Sets the current record's "TbSalaProva" collection
+ * @method integer             get()               Returns the current record's "id_local_prova" value
+ * @method string              get()               Returns the current record's "especial" value
+ * @method string              get()               Returns the current record's "numero_sala" value
+ * @method integer             get()               Returns the current record's "vagas" value
+ * @method boolean             get()               Returns the current record's "status" value
+ * @method TbLocalProva        get()               Returns the current record's "TbLocalProva" value
+ * @method Doctrine_Collection get()               Returns the current record's "TbLotacaoProva" collection
+ * @method Doctrine_Collection get()               Returns the current record's "TbSalaProva" collection
+ * @method TbSalaProva         set()               Sets the current record's "id_local_prova" value
+ * @method TbSalaProva         set()               Sets the current record's "especial" value
+ * @method TbSalaProva         set()               Sets the current record's "numero_sala" value
+ * @method TbSalaProva         set()               Sets the current record's "vagas" value
+ * @method TbSalaProva         set()               Sets the current record's "status" value
+ * @method TbSalaProva         set()               Sets the current record's "TbLocalProva" value
+ * @method TbSalaProva         set()               Sets the current record's "TbLotacaoProva" collection
+ * @method TbSalaProva         set()               Sets the current record's "TbSalaProva" collection
  * 
  * @package    uerr
  * @subpackage model

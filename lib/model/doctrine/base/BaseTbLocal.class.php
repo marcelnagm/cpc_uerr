@@ -15,24 +15,24 @@
  * @property TbCidade $TbCidade
  * @property Doctrine_Collection $TbLocal
  * 
- * @method string              getNome()      Returns the current record's "nome" value
- * @method integer             getIdCidade()  Returns the current record's "id_cidade" value
- * @method string              getSigla()     Returns the current record's "sigla" value
- * @method string              getTelefone()  Returns the current record's "telefone" value
- * @method string              getEndereco()  Returns the current record's "endereco" value
- * @method integer             getNsalas()    Returns the current record's "nsalas" value
- * @method boolean             getStatus()    Returns the current record's "status" value
- * @method TbCidade            getTbCidade()  Returns the current record's "TbCidade" value
- * @method Doctrine_Collection getTbLocal()   Returns the current record's "TbLocal" collection
- * @method TbLocal             setNome()      Sets the current record's "nome" value
- * @method TbLocal             setIdCidade()  Sets the current record's "id_cidade" value
- * @method TbLocal             setSigla()     Sets the current record's "sigla" value
- * @method TbLocal             setTelefone()  Sets the current record's "telefone" value
- * @method TbLocal             setEndereco()  Sets the current record's "endereco" value
- * @method TbLocal             setNsalas()    Sets the current record's "nsalas" value
- * @method TbLocal             setStatus()    Sets the current record's "status" value
- * @method TbLocal             setTbCidade()  Sets the current record's "TbCidade" value
- * @method TbLocal             setTbLocal()   Sets the current record's "TbLocal" collection
+ * @method string              get()          Returns the current record's "nome" value
+ * @method integer             get()          Returns the current record's "id_cidade" value
+ * @method string              get()          Returns the current record's "sigla" value
+ * @method string              get()          Returns the current record's "telefone" value
+ * @method string              get()          Returns the current record's "endereco" value
+ * @method integer             get()          Returns the current record's "nsalas" value
+ * @method boolean             get()          Returns the current record's "status" value
+ * @method TbCidade            get()          Returns the current record's "TbCidade" value
+ * @method Doctrine_Collection get()          Returns the current record's "TbLocal" collection
+ * @method TbLocal             set()          Sets the current record's "nome" value
+ * @method TbLocal             set()          Sets the current record's "id_cidade" value
+ * @method TbLocal             set()          Sets the current record's "sigla" value
+ * @method TbLocal             set()          Sets the current record's "telefone" value
+ * @method TbLocal             set()          Sets the current record's "endereco" value
+ * @method TbLocal             set()          Sets the current record's "nsalas" value
+ * @method TbLocal             set()          Sets the current record's "status" value
+ * @method TbLocal             set()          Sets the current record's "TbCidade" value
+ * @method TbLocal             set()          Sets the current record's "TbLocal" collection
  * 
  * @package    uerr
  * @subpackage model

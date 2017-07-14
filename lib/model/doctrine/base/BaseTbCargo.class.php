@@ -9,12 +9,12 @@
  * @property string $abrev_cargo
  * @property Doctrine_Collection $TbCargo
  * 
- * @method string              getNomeCargo()   Returns the current record's "nome_cargo" value
- * @method string              getAbrevCargo()  Returns the current record's "abrev_cargo" value
- * @method Doctrine_Collection getTbCargo()     Returns the current record's "TbCargo" collection
- * @method TbCargo             setNomeCargo()   Sets the current record's "nome_cargo" value
- * @method TbCargo             setAbrevCargo()  Sets the current record's "abrev_cargo" value
- * @method TbCargo             setTbCargo()     Sets the current record's "TbCargo" collection
+ * @method string              get()            Returns the current record's "nome_cargo" value
+ * @method string              get()            Returns the current record's "abrev_cargo" value
+ * @method Doctrine_Collection get()            Returns the current record's "TbCargo" collection
+ * @method TbCargo             set()            Sets the current record's "nome_cargo" value
+ * @method TbCargo             set()            Sets the current record's "abrev_cargo" value
+ * @method TbCargo             set()            Sets the current record's "TbCargo" collection
  * 
  * @package    uerr
  * @subpackage model

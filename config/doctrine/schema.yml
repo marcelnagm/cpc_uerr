@@ -370,13 +370,15 @@ TbColaborador:
     experiencia:                { type: string(255) }  
     profissao:                  { type: string(255) }  
     observacao:                 { type: text}  
-    email:                      { type: string(255) }  
+    email:                      { type: string(255) } 
+    user_id:                    { type: integer }  
   relations:
-    TbCidade:                 { local: id_cidade, foreign: id }   
+    TbCidade:                 { local: id_cidade, foreign: id }       
     TbRgtipo:                 { local: rgtipo, foreign: id }   
     TbRgemissor:              { local: rgemissor, foreign: id }   
     TbBanco:                  { local: id_banco, foreign: id }        
     TbEstado:                 { local: rguf, foreign: id }   
+    SfGuardUserId:            { local: user_id, foreign: id , foreignAlias: GuardUser}   
     
     
 TbSalaProva:
